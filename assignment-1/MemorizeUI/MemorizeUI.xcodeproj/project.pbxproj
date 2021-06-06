@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5ACB95C0266D948D0043F6BB /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB95BF266D948D0043F6BB /* MemorizeApp.swift */; };
-		5ACB95C2266D948D0043F6BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB95C1266D948D0043F6BB /* ContentView.swift */; };
+		5ACB95C2266D948D0043F6BB /* MemorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB95C1266D948D0043F6BB /* MemorizeView.swift */; };
 		5ACB95C4266D948F0043F6BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACB95C3266D948F0043F6BB /* Assets.xcassets */; };
 		5ACB95C7266D948F0043F6BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACB95C6266D948F0043F6BB /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		5ACB95BC266D948D0043F6BB /* MemorizeUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACB95BF266D948D0043F6BB /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
-		5ACB95C1266D948D0043F6BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5ACB95C1266D948D0043F6BB /* MemorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeView.swift; sourceTree = "<group>"; };
 		5ACB95C3266D948F0043F6BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ACB95C6266D948F0043F6BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5ACB95C8266D948F0043F6BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		5ACB95D0266D97770043F6BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5ACB95C1266D948D0043F6BB /* ContentView.swift */,
+				5ACB95C1266D948D0043F6BB /* MemorizeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ACB95C2266D948D0043F6BB /* ContentView.swift in Sources */,
+				5ACB95C2266D948D0043F6BB /* MemorizeView.swift in Sources */,
 				5ACB95C0266D948D0043F6BB /* MemorizeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
