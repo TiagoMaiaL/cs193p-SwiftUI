@@ -9,8 +9,39 @@ import SwiftUI
 
 struct MemorizeView: View {
     var body: some View {
-        Text("Hello, world!")
+        VStack {
+            header
+            Spacer()
+            cardsGrid
+            Spacer()
+            footer
+        }
+    }
+    
+    var header: some View {
+        Text("Memorize!")
+            .font(.headline)
             .padding()
+    }
+    
+    var cardsGrid: some View {
+        EmptyView()
+    }
+    
+    var footer: some View {
+        HStack {
+            Button("Theme1") {
+                debugPrint("Theme 1 tapped")
+            }
+            
+            Button("Theme2") {
+                debugPrint("Theme 2 tapped")
+            }
+            
+            Button("Theme3") {
+                debugPrint("Theme 3 tapped")
+            }
+        }
     }
 }
 
