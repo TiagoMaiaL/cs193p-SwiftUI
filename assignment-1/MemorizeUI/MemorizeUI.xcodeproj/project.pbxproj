@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A84C159266F879600968138 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84C158266F879600968138 /* ThemeButton.swift */; };
 		5ACB95C0266D948D0043F6BB /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB95BF266D948D0043F6BB /* MemorizeApp.swift */; };
 		5ACB95C2266D948D0043F6BB /* MemorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB95C1266D948D0043F6BB /* MemorizeView.swift */; };
 		5ACB95C4266D948F0043F6BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACB95C3266D948F0043F6BB /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A84C158266F879600968138 /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		5ACB95BC266D948D0043F6BB /* MemorizeUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACB95BF266D948D0043F6BB /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		5ACB95C1266D948D0043F6BB /* MemorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5ACB95C1266D948D0043F6BB /* MemorizeView.swift */,
+				5A84C158266F879600968138 /* ThemeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				5ACB95C2266D948D0043F6BB /* MemorizeView.swift in Sources */,
 				5ACB95C0266D948D0043F6BB /* MemorizeApp.swift in Sources */,
+				5A84C159266F879600968138 /* ThemeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

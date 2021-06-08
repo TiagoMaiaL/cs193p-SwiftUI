@@ -20,7 +20,7 @@ struct MemorizeView: View {
     
     var header: some View {
         Text("Memorize!")
-            .font(.headline)
+            .font(.largeTitle)
             .padding()
     }
     
@@ -29,21 +29,44 @@ struct MemorizeView: View {
     }
     
     var footer: some View {
-        HStack {
-            Button("Theme1") {
+        HStack(alignment: .bottom, spacing: 70) {
+            ThemeButton(icon: Constants.VehicleTheme.icon, title: Constants.VehicleTheme.title) {
                 debugPrint("Theme 1 tapped")
             }
             
-            Button("Theme2") {
+            ThemeButton(icon: Constants.FlagTheme.icon, title: Constants.FlagTheme.title) {
                 debugPrint("Theme 2 tapped")
             }
             
-            Button("Theme3") {
+            ThemeButton(icon: Constants.NatureTheme.icon, title: Constants.NatureTheme.title) {
                 debugPrint("Theme 3 tapped")
             }
         }
     }
 }
+
+// MARK: - Constants
+
+private extension MemorizeView {
+    enum Constants {
+        enum VehicleTheme {
+            static let icon = "car"
+            static let title = "Vehicles"
+        }
+        
+        enum FlagTheme {
+            static let icon = "flag"
+            static let title = "Flags"
+        }
+        
+        enum NatureTheme {
+            static let icon = "leaf"
+            static let title = "Nature"
+        }
+    }
+}
+
+// MARK: - Preview
 
 struct MemorizeView_Previews: PreviewProvider {
     static var previews: some View {
