@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MemorizeView: View {
+    
+    // MARK: Body
+    
     var body: some View {
         VStack {
             header
@@ -18,17 +21,17 @@ struct MemorizeView: View {
         }
     }
     
-    var header: some View {
+    private var header: some View {
         Text(Constants.screenTitle)
             .font(.largeTitle)
             .padding()
     }
     
-    var cardsGrid: some View {
+    private var cardsGrid: some View {
         EmptyView()
     }
     
-    var footer: some View {
+    private var footer: some View {
         HStack(alignment: .bottom, spacing: Constants.footerHorizontalSpace) {
             ThemeButton(icon: Constants.VehicleTheme.icon, title: Constants.VehicleTheme.title) {
                 debugPrint("Theme 1 tapped")
