@@ -19,7 +19,7 @@ struct MemorizeView: View {
     }
     
     var header: some View {
-        Text("Memorize!")
+        Text(Constants.screenTitle)
             .font(.largeTitle)
             .padding()
     }
@@ -29,7 +29,7 @@ struct MemorizeView: View {
     }
     
     var footer: some View {
-        HStack(alignment: .bottom, spacing: 70) {
+        HStack(alignment: .bottom, spacing: Constants.footerHorizontalSpace) {
             ThemeButton(icon: Constants.VehicleTheme.icon, title: Constants.VehicleTheme.title) {
                 debugPrint("Theme 1 tapped")
             }
@@ -63,6 +63,9 @@ private extension MemorizeView {
             static let icon = "leaf"
             static let title = "Nature"
         }
+        
+        static let screenTitle = "Memorize!"
+        static let footerHorizontalSpace: CGFloat = 70
     }
 }
 
