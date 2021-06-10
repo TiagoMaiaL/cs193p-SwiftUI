@@ -14,7 +14,6 @@ struct MemorizeView: View {
     var body: some View {
         VStack {
             header
-            Spacer()
             cardsGrid
             Spacer()
             footer
@@ -28,7 +27,19 @@ struct MemorizeView: View {
     }
     
     private var cardsGrid: some View {
-        EmptyView()
+        ScrollView {
+            LazyVGrid(columns: Constants.adaptiveColumn) {
+                CardView(isFaceUp: true, title: "🍎", color: .red)
+                    .aspectRatio(2/3, contentMode: .fill)
+                CardView(isFaceUp: true, title: "🪲", color: .green)
+                    .aspectRatio(2/3, contentMode: .fill)
+                CardView(isFaceUp: true, title: "🦕", color: .blue)
+                    .aspectRatio(2/3, contentMode: .fill)
+                CardView(isFaceUp: true, title: "🦎", color: .green)
+                    .aspectRatio(2/3, contentMode: .fill)
+            }
+            .padding(.horizontal)
+        }
     }
     
     private var footer: some View {
@@ -69,6 +80,7 @@ private extension MemorizeView {
         
         static let screenTitle = "Memorize!"
         static let footerHorizontalSpace: CGFloat = 70
+        static let adaptiveColumn = [GridItem(.adaptive(minimum: 85))]
     }
 }
 
