@@ -9,6 +9,21 @@ import SwiftUI
 
 struct MemorizeView: View {
     
+    // MARK: Properties
+    
+    let vehicleEmojis = ["🚔", "🚗", "🚒", "🚚", "🚌", "🛻", "🚛", "🚑", "🚜"]
+    let flagEmojis = ["🇧🇷", "🇪🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🇿🇦", "🇲🇽", "🇯🇵", "🇵🇹", "🇩🇪", "🇵🇱", "🇦🇹", "🇮🇹", "🇫🇷", "🇦🇷", "🇨🇱"]
+    let natureEmojis = ["🌳", "🌲", "🌵", "🌷", "🌴", "🌻", "🌺", "⛰", "🗻", "🍄"]
+    
+    @State private var currentEmojis: [String]
+    @State private var themeColor = Color.red
+    
+    // MARK: Initializers
+    
+    init() {
+        currentEmojis = vehicleEmojis
+    }
+    
     // MARK: Body
     
     var body: some View {
@@ -29,14 +44,10 @@ struct MemorizeView: View {
     private var cardsGrid: some View {
         ScrollView {
             LazyVGrid(columns: Constants.adaptiveColumn) {
-                CardView(isFaceUp: true, title: "🍎", color: .red)
-                    .aspectRatio(2/3, contentMode: .fill)
-                CardView(isFaceUp: true, title: "🪲", color: .green)
-                    .aspectRatio(2/3, contentMode: .fill)
-                CardView(isFaceUp: true, title: "🦕", color: .blue)
-                    .aspectRatio(2/3, contentMode: .fill)
-                CardView(isFaceUp: true, title: "🦎", color: .green)
-                    .aspectRatio(2/3, contentMode: .fill)
+                ForEach(currentEmojis, id: \.self) { emoji in
+                    CardView(isFaceUp: true, title: emoji, color: themeColor)
+                        .aspectRatio(Constants.twoThirds, contentMode: .fill)
+                }
             }
             .padding(.horizontal)
         }
@@ -45,15 +56,18 @@ struct MemorizeView: View {
     private var footer: some View {
         HStack(alignment: .bottom, spacing: Constants.footerHorizontalSpace) {
             ThemeButton(icon: Constants.VehicleTheme.icon, title: Constants.VehicleTheme.title) {
-                debugPrint("Theme 1 tapped")
+                themeColor = .red
+                currentEmojis = vehicleEmojis.shuffled()
             }
             
             ThemeButton(icon: Constants.FlagTheme.icon, title: Constants.FlagTheme.title) {
-                debugPrint("Theme 2 tapped")
+                themeColor = .blue
+                currentEmojis = flagEmojis.shuffled()
             }
             
             ThemeButton(icon: Constants.NatureTheme.icon, title: Constants.NatureTheme.title) {
-                debugPrint("Theme 3 tapped")
+                themeColor = .green
+                currentEmojis = natureEmojis.shuffled()
             }
         }
     }
@@ -81,6 +95,7 @@ private extension MemorizeView {
         static let screenTitle = "Memorize!"
         static let footerHorizontalSpace: CGFloat = 70
         static let adaptiveColumn = [GridItem(.adaptive(minimum: 85))]
+        static let twoThirds: CGFloat = 2/3
     }
 }
 
