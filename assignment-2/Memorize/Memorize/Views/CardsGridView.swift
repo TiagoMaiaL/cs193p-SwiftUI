@@ -11,11 +11,14 @@ import SwiftUI
 
 struct CardsGridView: View {
     var body: some View {
-        LazyVGrid(columns: Constants.adaptiveColumn) {
-            ForEach(0..<12) { _ in
-                CardView()
-                    .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
+        ScrollView {
+            LazyVGrid(columns: Constants.adaptiveColumn) {
+                ForEach(0..<12) { _ in
+                    CardView()
+                        .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
+                }
             }
+            .padding()
         }
     }
 }

@@ -14,13 +14,11 @@ struct MemorizeView: View {
         VStack {
             Text("Memorize!")
                 .font(.largeTitle)
+                .padding()
             
             Spacer()
             
             CardsGridView()
-                .padding(.horizontal)
-            
-            Spacer()
         }
     }
 }
