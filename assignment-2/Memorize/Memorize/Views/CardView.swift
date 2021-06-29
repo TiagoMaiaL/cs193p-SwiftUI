@@ -10,15 +10,35 @@ import SwiftUI
 // MARK: - View
 
 struct CardView: View {
+    
+    // MARK: Properties
+    
+    @State var isFaceUp = true
+    
+    // MARK: Body
+    
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: Constants.rectangleRadius)
-                .stroke(lineWidth: Constants.borderWidth)
-                .foregroundColor(.green)
-            
-            Text("🇧🇷")
-                .font(.system(size: Constants.textFontSize))
+            Group {
+                if isFaceUp {
+                    rectangle
+                        .stroke(lineWidth: Constants.borderWidth)
+                    Text("🇧🇷")
+                        .font(.system(size: Constants.textFontSize))
+                } else {
+                    rectangle
+                }
+            }
+            .foregroundColor(.green)
+            .contentShape(rectangle)
+            .onTapGesture {
+                isFaceUp.toggle()
+            }
         }
+    }
+    
+    private var rectangle: RoundedRectangle {
+        RoundedRectangle(cornerRadius: Constants.rectangleRadius)
     }
 }
 
