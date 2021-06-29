@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		5AAF1760268A86A70079476F /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF175F268A86A70079476F /* MemorizeApp.swift */; };
-		5AAF1762268A86A70079476F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1761268A86A70079476F /* ContentView.swift */; };
+		5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1761268A86A70079476F /* MemorizeView.swift */; };
 		5AAF1764268A86AD0079476F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF1763268A86AD0079476F /* Assets.xcassets */; };
 		5AAF1767268A86AD0079476F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF1766268A86AD0079476F /* Preview Assets.xcassets */; };
+		5AAF1771268B31360079476F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1770268B31360079476F /* CardView.swift */; };
+		5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1772268B32EC0079476F /* CardsGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5AAF175C268A86A70079476F /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAF175F268A86A70079476F /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
-		5AAF1761268A86A70079476F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5AAF1761268A86A70079476F /* MemorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeView.swift; sourceTree = "<group>"; };
 		5AAF1763268A86AD0079476F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AAF1766268A86AD0079476F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5AAF1770268B31360079476F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5AAF1772268B32EC0079476F /* CardsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 		5AAF176E268A87F00079476F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5AAF1761268A86A70079476F /* ContentView.swift */,
+				5AAF1761268A86A70079476F /* MemorizeView.swift */,
+				5AAF1772268B32EC0079476F /* CardsGridView.swift */,
+				5AAF1770268B31360079476F /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AAF1762268A86A70079476F /* ContentView.swift in Sources */,
+				5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */,
+				5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */,
+				5AAF1771268B31360079476F /* CardView.swift in Sources */,
 				5AAF1760268A86A70079476F /* MemorizeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Y5X4LQQ8S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -322,7 +330,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Y5X4LQQ8S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
