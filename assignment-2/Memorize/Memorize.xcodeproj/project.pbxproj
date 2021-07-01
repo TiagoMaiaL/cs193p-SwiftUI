@@ -14,7 +14,18 @@
 		5AAF1771268B31360079476F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1770268B31360079476F /* CardView.swift */; };
 		5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1772268B32EC0079476F /* CardsGridView.swift */; };
 		5AAF1775268B3DCB0079476F /* Memorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1774268B3DCB0079476F /* Memorize.swift */; };
+		5AFB0D72268D258200CEEB5B /* MemorizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AFB0D73268D258200CEEB5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AAF1754268A86A70079476F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AAF175B268A86A70079476F;
+			remoteInfo = Memorize;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5AAF175C268A86A70079476F /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,10 +36,19 @@
 		5AAF1770268B31360079476F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5AAF1772268B32EC0079476F /* CardsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridView.swift; sourceTree = "<group>"; };
 		5AAF1774268B3DCB0079476F /* Memorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorize.swift; sourceTree = "<group>"; };
+		5AFB0D6F268D258200CEEB5B /* MemorizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5AAF1759268A86A70079476F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB0D6C268D258200CEEB5B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				5AAF175E268A86A70079476F /* Memorize */,
+				5AFB0D70268D258200CEEB5B /* MemorizeTests */,
 				5AAF175D268A86A70079476F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				5AAF175C268A86A70079476F /* Memorize.app */,
+				5AFB0D6F268D258200CEEB5B /* MemorizeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +122,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5AFB0D70268D258200CEEB5B /* MemorizeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */,
+			);
+			path = MemorizeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +150,24 @@
 			productReference = 5AAF175C268A86A70079476F /* Memorize.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5AFB0D6E268D258200CEEB5B /* MemorizeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFB0D77268D258200CEEB5B /* Build configuration list for PBXNativeTarget "MemorizeTests" */;
+			buildPhases = (
+				5AFB0D6B268D258200CEEB5B /* Sources */,
+				5AFB0D6C268D258200CEEB5B /* Frameworks */,
+				5AFB0D6D268D258200CEEB5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AFB0D74268D258200CEEB5B /* PBXTargetDependency */,
+			);
+			name = MemorizeTests;
+			productName = MemorizeTests;
+			productReference = 5AFB0D6F268D258200CEEB5B /* MemorizeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +180,10 @@
 				TargetAttributes = {
 					5AAF175B268A86A70079476F = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					5AFB0D6E268D258200CEEB5B = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 5AAF175B268A86A70079476F;
 					};
 				};
 			};
@@ -149,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				5AAF175B268A86A70079476F /* Memorize */,
+				5AFB0D6E268D258200CEEB5B /* MemorizeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +213,13 @@
 			files = (
 				5AAF1767268A86AD0079476F /* Preview Assets.xcassets in Resources */,
 				5AAF1764268A86AD0079476F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB0D6D268D258200CEEB5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +238,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5AFB0D6B268D258200CEEB5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFB0D72268D258200CEEB5B /* MemorizeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AFB0D74268D258200CEEB5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AAF175B268A86A70079476F /* Memorize */;
+			targetProxy = 5AFB0D73268D258200CEEB5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5AAF1768268A86AD0079476F /* Debug */ = {
@@ -357,6 +433,52 @@
 			};
 			name = Release;
 		};
+		5AFB0D75268D258200CEEB5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y5X4LQQ8S;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiago.lopes.MemorizeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memorize.app/Memorize";
+			};
+			name = Debug;
+		};
+		5AFB0D76268D258200CEEB5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y5X4LQQ8S;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiago.lopes.MemorizeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memorize.app/Memorize";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -374,6 +496,15 @@
 			buildConfigurations = (
 				5AAF176B268A86AD0079476F /* Debug */,
 				5AAF176C268A86AD0079476F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFB0D77268D258200CEEB5B /* Build configuration list for PBXNativeTarget "MemorizeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFB0D75268D258200CEEB5B /* Debug */,
+				5AFB0D76268D258200CEEB5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

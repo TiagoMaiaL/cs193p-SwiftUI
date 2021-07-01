@@ -14,18 +14,19 @@ struct Memorize<Content> {
     // MARK: Properties
     
     var cards: [Content]
+    var isFinished: Bool { false }
     
     // MARK: Initializer
     
     init(pairsCount: Int, contentProvider: (Int) -> Content) {
         var cards = [Content]()
         
-        for index in 0..<pairsCount {
+        for index in 0 ..< pairsCount * 2 {
             let card = contentProvider(index)
             cards.append(card)
         }
         
-        self.cards = cards
+        self.cards = cards.shuffled()
     }
     
     // MARK: Imperatives
