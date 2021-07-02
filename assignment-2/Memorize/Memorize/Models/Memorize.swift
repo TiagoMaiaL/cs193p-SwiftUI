@@ -19,9 +19,12 @@ struct Memorize<Content> {
     init(pairsCount: Int, contentProvider: (Int) -> Content) {
         var cards = [Card<Content>]()
         
-        for index in 0 ..< pairsCount * 2 {
-            let card = Card<Content>(content: contentProvider(index))
-            cards.append(card)
+        for index in 0 ..< pairsCount {
+            let pair = [
+                Card<Content>(content: contentProvider(index)),
+                Card<Content>(content: contentProvider(index))
+            ]
+            cards.append(contentsOf: pair)
         }
         
         self.cards = cards.shuffled()

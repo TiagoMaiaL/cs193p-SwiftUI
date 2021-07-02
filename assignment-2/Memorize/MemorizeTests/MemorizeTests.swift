@@ -57,7 +57,11 @@ class MemorizeTests: XCTestCase {
     }
     
     func testThatTheGameHasCardsInShuffledOrder() {
-        let orderedCards = (0 ..< pairsCount * 2).map(String.init(describing:))
+        let orderedCards = (0 ..< pairsCount)
+            .map(String.init(describing:))
+            .map { [$0, $0] }
+            .reduce([], +)
+        debugPrint(orderedCards)
         XCTAssertNotEqual(orderedCards, memorize.cards.map(\.content))
     }
     
