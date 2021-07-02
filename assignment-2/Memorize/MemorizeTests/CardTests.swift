@@ -16,6 +16,7 @@ class CardTests: XCTestCase {
         let card = Card<String>(
             content: "test"
         )
+        XCTAssertFalse(card.id.isEmpty)
         XCTAssertEqual(card.content, "test")
         XCTAssertFalse(card.isFaceUp)
         XCTAssertFalse(card.isMatched)
