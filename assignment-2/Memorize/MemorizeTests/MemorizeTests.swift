@@ -60,4 +60,17 @@ class MemorizeTests: XCTestCase {
         let orderedCards = (0 ..< pairsCount * 2).map(String.init(describing:))
         XCTAssertNotEqual(orderedCards, memorize.cards.map(\.content))
     }
+    
+    func testChoosingACard() {
+        let index = 0
+        memorize.chooseCard(atIndex: index)
+        XCTAssertTrue(memorize.cards[index].isFaceUp)
+    }
+    
+    func testFlippingACardDown() {
+        let index = 0
+        memorize.chooseCard(atIndex: index)
+        memorize.chooseCard(atIndex: index)
+        XCTAssertFalse(memorize.cards[index].isFaceUp)
+    }
 }

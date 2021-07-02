@@ -29,5 +29,11 @@ struct Memorize<Content> {
     
     // MARK: Imperatives
     
-    // TODO: Add the method for flipping a card.
+    mutating func chooseCard(atIndex index: Int) {
+        cards[index].isFaceUp.toggle()
+    }
+    
+    // MARK: Internal Methods
+    
+    // TODO: Add code to perform matches.
 }
