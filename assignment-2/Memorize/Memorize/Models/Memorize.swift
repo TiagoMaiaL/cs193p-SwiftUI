@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Memorize<Content> {
+struct Memorize<Content> where Content: Equatable {
     
     // MARK: Properties
     

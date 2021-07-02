@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card<Content> {
+struct Card<Content> where Content: Equatable {
     
     // MARK: Properties
     
