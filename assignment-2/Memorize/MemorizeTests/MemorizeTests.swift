@@ -78,6 +78,22 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.cards[index].isFaceUp)
     }
     
+    func testThatChoosingACardInAFacedUpPairShouldBeForbidden() {
+        let firstCardIndex = 0
+        let secondCardIndex = 1
+        
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: secondCardIndex)
+        
+        // Try turning the first card face down.
+        memorize.chooseCard(atIndex: firstCardIndex)
+        XCTAssertTrue(memorize.cards[firstCardIndex].isFaceUp)
+        
+        // Try turning the second card face down.
+        memorize.chooseCard(atIndex: secondCardIndex)
+        XCTAssertTrue(memorize.cards[secondCardIndex].isFaceUp)
+    }
+    
     func testTryingAWrongMatch() throws {
         let initialChoiceIndex = 0
         let initialCard = memorize.cards[initialChoiceIndex]
