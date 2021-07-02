@@ -14,6 +14,8 @@
 		5AAF1771268B31360079476F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1770268B31360079476F /* CardView.swift */; };
 		5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1772268B32EC0079476F /* CardsGridView.swift */; };
 		5AAF1775268B3DCB0079476F /* Memorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1774268B3DCB0079476F /* Memorize.swift */; };
+		5ABC61F7268E8B7C004DE9C5 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC61F6268E8B7C004DE9C5 /* CardTests.swift */; };
+		5ABC61F9268E8C16004DE9C5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC61F8268E8C16004DE9C5 /* Card.swift */; };
 		5AFB0D72268D258200CEEB5B /* MemorizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		5AAF1770268B31360079476F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5AAF1772268B32EC0079476F /* CardsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridView.swift; sourceTree = "<group>"; };
 		5AAF1774268B3DCB0079476F /* Memorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorize.swift; sourceTree = "<group>"; };
+		5ABC61F6268E8B7C004DE9C5 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		5ABC61F8268E8C16004DE9C5 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5AFB0D6F268D258200CEEB5B /* MemorizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5AAF1774268B3DCB0079476F /* Memorize.swift */,
+				5ABC61F8268E8C16004DE9C5 /* Card.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */,
+				5ABC61F6268E8B7C004DE9C5 /* CardTests.swift */,
 			);
 			path = MemorizeTests;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */,
+				5ABC61F9268E8C16004DE9C5 /* Card.swift in Sources */,
 				5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */,
 				5AAF1771268B31360079476F /* CardView.swift in Sources */,
 				5AAF1775268B3DCB0079476F /* Memorize.swift in Sources */,
@@ -243,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AFB0D72268D258200CEEB5B /* MemorizeTests.swift in Sources */,
+				5ABC61F7268E8B7C004DE9C5 /* CardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

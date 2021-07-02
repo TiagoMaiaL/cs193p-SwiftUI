@@ -41,8 +41,23 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.isFinished)
     }
     
+    func testThatACardHasTheRightContentType() {
+        let card = memorize.cards[0]
+        XCTAssertNotNil(Int(card.content))
+    }
+    
+    func testThatGameStartsWithNoMatchedCards() {
+        let matchedCards = memorize.cards.filter { $0.isMatched }
+        XCTAssertTrue(matchedCards.isEmpty)
+    }
+    
+    func testThatGameStartWithAllCardsFacedDown() {
+        let facedUpCards = memorize.cards.filter { $0.isFaceUp }
+        XCTAssertTrue(facedUpCards.isEmpty)
+    }
+    
     func testThatTheGameHasCardsInShuffledOrder() {
         let orderedCards = (0 ..< pairsCount * 2).map(String.init(describing:))
-        XCTAssertNotEqual(orderedCards, memorize.cards)
+        XCTAssertNotEqual(orderedCards, memorize.cards.map(\.content))
     }
 }

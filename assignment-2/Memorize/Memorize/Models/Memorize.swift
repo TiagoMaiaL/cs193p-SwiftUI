@@ -9,20 +9,18 @@ import Foundation
 
 struct Memorize<Content> {
     
-    // TODO: Write unit tests for this model.
-    
     // MARK: Properties
     
-    var cards: [Content]
+    var cards: [Card<Content>]
     var isFinished: Bool { false }
     
     // MARK: Initializer
     
     init(pairsCount: Int, contentProvider: (Int) -> Content) {
-        var cards = [Content]()
+        var cards = [Card<Content>]()
         
         for index in 0 ..< pairsCount * 2 {
-            let card = contentProvider(index)
+            let card = Card<Content>(content: contentProvider(index))
             cards.append(card)
         }
         
