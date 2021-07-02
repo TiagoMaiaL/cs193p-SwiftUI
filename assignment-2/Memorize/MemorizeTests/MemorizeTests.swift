@@ -78,27 +78,28 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.cards[index].isFaceUp)
     }
     
-    func testTryingAWrongMatch() {
+    func testTryingAWrongMatch() throws {
         let initialChoiceIndex = 0
         let initialCard = memorize.cards[initialChoiceIndex]
         
         guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
             where: { $0.content != initialCard.content }
         ) else {
-            XCTFail("Couldn't find the index of a wrong card.")
-            return
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next wrong card to be matched."
+            )
         }
         
         memorize.chooseCard(atIndex: initialChoiceIndex)
         memorize.chooseCard(atIndex: nextWrongChoiceIndex)
         
         // The match is performed when the third card is chosen:
-        
         guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
             where: { $0 != initialChoiceIndex && $0 != nextWrongChoiceIndex }
         ) else {
-            XCTFail("Couldn't find the index of a third different card.")
-            return
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
         }
         
         memorize.chooseCard(atIndex: thirdCardIndex)
@@ -107,5 +108,20 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
         XCTAssertFalse(memorize.cards[nextWrongChoiceIndex].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
+    }
+}
+
+// MARK: - Errors
+
+private extension MemorizeTests {
+    enum Failures: Error, CustomStringConvertible {
+        case indexNotFound(description: String)
+        
+        var description: String {
+            switch self {
+            case .indexNotFound(let description):
+                return description
+            }
+        }
     }
 }
