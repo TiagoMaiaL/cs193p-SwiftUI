@@ -13,6 +13,17 @@ struct Memorize<Content> where Content: Equatable {
     
     var cards: [Card<Content>]
     var isFinished: Bool { false }
+    private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
+        let facedUpCards = cards.filter { $0.isFaceUp }
+        
+        guard facedUpCards.count == 2,
+              let firstCardIndex = cards.firstIndex(of: facedUpCards[0]),
+              let secondCardIndex = cards.firstIndex(of: facedUpCards[1]) else {
+                  return nil
+              }
+        
+        return (firstCardIndex, secondCardIndex)
+    }
     
     // MARK: Initializer
     
@@ -33,6 +44,12 @@ struct Memorize<Content> where Content: Equatable {
     // MARK: Imperatives
     
     mutating func chooseCard(atIndex index: Int) {
+        if let pair = currentFacedUpPair {
+            guard index != pair.firstIndex, index != pair.secondIndex else {
+                return
+            }
+        }
+        
         cards[index].isFaceUp.toggle()
     }
     
