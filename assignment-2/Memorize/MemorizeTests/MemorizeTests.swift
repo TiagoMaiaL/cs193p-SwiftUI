@@ -125,6 +125,39 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.cards[nextWrongChoiceIndex].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
     }
+    
+    func testTryingACorrectMatch() throws {
+        let initialChoiceIndex = 0
+        let initialCard = memorize.cards[initialChoiceIndex]
+        
+        guard let nextRightChoiceIndex = memorize.cards.firstIndex(
+            where: { $0.content == initialCard.content }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next right card to be matched."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: initialChoiceIndex)
+        memorize.chooseCard(atIndex: nextRightChoiceIndex)
+
+        // The match is performed when the third card is chosen:
+        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
+            where: { $0 != initialChoiceIndex && $0 != nextRightChoiceIndex }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertFalse(memorize.cards[initialChoiceIndex].isMatched)
+        XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isMatched)
+        XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
+        XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isFaceUp)
+        XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
+    }
 }
 
 // MARK: - Errors
