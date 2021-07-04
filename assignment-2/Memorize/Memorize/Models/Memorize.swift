@@ -48,12 +48,29 @@ struct Memorize<Content> where Content: Equatable {
             guard index != pair.firstIndex, index != pair.secondIndex else {
                 return
             }
+            
+            performMatch()
         }
         
         cards[index].isFaceUp.toggle()
+        
+        // TODO: Try performing a match if there are only 2 cards left.
+        // TODO: Test this edge case.
     }
     
     // MARK: Internal Methods
     
-    // TODO: Add code to perform matches.
+    mutating private func performMatch() {
+        guard let pair = currentFacedUpPair else {
+            return
+        }
+        
+        let firstCard = cards[pair.firstIndex]
+        let secondCard = cards[pair.secondIndex]
+        
+        [pair.firstIndex, pair.secondIndex].forEach {
+            cards[$0].isMatched = firstCard.content == secondCard.content
+            cards[$0].isFaceUp = false
+        }
+    }
 }
