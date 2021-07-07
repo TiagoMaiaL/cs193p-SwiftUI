@@ -12,7 +12,9 @@ struct Memorize<Content> where Content: Equatable {
     // MARK: Properties
     
     var cards: [Card<Content>]
+    
     var isFinished: Bool { false }
+    
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
         let facedUpCards = cards.filter { $0.isFaceUp }
         
@@ -23,6 +25,10 @@ struct Memorize<Content> where Content: Equatable {
               }
         
         return (firstCardIndex, secondCardIndex)
+    }
+    
+    private var isLastPairBeingMatched: Bool {
+        cards.filter { !$0.isMatched }.count == 2
     }
     
     // MARK: Initializer
@@ -54,8 +60,9 @@ struct Memorize<Content> where Content: Equatable {
         
         cards[index].isFaceUp.toggle()
         
-        // TODO: Try performing a match if there are only 2 cards left.
-        // TODO: Test this edge case.
+        if isLastPairBeingMatched {
+            performMatch()
+        }
     }
     
     // MARK: Internal Methods

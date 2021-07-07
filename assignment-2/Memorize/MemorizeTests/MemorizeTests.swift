@@ -20,10 +20,7 @@ class MemorizeTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        memorize = Memorize(
-            pairsCount: 5,
-            contentProvider: { index in String(describing: index) }
-        )
+        memorize = Memorize(pairsCount: pairsCount, contentProvider: String.init)
     }
 
     override func tearDown() {
@@ -157,6 +154,16 @@ class MemorizeTests: XCTestCase {
         XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
         XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
+    }
+    
+    func testTryingTheLastMatch() {
+        memorize = Memorize(pairsCount: 1, contentProvider: String.init)
+        
+        memorize.chooseCard(atIndex: 0)
+        memorize.chooseCard(atIndex: 1)
+        
+        XCTAssertTrue(memorize.cards[0].isMatched)
+        XCTAssertTrue(memorize.cards[1].isMatched)
     }
 }
 
