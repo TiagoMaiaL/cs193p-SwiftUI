@@ -165,6 +165,15 @@ class MemorizeTests: XCTestCase {
         XCTAssertTrue(memorize.cards[0].isMatched)
         XCTAssertTrue(memorize.cards[1].isMatched)
     }
+    
+    func testFinishingTheGame() {
+        memorize = Memorize(pairsCount: 1, contentProvider: String.init)
+        
+        memorize.chooseCard(atIndex: 0)
+        memorize.chooseCard(atIndex: 1)
+        
+        XCTAssertTrue(memorize.isFinished)
+    }
 }
 
 // MARK: - Errors

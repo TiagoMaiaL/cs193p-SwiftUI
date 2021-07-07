@@ -11,9 +11,13 @@ struct Memorize<Content> where Content: Equatable {
     
     // MARK: Properties
     
-    var cards: [Card<Content>]
+    private(set) var cards: [Card<Content>]
     
-    var isFinished: Bool { false }
+    private var unmatchedCards: [Card<Content>] {
+        cards.filter { !$0.isMatched }
+    }
+    
+    var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
     
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
         let facedUpCards = cards.filter { $0.isFaceUp }
@@ -28,7 +32,7 @@ struct Memorize<Content> where Content: Equatable {
     }
     
     private var isLastPairBeingMatched: Bool {
-        cards.filter { !$0.isMatched }.count == 2
+        unmatchedCards.count == 2
     }
     
     // MARK: Initializer
