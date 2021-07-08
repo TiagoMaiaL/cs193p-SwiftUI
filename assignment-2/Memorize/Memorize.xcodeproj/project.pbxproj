@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A8B2E042696608A00BC563E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E032696608A00BC563E /* Theme.swift */; };
 		5A8B2E062696624C00BC563E /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E052696624C00BC563E /* ThemeColor.swift */; };
+		5A8B2E08269720C600BC563E /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E07269720C600BC563E /* ThemeTests.swift */; };
 		5AAF1760268A86A70079476F /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF175F268A86A70079476F /* MemorizeApp.swift */; };
 		5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1761268A86A70079476F /* MemorizeView.swift */; };
 		5AAF1764268A86AD0079476F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF1763268A86AD0079476F /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		5A8B2E032696608A00BC563E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5A8B2E052696624C00BC563E /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		5A8B2E07269720C600BC563E /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		5AAF175C268A86A70079476F /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAF175F268A86A70079476F /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		5AAF1761268A86A70079476F /* MemorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				5AFB0D71268D258200CEEB5B /* MemorizeTests.swift */,
 				5ABC61F6268E8B7C004DE9C5 /* CardTests.swift */,
+				5A8B2E07269720C600BC563E /* ThemeTests.swift */,
 			);
 			path = MemorizeTests;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				5AFB0D72268D258200CEEB5B /* MemorizeTests.swift in Sources */,
 				5ABC61F7268E8B7C004DE9C5 /* CardTests.swift in Sources */,
+				5A8B2E08269720C600BC563E /* ThemeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

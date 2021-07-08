@@ -16,6 +16,7 @@ struct Theme<Content> where Content: Equatable {
     let options: [Content]
     let color: Color
     // TODO: Add and test the shuffled options.
+    // TODO: Add custom initialization.
 }
 
 // TODO: Make a Memorize extension that accepts a Theme.
