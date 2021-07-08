@@ -15,8 +15,24 @@ struct Theme<Content> where Content: Equatable {
     let pairsCount: Int
     let options: [Content]
     let color: Color
-    // TODO: Add and test the shuffled options.
-    // TODO: Add custom initialization.
+    var shuffledOptions: [Content] {
+        Array(options.shuffled().prefix(pairsCount))
+    }
+    
+    // MARK: Initializer
+    
+    init(name: String, pairsCount: Int? = nil, options: [Content], color: Color) {
+        self.name = name
+        
+        if let pairsCount = pairsCount {
+            self.pairsCount = min(pairsCount, options.count)
+        } else {
+            self.pairsCount = options.count
+        }
+        
+        self.options = options
+        self.color = color
+    }
 }
 
 // TODO: Make a Memorize extension that accepts a Theme.
