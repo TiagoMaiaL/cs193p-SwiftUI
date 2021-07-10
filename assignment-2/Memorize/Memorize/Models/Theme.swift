@@ -35,5 +35,4 @@ struct Theme<Content> where Content: Equatable {
     }
 }
 
-// TODO: Make a Memorize extension that accepts a Theme.
 // TODO: Add a namespace for Emoji themes.
