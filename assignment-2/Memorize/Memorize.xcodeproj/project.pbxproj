@@ -12,6 +12,7 @@
 		5A8B2E08269720C600BC563E /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E07269720C600BC563E /* ThemeTests.swift */; };
 		5A8B2E0A26972DC800BC563E /* Memorize+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E0926972DC800BC563E /* Memorize+Theme.swift */; };
 		5A9314662698F305006E4A9B /* Memorize+ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9314652698F305006E4A9B /* Memorize+ThemeTests.swift */; };
+		5A9314682699472A006E4A9B /* EmojiThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9314672699472A006E4A9B /* EmojiThemes.swift */; };
 		5AAF1760268A86A70079476F /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF175F268A86A70079476F /* MemorizeApp.swift */; };
 		5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF1761268A86A70079476F /* MemorizeView.swift */; };
 		5AAF1764268A86AD0079476F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF1763268A86AD0079476F /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		5A8B2E07269720C600BC563E /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		5A8B2E0926972DC800BC563E /* Memorize+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memorize+Theme.swift"; sourceTree = "<group>"; };
 		5A9314652698F305006E4A9B /* Memorize+ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memorize+ThemeTests.swift"; sourceTree = "<group>"; };
+		5A9314672699472A006E4A9B /* EmojiThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiThemes.swift; sourceTree = "<group>"; };
 		5AAF175C268A86A70079476F /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAF175F268A86A70079476F /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		5AAF1761268A86A70079476F /* MemorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				5A8B2E032696608A00BC563E /* Theme.swift */,
 				5A8B2E052696624C00BC563E /* ThemeColor.swift */,
 				5A8B2E0926972DC800BC563E /* Memorize+Theme.swift */,
+				5A9314672699472A006E4A9B /* EmojiThemes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				5A8B2E0A26972DC800BC563E /* Memorize+Theme.swift in Sources */,
 				5A8B2E062696624C00BC563E /* ThemeColor.swift in Sources */,
 				5AAF1760268A86A70079476F /* MemorizeApp.swift in Sources */,
+				5A9314682699472A006E4A9B /* EmojiThemes.swift in Sources */,
 				5A8B2E042696608A00BC563E /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
