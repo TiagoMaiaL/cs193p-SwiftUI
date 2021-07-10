@@ -34,5 +34,3 @@ struct Theme<Content> where Content: Equatable {
         self.color = color
     }
 }
-
-// TODO: Add a namespace for Emoji themes.
