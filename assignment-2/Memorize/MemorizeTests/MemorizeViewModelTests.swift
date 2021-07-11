@@ -34,4 +34,11 @@ class MemorizeViewModelTests: XCTestCase {
         
         XCTAssertNotNil(theme)
     }
+    
+    func testThatTheViewModelInformsAThemeColor() {
+        let themeName = viewModel.themeName
+        let theme = EmojiThemes.allThemes.first(where: { $0.name == themeName })
+        
+        XCTAssertEqual(theme?.color, viewModel.themeColor)
+    }
 }
