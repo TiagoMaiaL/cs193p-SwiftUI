@@ -53,9 +53,13 @@ enum EmojiThemes {
         color: .red
     )
     
+    static var allThemes: [Theme<Emoji>] {
+        [nature, flags, faces, halloween, vehicles, food]
+    }
+    
     // MARK: Random
     
-    static var randomTheme: Theme<String> {
-        [nature, flags, faces, halloween, vehicles, food].randomElement()!
+    static var random: Theme<Emoji> {
+        allThemes.randomElement()!
     }
 }
