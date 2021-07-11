@@ -16,8 +16,9 @@ final class EmojiMemorizeViewModel {
     
     var themeName: String { theme.name }
     var themeColor: Theme<Emoji>.Color { theme.color }
-    // TODO: Only provide EmojiCardViewModel instances.
-    var cards: [Card<Emoji>] { game.cards }
+    var cards: [EmojiCardViewModel] {
+        game.cards.map(EmojiCardViewModel.init)
+    }
     
     // MARK: Initializers
     
@@ -28,7 +29,6 @@ final class EmojiMemorizeViewModel {
     
     // MARK: Imperatives
     
-    // Inform the current available cards in the game.
     // Add a method for choosing a card.
     // Add a method for starting a new game.
 }
