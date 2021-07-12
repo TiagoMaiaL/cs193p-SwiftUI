@@ -73,4 +73,17 @@ class EmojiMemorizeViewModelTests: XCTestCase {
         
         XCTAssertTrue(countedEmojis.filter { $1 > 2 }.isEmpty)
     }
+    
+    func testThatChoosingACardMakesItFacedUp() {
+        viewModel.choose(viewModel.cards[0])
+        
+        XCTAssertTrue(viewModel.cards[0].isFaceUp)
+    }
+    
+    func testThatChoosingACardMakesItFacedDown() {
+        viewModel.choose(viewModel.cards[0])
+        viewModel.choose(viewModel.cards[0])
+        
+        XCTAssertFalse(viewModel.cards[0].isFaceUp)
+    }
 }

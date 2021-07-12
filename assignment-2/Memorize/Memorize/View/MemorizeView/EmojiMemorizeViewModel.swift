@@ -29,6 +29,13 @@ final class EmojiMemorizeViewModel {
     
     // MARK: Imperatives
     
-    // Add a method for choosing a card.
+    func choose(_ cardViewModel: EmojiCardViewModel) {
+        guard let cardIndex = game.cards.firstIndex(where: { $0.id == cardViewModel.id }) else {
+            return
+        }
+        
+        game.chooseCard(atIndex: cardIndex)
+    }
+    
     // Add a method for starting a new game.
 }

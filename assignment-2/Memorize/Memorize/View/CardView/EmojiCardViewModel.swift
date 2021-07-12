@@ -13,6 +13,7 @@ struct EmojiCardViewModel {
     
     private let card: Card<Emoji>
     
+    var id: String { card.id }
     var content: String { card.content }
     var isFaceUp: Bool { card.isFaceUp }
     var isMatched: Bool { card.isMatched }
