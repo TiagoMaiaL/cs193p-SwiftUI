@@ -62,4 +62,16 @@ enum EmojiThemes {
     static var random: Theme<Emoji> {
         allThemes.randomElement()!
     }
+    
+    static func random(excluding themeToExclude: Theme<Emoji>) -> Theme<Emoji> {
+        var themes = allThemes
+        
+        guard let removalIndex = allThemes.firstIndex(where: { $0.name == themeToExclude.name }) else {
+            return random
+        }
+        
+        themes.remove(at: removalIndex)
+        
+        return themes.randomElement()!
+    }
 }

@@ -37,5 +37,9 @@ final class EmojiMemorizeViewModel {
         game.chooseCard(atIndex: cardIndex)
     }
     
-    // Add a method for starting a new game.
+    func startNewGame() {
+        let oldTheme = theme
+        theme = EmojiThemes.random(excluding: oldTheme)
+        game = Memorize(theme: theme)
+    }
 }

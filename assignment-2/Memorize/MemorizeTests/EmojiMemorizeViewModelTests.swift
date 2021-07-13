@@ -86,4 +86,14 @@ class EmojiMemorizeViewModelTests: XCTestCase {
         
         XCTAssertFalse(viewModel.cards[0].isFaceUp)
     }
+    
+    func testThatStartingANewGameStartsABrandNewGame() {
+        let oldThemeName = viewModel.themeName
+        
+        viewModel.startNewGame()
+        
+        XCTAssertNotEqual(oldThemeName, viewModel.themeName)
+        XCTAssertTrue(viewModel.cards.filter { $0.isFaceUp }.isEmpty)
+        XCTAssertTrue(viewModel.cards.filter { $0.isMatched }.isEmpty)
+    }
 }
