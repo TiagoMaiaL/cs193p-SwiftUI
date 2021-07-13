@@ -10,11 +10,26 @@ import SwiftUI
 // MARK: - View
 
 struct CardsGridView: View {
+    
+    // MARK: Properties
+    
+    let cardsViewModels: [EmojiCardViewModel]
+    // TDOO: Provide the color to the card.
+    
+    // MARK: Initializer
+    
+    init(_ cardsViewModels: [EmojiCardViewModel]) {
+        self.cardsViewModels = cardsViewModels
+    }
+    
+    // MARK: Body
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Constants.adaptiveColumn) {
-                ForEach(0..<12) { _ in
-                    CardView()
+                ForEach(cardsViewModels) { cardViewModel in
+                    // TODO: Provide the color here.
+                    CardView(cardViewModel)
                         .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
                 }
             }
@@ -36,6 +51,7 @@ private extension CardsGridView {
 
 struct CardsGridView_Previews: PreviewProvider {
     static var previews: some View {
-        CardsGridView()
+        let viewModel = EmojiMemorizeViewModel()
+        return CardsGridView(viewModel.cards)
     }
 }

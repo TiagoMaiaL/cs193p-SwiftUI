@@ -24,3 +24,5 @@ struct EmojiCardViewModel {
         self.card = card
     }
 }
+
+extension EmojiCardViewModel: Identifiable {}

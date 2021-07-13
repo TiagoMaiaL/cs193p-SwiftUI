@@ -10,6 +10,13 @@ import SwiftUI
 // MARK: - View
 
 struct MemorizeView: View {
+    
+    // MARK: Properties
+    
+    var viewModel = EmojiMemorizeViewModel()
+    
+    // MARK: Body
+    
     var body: some View {
         VStack {
             Text("Memorize!")
@@ -18,7 +25,7 @@ struct MemorizeView: View {
             
             Spacer()
             
-            CardsGridView()
+            CardsGridView(viewModel.cards)
         }
     }
 }

@@ -14,16 +14,24 @@ struct CardView: View {
     // MARK: Properties
     
     @State var isFaceUp = true
+    var viewModel: EmojiCardViewModel
+    // TODO: Receive the card color.
+    
+    // MARK: Initializer
+    
+    init(_ cardViewModel: EmojiCardViewModel) {
+        viewModel = cardViewModel
+    }
     
     // MARK: Body
     
     var body: some View {
         ZStack {
             Group {
-                if isFaceUp {
+                if viewModel.isFaceUp {
                     rectangle
                         .stroke(lineWidth: Constants.borderWidth)
-                    Text("🇧🇷")
+                    Text(viewModel.content)
                         .font(.system(size: Constants.textFontSize))
                 } else {
                     rectangle
@@ -32,6 +40,7 @@ struct CardView: View {
             .foregroundColor(.green)
             .contentShape(rectangle)
             .onTapGesture {
+                // TODO: Inform the view model of this tap.
                 isFaceUp.toggle()
             }
         }
@@ -55,7 +64,9 @@ private extension CardView {
 // MARK: - Preview
 
 struct CardView_Previews: PreviewProvider {
+    // TODO: Have two previews here: one for face up, other for face down.
     static var previews: some View {
-        CardView()
+        let viewModel = EmojiMemorizeViewModel()
+        CardView(viewModel.cards[0])
     }
 }
