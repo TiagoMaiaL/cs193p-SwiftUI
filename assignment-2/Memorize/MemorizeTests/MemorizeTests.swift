@@ -128,7 +128,7 @@ class MemorizeTests: XCTestCase {
         let initialCard = memorize.cards[initialChoiceIndex]
         
         guard let nextRightChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content == initialCard.content }
+            where: { $0.content == initialCard.content && $0.id != initialCard.id }
         ) else {
             throw Failures.indexNotFound(
                 description: "Couldn't find the index of the next right card to be matched."
@@ -149,8 +149,8 @@ class MemorizeTests: XCTestCase {
         
         memorize.chooseCard(atIndex: thirdCardIndex)
         
-        XCTAssertFalse(memorize.cards[initialChoiceIndex].isMatched)
-        XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isMatched)
+        XCTAssertTrue(memorize.cards[initialChoiceIndex].isMatched)
+        XCTAssertTrue(memorize.cards[nextRightChoiceIndex].isMatched)
         XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
         XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
