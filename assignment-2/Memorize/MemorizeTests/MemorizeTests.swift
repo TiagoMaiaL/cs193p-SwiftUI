@@ -150,8 +150,8 @@ class MemorizeTests: XCTestCase {
         
         XCTAssertTrue(memorize.cards[initialChoiceIndex].isMatched)
         XCTAssertTrue(memorize.cards[nextRightChoiceIndex].isMatched)
-        XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
-        XCTAssertFalse(memorize.cards[nextRightChoiceIndex].isFaceUp)
+        XCTAssertTrue(memorize.cards[initialChoiceIndex].isFaceUp)
+        XCTAssertTrue(memorize.cards[nextRightChoiceIndex].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
     }
     
@@ -184,7 +184,8 @@ class MemorizeTests: XCTestCase {
         // Choose a matched card.
         memorize.chooseCard(atIndex: initialChoiceIndex)
 
-        XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
+        // It shouldn't get flipped anymore.
+        XCTAssertTrue(memorize.cards[initialChoiceIndex].isFaceUp)
     }
     
     func testTryingTheLastMatch() {

@@ -20,7 +20,7 @@ struct Memorize<Content> where Content: Equatable {
     var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
     
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
-        let facedUpCards = cards.filter { $0.isFaceUp }
+        let facedUpCards = unmatchedCards.filter { $0.isFaceUp }
         
         guard facedUpCards.count == 2,
               let firstCardIndex = cards.firstIndex(of: facedUpCards[0]),
@@ -85,7 +85,7 @@ struct Memorize<Content> where Content: Equatable {
         
         [pair.firstIndex, pair.secondIndex].forEach {
             cards[$0].isMatched = firstCard.content == secondCard.content
-            cards[$0].isFaceUp = false
+            cards[$0].isFaceUp = firstCard.content == secondCard.content
         }
     }
 }
