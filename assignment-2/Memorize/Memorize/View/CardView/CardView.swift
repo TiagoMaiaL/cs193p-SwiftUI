@@ -45,6 +45,7 @@ struct CardView: View {
             }
             .foregroundColor(color)
             .contentShape(rectangle)
+            .opacity(viewModel.isMatched ? Constants.matchedOpacity : Constants.unmatchedOpacity)
             .onTapGesture { tapHandler?(viewModel) }
         }
     }
@@ -61,6 +62,8 @@ private extension CardView {
         static let rectangleRadius = 10.0
         static let borderWidth = 2.0
         static let textFontSize = 40.0
+        static let matchedOpacity = 0.2
+        static let unmatchedOpacity = 1.0
     }
 }
 
