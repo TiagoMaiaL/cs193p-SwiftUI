@@ -25,7 +25,7 @@ struct MemorizeView: View {
             
             Spacer()
             
-            CardsGridView(viewModel.cards)
+            CardsGridView(cards: viewModel.cards, cardsColor: viewModel.themeColor)
         }
     }
 }

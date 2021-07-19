@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A58B5D626A1E5F2009FFB92 /* ThemeColor+SwiftUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58B5D526A1E5F2009FFB92 /* ThemeColor+SwiftUIColor.swift */; };
 		5A8B2E042696608A00BC563E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E032696608A00BC563E /* Theme.swift */; };
 		5A8B2E062696624C00BC563E /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E052696624C00BC563E /* ThemeColor.swift */; };
 		5A8B2E08269720C600BC563E /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2E07269720C600BC563E /* ThemeTests.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A58B5D526A1E5F2009FFB92 /* ThemeColor+SwiftUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeColor+SwiftUIColor.swift"; sourceTree = "<group>"; };
 		5A8B2E032696608A00BC563E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5A8B2E052696624C00BC563E /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		5A8B2E07269720C600BC563E /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				5AAF1761268A86A70079476F /* MemorizeView.swift */,
 				5A93146B269A1FCB006E4A9B /* EmojiMemorizeViewModel.swift */,
+				5A58B5D526A1E5F2009FFB92 /* ThemeColor+SwiftUIColor.swift */,
 			);
 			path = MemorizeView;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				5AAF1773268B32EC0079476F /* CardsGridView.swift in Sources */,
 				5A93146C269A1FCB006E4A9B /* EmojiMemorizeViewModel.swift in Sources */,
 				5ABC61F9268E8C16004DE9C5 /* Card.swift in Sources */,
+				5A58B5D626A1E5F2009FFB92 /* ThemeColor+SwiftUIColor.swift in Sources */,
 				5AAF1762268A86A70079476F /* MemorizeView.swift in Sources */,
 				5AAF1771268B31360079476F /* CardView.swift in Sources */,
 				5AAF1775268B3DCB0079476F /* Memorize.swift in Sources */,

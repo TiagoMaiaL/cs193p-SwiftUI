@@ -14,13 +14,14 @@ struct CardView: View {
     // MARK: Properties
     
     @State var isFaceUp = true
-    var viewModel: EmojiCardViewModel
-    // TODO: Receive the card color.
+    let viewModel: EmojiCardViewModel
+    let color: Color
     
     // MARK: Initializer
     
-    init(_ cardViewModel: EmojiCardViewModel) {
-        viewModel = cardViewModel
+    init(viewModel: EmojiCardViewModel, color: Color) {
+        self.viewModel = viewModel
+        self.color = color
     }
     
     // MARK: Body
@@ -37,7 +38,7 @@ struct CardView: View {
                     rectangle
                 }
             }
-            .foregroundColor(.green)
+            .foregroundColor(color)
             .contentShape(rectangle)
             .onTapGesture {
                 // TODO: Inform the view model of this tap.
@@ -67,6 +68,6 @@ struct CardView_Previews: PreviewProvider {
     // TODO: Have two previews here: one for face up, other for face down.
     static var previews: some View {
         let viewModel = EmojiMemorizeViewModel()
-        CardView(viewModel.cards[0])
+        CardView(viewModel: viewModel.cards[0], color: .blue)
     }
 }

@@ -14,12 +14,13 @@ struct CardsGridView: View {
     // MARK: Properties
     
     let cardsViewModels: [EmojiCardViewModel]
-    // TDOO: Provide the color to the card.
+    let cardsColor: Color
     
     // MARK: Initializer
     
-    init(_ cardsViewModels: [EmojiCardViewModel]) {
+    init(cards cardsViewModels: [EmojiCardViewModel], cardsColor: Color) {
         self.cardsViewModels = cardsViewModels
+        self.cardsColor = cardsColor
     }
     
     // MARK: Body
@@ -27,9 +28,8 @@ struct CardsGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Constants.adaptiveColumn) {
-                ForEach(cardsViewModels) { cardViewModel in
-                    // TODO: Provide the color here.
-                    CardView(cardViewModel)
+                ForEach(cardsViewModels) {
+                    CardView(viewModel: $0, color: cardsColor)
                         .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
                 }
             }
@@ -52,6 +52,6 @@ private extension CardsGridView {
 struct CardsGridView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = EmojiMemorizeViewModel()
-        return CardsGridView(viewModel.cards)
+        return CardsGridView(cards: viewModel.cards, cardsColor: .green)
     }
 }

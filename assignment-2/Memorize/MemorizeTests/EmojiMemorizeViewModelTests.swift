@@ -39,7 +39,7 @@ class EmojiMemorizeViewModelTests: XCTestCase {
         let themeName = viewModel.themeName
         let theme = EmojiThemes.allThemes.first(where: { $0.name == themeName })
         
-        XCTAssertEqual(theme?.color, viewModel.themeColor)
+        XCTAssertEqual(theme?.color.userInterfaceColor, viewModel.themeColor)
     }
     
     func testThatTheViewModelInstantiatesEmojiCardViewModelInstances() {
