@@ -54,7 +54,9 @@ struct Memorize<Content> where Content: Equatable {
     // MARK: Imperatives
     
     mutating func chooseCard(atIndex index: Int) {
-        // TODO: make sure turning a matched card is impossible :).
+        guard !cards[index].isMatched else {
+            return
+        }
         
         if let pair = currentFacedUpPair {
             guard index != pair.firstIndex, index != pair.secondIndex else {
