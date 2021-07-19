@@ -70,9 +70,27 @@ private extension CardView {
 // MARK: - Preview
 
 struct CardView_Previews: PreviewProvider {
-    // TODO: Have two previews here: one for face up, other for face down.
     static var previews: some View {
-        let viewModel = EmojiMemorizeViewModel()
-        CardView(viewModel: viewModel.cards[0], color: .blue)
+        facedDownPreview
+        facedUpPreview
+        matchedPreview
+    }
+    
+    static var facedDownPreview: some View {
+        let card = Card(content: "🍎", isFaceUp: false, isMatched: false)
+        let viewModel = EmojiCardViewModel(card: card)
+        return CardView(viewModel: viewModel, color: .red)
+    }
+    
+    static var facedUpPreview: some View {
+        let card = Card(content: "🍎", isFaceUp: true, isMatched: false)
+        let viewModel = EmojiCardViewModel(card: card)
+        return CardView(viewModel: viewModel, color: .red)
+    }
+    
+    static var matchedPreview: some View {
+        let card = Card(content: "🍎", isFaceUp: true, isMatched: true)
+        let viewModel = EmojiCardViewModel(card: card)
+        return CardView(viewModel: viewModel, color: .red)
     }
 }
