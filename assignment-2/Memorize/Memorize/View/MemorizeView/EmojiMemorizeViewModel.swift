@@ -7,12 +7,15 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-final class EmojiMemorizeViewModel {
+final class EmojiMemorizeViewModel: ObservableObject {
     
     // MARK: Properties
     
     private var theme: Theme<Emoji>
+    
+    @Published
     private var game: Memorize<Emoji>
     
     var themeName: String { theme.name }

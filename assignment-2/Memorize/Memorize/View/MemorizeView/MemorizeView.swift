@@ -13,6 +13,7 @@ struct MemorizeView: View {
     
     // MARK: Properties
     
+    @StateObject
     var viewModel = EmojiMemorizeViewModel()
     
     // MARK: Body
