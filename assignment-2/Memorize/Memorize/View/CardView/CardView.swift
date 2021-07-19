@@ -13,15 +13,20 @@ struct CardView: View {
     
     // MARK: Properties
     
-    @State var isFaceUp = true
     let viewModel: EmojiCardViewModel
     let color: Color
+    let tapHandler: ((EmojiCardViewModel) -> Void)?
     
     // MARK: Initializer
     
-    init(viewModel: EmojiCardViewModel, color: Color) {
+    init(
+        viewModel: EmojiCardViewModel,
+        color: Color,
+        tapHandler: ((EmojiCardViewModel) -> Void)? = nil
+    ) {
         self.viewModel = viewModel
         self.color = color
+        self.tapHandler = tapHandler
     }
     
     // MARK: Body
@@ -40,10 +45,7 @@ struct CardView: View {
             }
             .foregroundColor(color)
             .contentShape(rectangle)
-            .onTapGesture {
-                // TODO: Inform the view model of this tap.
-                isFaceUp.toggle()
-            }
+            .onTapGesture { tapHandler?(viewModel) }
         }
     }
     

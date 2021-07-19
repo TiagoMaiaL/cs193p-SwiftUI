@@ -15,12 +15,18 @@ struct CardsGridView: View {
     
     let cardsViewModels: [EmojiCardViewModel]
     let cardsColor: Color
+    let cardTapHandler: ((EmojiCardViewModel) -> Void)?
     
     // MARK: Initializer
     
-    init(cards cardsViewModels: [EmojiCardViewModel], cardsColor: Color) {
+    init(
+        cards cardsViewModels: [EmojiCardViewModel],
+        cardsColor: Color,
+        cardTapHandler: ((EmojiCardViewModel) -> Void)? = nil
+    ) {
         self.cardsViewModels = cardsViewModels
         self.cardsColor = cardsColor
+        self.cardTapHandler = cardTapHandler
     }
     
     // MARK: Body
@@ -29,8 +35,12 @@ struct CardsGridView: View {
         ScrollView {
             LazyVGrid(columns: Constants.adaptiveColumn) {
                 ForEach(cardsViewModels) {
-                    CardView(viewModel: $0, color: cardsColor)
-                        .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
+                    CardView(
+                        viewModel: $0,
+                        color: cardsColor,
+                        tapHandler: cardTapHandler
+                    )
+                    .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
                 }
             }
             .padding()
