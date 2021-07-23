@@ -20,11 +20,7 @@ struct MemorizeView: View {
     
     var body: some View {
         VStack {
-            Text("Memorize!")
-                .font(.largeTitle)
-                .padding()
-            
-            Spacer()
+            header
             
             CardsGridView(
                 cards: viewModel.cards,
@@ -39,6 +35,26 @@ struct MemorizeView: View {
             }
             .padding()
         }
+    }
+    
+    private var header: some View {
+        VStack(spacing: Constants.verticalSpacing) {
+            Text("Memorize!")
+                .font(.title)
+            
+            Text(viewModel.themeName)
+                .font(.headline)
+                .foregroundColor(viewModel.themeColor)
+        }.padding(Constants.headerPaddingInsets)
+    }
+}
+
+// MARK: Constants
+
+private extension MemorizeView {
+    enum Constants {
+        static let verticalSpacing = 5.0
+        static let headerPaddingInsets = EdgeInsets(top: 20.0, leading: 0, bottom: 0, trailing: 0)
     }
 }
 
