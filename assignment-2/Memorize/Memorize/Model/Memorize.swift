@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Memorize<Content> where Content: Equatable {
+struct Memorize<Content> where Content: Hashable {
     
     // MARK: Properties
     
@@ -18,6 +18,10 @@ struct Memorize<Content> where Content: Equatable {
     }
     
     var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
+    
+    private(set) var score = 0
+    
+    private var viewedCards = Set<Card<Content>>()
     
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
         let facedUpCards = unmatchedCards.filter { $0.isFaceUp }
@@ -66,6 +70,11 @@ struct Memorize<Content> where Content: Equatable {
             performMatch()
         }
         
+        if cards[index].isFaceUp {
+            score -= 1
+            viewedCards.insert(cards[index])
+        }
+        
         cards[index].isFaceUp.toggle()
         
         if isLastPairBeingMatched {
@@ -83,9 +92,21 @@ struct Memorize<Content> where Content: Equatable {
         let firstCard = cards[pair.firstIndex]
         let secondCard = cards[pair.secondIndex]
         
+        let isAMatch = firstCard.content == secondCard.content
+        
         [pair.firstIndex, pair.secondIndex].forEach {
-            cards[$0].isMatched = firstCard.content == secondCard.content
-            cards[$0].isFaceUp = firstCard.content == secondCard.content
+            cards[$0].isMatched = isAMatch
+            cards[$0].isFaceUp = isAMatch
+            
+            if !isAMatch {
+                let card = cards[$0]
+                
+                if viewedCards.contains(card) {
+                    score -= 1
+                }
+                
+                viewedCards.insert(card)
+            }
         }
     }
 }

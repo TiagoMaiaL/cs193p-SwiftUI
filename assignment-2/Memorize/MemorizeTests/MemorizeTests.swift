@@ -8,6 +8,8 @@
 import XCTest
 @testable import Memorize
 
+// TODO: Refactor the cards index finding code.
+
 class MemorizeTests: XCTestCase {
     
     // MARK: Properties
@@ -205,6 +207,109 @@ class MemorizeTests: XCTestCase {
         memorize.chooseCard(atIndex: 1)
         
         XCTAssertTrue(memorize.isFinished)
+    }
+    
+    func testThatTheScoreStartsAtZero() {
+        XCTAssertEqual(memorize.score, 0)
+    }
+    
+    func testThatTheUserIsPenalizedForSeeingACardWithoutAttemptingAMatch() {
+        memorize.chooseCard(atIndex: 0)
+        memorize.chooseCard(atIndex: 0)
+        
+        XCTAssertEqual(memorize.score, -1)
+    }
+    
+    func testThatPerformingAMismatchWithNoViewedCardsIsNotPenalized() throws {
+        memorize.chooseCard(atIndex: 0)
+        
+        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
+            where: { $0.content != memorize.cards[0].content }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next wrong card to be matched."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        
+        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
+            where: { $0 != 0 && $0 != nextWrongChoiceIndex }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
+        }
+        
+        debugPrint(memorize.cards[0])
+        debugPrint(memorize.cards[nextWrongChoiceIndex])
+        debugPrint(memorize.cards[thirdCardIndex])
+
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertEqual(memorize.score, 0)
+    }
+    
+    func testThatTheUserIsPenalizedForAMismatchWhenOneOfTheCardsWasAlreadyViewed() throws {
+        let firstCardIndex = 0
+        
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: firstCardIndex)
+        
+        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
+            where: { $0.content != memorize.cards[firstCardIndex].content }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next wrong card to be matched."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        
+        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
+            where: { $0 != firstCardIndex && $0 != nextWrongChoiceIndex }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertEqual(memorize.score, -2)
+    }
+    
+    func testThatTheUserIsPenalizedForAMismatchWhenTheWholePairWasAlreadyViewed() throws {
+        let firstCardIndex = 0
+        
+        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
+            where: { $0.content != memorize.cards[firstCardIndex].content }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next wrong card to be matched."
+            )
+        }
+        
+        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
+            where: { $0 != firstCardIndex && $0 != nextWrongChoiceIndex }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
+        }
+        
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: firstCardIndex)
+
+        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertEqual(memorize.score, -4)
     }
 }
 

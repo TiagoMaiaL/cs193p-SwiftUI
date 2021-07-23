@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card<Content> where Content: Equatable {
+struct Card<Content> where Content: Hashable {
     
     // MARK: Properties
     
@@ -22,5 +22,10 @@ struct Card<Content> where Content: Equatable {
 extension Card: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+        hasher.combine(content)
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id && lhs.content == rhs.content
     }
 }
