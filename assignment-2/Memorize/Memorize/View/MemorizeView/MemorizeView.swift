@@ -20,7 +20,7 @@ struct MemorizeView: View {
     
     var body: some View {
         VStack {
-            header
+            titleViews
             
             CardsGridView(
                 cards: viewModel.cards,
@@ -30,14 +30,11 @@ struct MemorizeView: View {
             
             Spacer()
             
-            Button("New game") {
-                viewModel.startNewGame()
-            }
-            .padding()
+            footer
         }
     }
     
-    private var header: some View {
+    private var titleViews: some View {
         VStack(spacing: Constants.verticalSpacing) {
             Text("Memorize!")
                 .font(.title)
@@ -46,6 +43,18 @@ struct MemorizeView: View {
                 .font(.headline)
                 .foregroundColor(viewModel.themeColor)
         }.padding(Constants.headerPaddingInsets)
+    }
+    
+    private var footer: some View {
+        VStack(spacing: Constants.verticalSpacing) {
+            Button("New game") {
+                viewModel.startNewGame()
+            }
+            
+            Text("Score: \(viewModel.score)")
+                .font(.callout)
+        }
+        .padding()
     }
 }
 

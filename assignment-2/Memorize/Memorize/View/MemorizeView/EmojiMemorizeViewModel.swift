@@ -23,6 +23,9 @@ final class EmojiMemorizeViewModel: ObservableObject {
     var cards: [EmojiCardViewModel] {
         game.cards.map(EmojiCardViewModel.init)
     }
+    var score: Int {
+        game.score
+    }
     
     // MARK: Initializers
     

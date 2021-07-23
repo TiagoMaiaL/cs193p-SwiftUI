@@ -96,4 +96,8 @@ class EmojiMemorizeViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.cards.filter { $0.isFaceUp }.isEmpty)
         XCTAssertTrue(viewModel.cards.filter { $0.isMatched }.isEmpty)
     }
+    
+    func testThatTheViewModelInformsTheGameScore() {
+        XCTAssertEqual(viewModel.score, 0)
+    }
 }
