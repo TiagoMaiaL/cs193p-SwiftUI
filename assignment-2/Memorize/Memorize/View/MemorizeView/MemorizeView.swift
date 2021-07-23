@@ -31,6 +31,13 @@ struct MemorizeView: View {
                 cardsColor: viewModel.themeColor,
                 cardTapHandler: viewModel.choose
             )
+            
+            Spacer()
+            
+            Button("New game") {
+                viewModel.startNewGame()
+            }
+            .padding()
         }
     }
 }
