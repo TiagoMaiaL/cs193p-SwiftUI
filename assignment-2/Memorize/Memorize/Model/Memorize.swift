@@ -58,7 +58,9 @@ struct Memorize<Content> where Content: Hashable {
     // MARK: Imperatives
     
     mutating func chooseCard(atIndex index: Int) {
-        guard !cards[index].isMatched else {
+        var card = cards[index]
+        
+        guard !card.isMatched else {
             return
         }
         
@@ -70,12 +72,12 @@ struct Memorize<Content> where Content: Hashable {
             performMatch()
         }
         
-        if cards[index].isFaceUp {
-            score -= 1
-            viewedCards.insert(cards[index])
+        if card.isFaceUp {
+            penalizeUserForFlippingCard(card)
         }
         
-        cards[index].isFaceUp.toggle()
+        card.isFaceUp.toggle()
+        cards[index] = card
         
         if isLastPairBeingMatched {
             performMatch()
@@ -88,25 +90,38 @@ struct Memorize<Content> where Content: Hashable {
         guard let pair = currentFacedUpPair else {
             return
         }
-        
         let firstCard = cards[pair.firstIndex]
         let secondCard = cards[pair.secondIndex]
-        
         let isAMatch = firstCard.content == secondCard.content
+        
+        if isAMatch {
+            scoreMatch()
+        } else {
+            scoreMismatch(for: firstCard, secondCard)
+        }
         
         [pair.firstIndex, pair.secondIndex].forEach {
             cards[$0].isMatched = isAMatch
             cards[$0].isFaceUp = isAMatch
-            
-            if !isAMatch {
-                let card = cards[$0]
-                
-                if viewedCards.contains(card) {
-                    score -= 1
-                }
-                
-                viewedCards.insert(card)
-            }
         }
+    }
+    
+    mutating private func scoreMatch() {
+        score += 2
+    }
+    
+    mutating private func scoreMismatch(for cards: Card<Content>...) {
+        for card in cards {
+            if viewedCards.contains(card) {
+                score -= 1
+            }
+            
+            viewedCards.insert(card)
+        }
+    }
+    
+    mutating private func penalizeUserForFlippingCard(_ card: Card<Content>) {
+        score -= 1
+        viewedCards.insert(card)
     }
 }

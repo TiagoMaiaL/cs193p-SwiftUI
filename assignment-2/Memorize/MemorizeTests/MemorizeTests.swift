@@ -311,6 +311,33 @@ class MemorizeTests: XCTestCase {
         
         XCTAssertEqual(memorize.score, -4)
     }
+    
+    func testThatTheUserScoresTwoPointsForAMatch() throws {
+        let firstCardIndex = 0
+        let initialCard = memorize.cards[firstCardIndex]
+
+        guard let secondCardIndex = memorize.cards.firstIndex(
+            where: { $0.content == initialCard.content && $0.id != initialCard.id }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of the next right card to be matched."
+            )
+        }
+        
+        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
+            where: { $0 != firstCardIndex && $0 != secondCardIndex }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find the index of a third different card."
+            )
+        }
+
+        memorize.chooseCard(atIndex: firstCardIndex)
+        memorize.chooseCard(atIndex: secondCardIndex)
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertEqual(memorize.score, 2)
+    }
 }
 
 // MARK: - Errors
