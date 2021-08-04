@@ -93,101 +93,48 @@ class MemorizeTests: XCTestCase {
     }
     
     func testTryingAWrongMatch() throws {
-        let initialChoiceIndex = 0
-        let initialCard = memorize.cards[initialChoiceIndex]
+        let nonMatchingPair = try findNonMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content != initialCard.content }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next wrong card to be matched."
-            )
-        }
-        
-        memorize.chooseCard(atIndex: initialChoiceIndex)
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
-        
-        // The match is performed when the third card is chosen:
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != initialChoiceIndex && $0 != nextWrongChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-        
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
         
         XCTAssertTrue(memorize.cards.filter { $0.isMatched }.isEmpty)
-        XCTAssertFalse(memorize.cards[initialChoiceIndex].isFaceUp)
-        XCTAssertFalse(memorize.cards[nextWrongChoiceIndex].isFaceUp)
+        XCTAssertFalse(memorize.cards[nonMatchingPair.first].isFaceUp)
+        XCTAssertFalse(memorize.cards[nonMatchingPair.second].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
     }
     
     func testTryingACorrectMatch() throws {
-        let initialChoiceIndex = 0
-        let initialCard = memorize.cards[initialChoiceIndex]
+        let matchingPair = try findMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: matchingPair)
         
-        guard let nextRightChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content == initialCard.content && $0.id != initialCard.id }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next right card to be matched."
-            )
-        }
-        
-        memorize.chooseCard(atIndex: initialChoiceIndex)
-        memorize.chooseCard(atIndex: nextRightChoiceIndex)
-
-        // The match is performed when the third card is chosen:
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != initialChoiceIndex && $0 != nextRightChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-        
+        memorize.chooseCard(atIndex: matchingPair.first)
+        memorize.chooseCard(atIndex: matchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
         
-        XCTAssertTrue(memorize.cards[initialChoiceIndex].isMatched)
-        XCTAssertTrue(memorize.cards[nextRightChoiceIndex].isMatched)
-        XCTAssertTrue(memorize.cards[initialChoiceIndex].isFaceUp)
-        XCTAssertTrue(memorize.cards[nextRightChoiceIndex].isFaceUp)
+        XCTAssertTrue(memorize.cards[matchingPair.first].isMatched)
+        XCTAssertTrue(memorize.cards[matchingPair.second].isMatched)
+        XCTAssertTrue(memorize.cards[matchingPair.first].isFaceUp)
+        XCTAssertTrue(memorize.cards[matchingPair.second].isFaceUp)
         XCTAssertTrue(memorize.cards[thirdCardIndex].isFaceUp)
     }
     
     func testThatChoosingAMatchedCardIsImpossible() throws {
-        let initialChoiceIndex = 0
-        let initialCard = memorize.cards[initialChoiceIndex]
-
-        guard let nextRightChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content == initialCard.content && $0.id != initialCard.id }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next right card to be matched."
-            )
-        }
-
-        memorize.chooseCard(atIndex: initialChoiceIndex)
-        memorize.chooseCard(atIndex: nextRightChoiceIndex)
-
-        // The match is performed when the third card is chosen:
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != initialChoiceIndex && $0 != nextRightChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-
+        let matchingPair = try findMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: matchingPair)
+        
+        // Perform the correct match.
+        memorize.chooseCard(atIndex: matchingPair.first)
+        memorize.chooseCard(atIndex: matchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
-
+        
         // Choose a matched card.
-        memorize.chooseCard(atIndex: initialChoiceIndex)
+        memorize.chooseCard(atIndex: matchingPair.first)
 
         // It shouldn't get flipped anymore.
-        XCTAssertTrue(memorize.cards[initialChoiceIndex].isFaceUp)
+        XCTAssertTrue(memorize.cards[matchingPair.first].isFaceUp)
     }
     
     func testTryingTheLastMatch() {
@@ -221,119 +168,60 @@ class MemorizeTests: XCTestCase {
     }
     
     func testThatPerformingAMismatchWithNoViewedCardsIsNotPenalized() throws {
-        memorize.chooseCard(atIndex: 0)
+        let nonMatchingPair = try findNonMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content != memorize.cards[0].content }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next wrong card to be matched."
-            )
-        }
-        
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
-        
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != 0 && $0 != nextWrongChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-        
-        debugPrint(memorize.cards[0])
-        debugPrint(memorize.cards[nextWrongChoiceIndex])
-        debugPrint(memorize.cards[thirdCardIndex])
-
+        // Perform the mismatch.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
         
         XCTAssertEqual(memorize.score, 0)
     }
     
     func testThatTheUserIsPenalizedForAMismatchWhenOneOfTheCardsWasAlreadyViewed() throws {
-        let firstCardIndex = 0
+        let nonMatchingPair = try findNonMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        memorize.chooseCard(atIndex: firstCardIndex)
-        memorize.chooseCard(atIndex: firstCardIndex)
+        // Flip the first card, marking it as viewed by the game.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
         
-        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content != memorize.cards[firstCardIndex].content }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next wrong card to be matched."
-            )
-        }
-        
-        memorize.chooseCard(atIndex: firstCardIndex)
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
-        
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != firstCardIndex && $0 != nextWrongChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-        
+        // Perform the mismatch.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
-        
+                
         XCTAssertEqual(memorize.score, -2)
     }
     
     func testThatTheUserIsPenalizedForAMismatchWhenTheWholePairWasAlreadyViewed() throws {
-        let firstCardIndex = 0
+        let nonMatchingPair = try findNonMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        guard let nextWrongChoiceIndex = memorize.cards.firstIndex(
-            where: { $0.content != memorize.cards[firstCardIndex].content }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next wrong card to be matched."
-            )
-        }
-        
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != firstCardIndex && $0 != nextWrongChoiceIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-        
-        memorize.chooseCard(atIndex: firstCardIndex)
-        memorize.chooseCard(atIndex: firstCardIndex)
+        // Flip the first card, marking it as viewed.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
 
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        // Flip the second card, marking it as viewed.
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
         
-        memorize.chooseCard(atIndex: firstCardIndex)
-        memorize.chooseCard(atIndex: nextWrongChoiceIndex)
+        // Perform the mismatch
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
         
         XCTAssertEqual(memorize.score, -4)
     }
     
     func testThatTheUserScoresTwoPointsForAMatch() throws {
-        let firstCardIndex = 0
-        let initialCard = memorize.cards[firstCardIndex]
-
-        guard let secondCardIndex = memorize.cards.firstIndex(
-            where: { $0.content == initialCard.content && $0.id != initialCard.id }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of the next right card to be matched."
-            )
-        }
+        let matchingPair = try findMatchingPair()
+        let thirdCardIndex = try findThirdCard(from: matchingPair)
         
-        guard let thirdCardIndex = (0 ..< memorize.cards.count).first(
-            where: { $0 != firstCardIndex && $0 != secondCardIndex }
-        ) else {
-            throw Failures.indexNotFound(
-                description: "Couldn't find the index of a third different card."
-            )
-        }
-
-        memorize.chooseCard(atIndex: firstCardIndex)
-        memorize.chooseCard(atIndex: secondCardIndex)
+        // Perform the correct match.
+        memorize.chooseCard(atIndex: matchingPair.first)
+        memorize.chooseCard(atIndex: matchingPair.second)
         memorize.chooseCard(atIndex: thirdCardIndex)
         
         XCTAssertEqual(memorize.score, 2)
@@ -352,5 +240,56 @@ private extension MemorizeTests {
                 return description
             }
         }
+    }
+}
+
+// MARK: - Helper Functions
+
+private extension MemorizeTests {
+    typealias IndexedPair = (first: Int, second: Int)
+    
+    func findMatchingPair() throws -> IndexedPair {
+        let firstCardIndex = 0
+        let firstCard = memorize.cards[firstCardIndex]
+        
+        guard let secondCardIndex = memorize.cards.firstIndex(
+            where: { $0.content == firstCard.content && $0.id != firstCard.id }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find a matching pair."
+            )
+        }
+        
+        return (firstCardIndex, secondCardIndex)
+    }
+    
+    func findNonMatchingPair() throws -> IndexedPair {
+        let firstCardIndex = 0
+        let firstCard = memorize.cards[firstCardIndex]
+        
+        guard let secondCardIndex = memorize.cards.firstIndex(
+            where: { $0.content != firstCard.content }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find a wrong pair of cards to be matched."
+            )
+        }
+        
+        return (firstCardIndex, secondCardIndex)
+    }
+    
+    func findThirdCard(from pair: IndexedPair) throws -> Int {
+        let firstCard = memorize.cards[pair.first]
+        let secondCard = memorize.cards[pair.second]
+        
+        guard let thirdIndex = memorize.cards.firstIndex(
+            where: { $0.id != firstCard.id && $0.id != secondCard.id }
+        ) else {
+            throw Failures.indexNotFound(
+                description: "Couldn't find a third different card."
+            )
+        }
+        
+        return thirdIndex
     }
 }
