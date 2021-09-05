@@ -32,21 +32,23 @@ struct CardView: View {
     // MARK: Body
     
     var body: some View {
-        ZStack {
-            Group {
-                if viewModel.isFaceUp {
-                    rectangle
-                        .stroke(lineWidth: Constants.borderWidth)
-                    Text(viewModel.content)
-                        .font(.system(size: Constants.textFontSize))
-                } else {
-                    rectangle
+        GeometryReader { proxy in
+            ZStack {
+                Group {
+                    if viewModel.isFaceUp {
+                        rectangle
+                            .stroke(lineWidth: Constants.borderWidth)
+                        Text(viewModel.content)
+                            .font(.based(on: proxy))
+                    } else {
+                        rectangle
+                    }
                 }
+                .foregroundColor(color)
+                .contentShape(rectangle)
+                .opacity(viewModel.isMatched ? Constants.matchedOpacity : Constants.unmatchedOpacity)
+                .onTapGesture { tapHandler?(viewModel) }
             }
-            .foregroundColor(color)
-            .contentShape(rectangle)
-            .opacity(viewModel.isMatched ? Constants.matchedOpacity : Constants.unmatchedOpacity)
-            .onTapGesture { tapHandler?(viewModel) }
         }
     }
     
@@ -61,9 +63,17 @@ private extension CardView {
     enum Constants {
         static let rectangleRadius = 10.0
         static let borderWidth = 2.0
-        static let textFontSize = 40.0
         static let matchedOpacity = 0.2
         static let unmatchedOpacity = 1.0
+    }
+}
+
+// MARK: - Font extension
+
+fileprivate extension Font {
+    static func based(on proxy: GeometryProxy) -> Font {
+        let minDimension = min(proxy.size.width, proxy.size.height)
+        return .system(size: minDimension * 0.8)
     }
 }
 

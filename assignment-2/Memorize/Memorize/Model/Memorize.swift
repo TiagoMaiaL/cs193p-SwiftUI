@@ -11,6 +11,7 @@ struct Memorize<Content> where Content: Hashable {
     
     // MARK: Properties
     
+    // TODO: Check if we can insert the Card definition as a subtype of Memorize.
     private(set) var cards: [Card<Content>]
     
     private var unmatchedCards: [Card<Content>] {
@@ -23,6 +24,7 @@ struct Memorize<Content> where Content: Hashable {
     
     private var viewedCards = Set<Card<Content>>()
     
+    // TODO: Create a proper type for this pair.
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
         let facedUpCards = unmatchedCards.filter { $0.isFaceUp }
         
