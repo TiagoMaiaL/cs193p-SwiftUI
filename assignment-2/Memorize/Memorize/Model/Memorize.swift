@@ -12,33 +12,11 @@ struct Memorize<Content> where Content: Hashable {
     // MARK: Properties
     
     private(set) var cards: [Card]
-    
-    private var unmatchedCards: [Card] {
-        cards.filter { !$0.isMatched }
-    }
-    
-    var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
-    
     private(set) var score = 0
-    
     private var viewedCards = Set<Card>()
     
-    // TODO: Create a proper type for this pair.
-    private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
-        let facedUpCards = unmatchedCards.filter { $0.isFaceUp }
-        
-        guard facedUpCards.count == 2,
-              let firstCardIndex = cards.firstIndex(of: facedUpCards[0]),
-              let secondCardIndex = cards.firstIndex(of: facedUpCards[1]) else {
-                  return nil
-              }
-        
-        return (firstCardIndex, secondCardIndex)
-    }
-    
-    private var isLastPairBeingMatched: Bool {
-        unmatchedCards.count == 2
-    }
+    // TODO: Remove the isFinished.
+    var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
     
     // MARK: Initializer
     
@@ -55,8 +33,14 @@ struct Memorize<Content> where Content: Hashable {
         
         self.cards = cards.shuffled()
     }
-    
-    // MARK: Imperatives
+}
+
+// MARK: - Choosing Cards
+
+extension Memorize {
+    private var unmatchedCards: [Card] {
+        cards.filter { !$0.isMatched }
+    }
     
     mutating func chooseCard(atIndex index: Int) {
         var card = cards[index]
@@ -65,53 +49,56 @@ struct Memorize<Content> where Content: Hashable {
             return
         }
         
-        if let pair = currentFacedUpPair {
-            guard index != pair.firstIndex, index != pair.secondIndex else {
+        if let pair = faceUpPair {
+            guard isIndex(index, outOf: pair) else {
                 return
             }
             
-            performMatch()
+            match(pair)
         }
         
         if card.isFaceUp {
-            penalizeUserForFlippingCard(card)
+            penalizeUserForFlipping(card)
         }
         
         card.isFaceUp.toggle()
         cards[index] = card
         
-        if isLastPairBeingMatched {
-            performMatch()
+        if let pair = faceUpPair, isLastPairBeingMatched {
+            match(pair)
         }
     }
-    
-    // MARK: Internal Methods
-    
-    mutating private func performMatch() {
-        guard let pair = currentFacedUpPair else {
-            return
-        }
-        let firstCard = cards[pair.firstIndex]
-        let secondCard = cards[pair.secondIndex]
-        let isAMatch = firstCard.content == secondCard.content
+}
+
+// MARK: - Matching Cards
+
+private extension Memorize {
+    mutating func match(_ pair: Pair) {
+        let isAMatch = pair.first.content == pair.second.content
         
         if isAMatch {
             scoreMatch()
         } else {
-            scoreMismatch(for: firstCard, secondCard)
+            scoreMismatch(for: pair.first, pair.second)
         }
         
-        [pair.firstIndex, pair.secondIndex].forEach {
+        let pairIndexes = indexes(from: pair)
+        
+        [pairIndexes.first, pairIndexes.second].forEach {
             cards[$0].isMatched = isAMatch
             cards[$0].isFaceUp = isAMatch
         }
     }
-    
-    mutating private func scoreMatch() {
+}
+
+// MARK: - Score
+
+private extension Memorize {
+    mutating func scoreMatch() {
         score += 2
     }
     
-    mutating private func scoreMismatch(for cards: Card...) {
+    mutating func scoreMismatch(for cards: Card...) {
         for card in cards {
             if viewedCards.contains(card) {
                 score -= 1
@@ -121,8 +108,44 @@ struct Memorize<Content> where Content: Hashable {
         }
     }
     
-    mutating private func penalizeUserForFlippingCard(_ card: Card) {
+    mutating func penalizeUserForFlipping(_ card: Card) {
         score -= 1
         viewedCards.insert(card)
+    }
+}
+
+// MARK: - Pair helpers
+
+private extension Memorize {
+    
+    typealias Pair = (first: Card, second: Card)
+    typealias PairIndexes = (first: Int, second: Int)
+    
+    private var isLastPairBeingMatched: Bool {
+        unmatchedCards.count == 2
+    }
+    
+    private var faceUpPair: Pair? {
+        let faceUpCards = unmatchedCards.filter { $0.isFaceUp }
+        
+        guard faceUpCards.count == 2 else {
+            return nil
+        }
+        
+        return (first: faceUpCards[0], second: faceUpCards[1])
+    }
+    
+    private func indexes(from pair: Pair) -> PairIndexes {
+        guard let firstIndex = cards.firstIndex(of: pair.first),
+              let secondIndex = cards.firstIndex(of: pair.second) else {
+                  preconditionFailure("The provided pair should have valid indexes in its cards.")
+              }
+        
+        return (firstIndex, secondIndex)
+    }
+    
+    private func isIndex(_ index: Int, outOf pair: Pair) -> Bool {
+        let pairIndexes = indexes(from: pair)
+        return index != pairIndexes.first && index != pairIndexes.second
     }
 }
