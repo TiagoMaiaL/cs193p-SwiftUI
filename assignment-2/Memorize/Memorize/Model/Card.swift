@@ -7,25 +7,26 @@
 
 import Foundation
 
-struct Card<Content> where Content: Hashable {
-    
-    // MARK: Properties
-    
-    let id = UUID().uuidString
-    let content: Content
-    var isFaceUp = false
-    var isMatched = false
+// MARK: - Card
+
+extension Memorize {
+    struct Card {
+        let id = UUID().uuidString
+        let content: Content
+        var isFaceUp = false
+        var isMatched = false
+    }
 }
 
-// MARK: - Hashable
+// MARK: - Card + Hashable
 
-extension Card: Hashable {
+extension Memorize.Card: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
         hasher.combine(content)
     }
     
-    static func == (lhs: Card, rhs: Card) -> Bool {
+    static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id && lhs.content == rhs.content
     }
 }

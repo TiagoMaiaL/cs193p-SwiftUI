@@ -87,19 +87,19 @@ struct CardView_Previews: PreviewProvider {
     }
     
     static var facedDownPreview: some View {
-        let card = Card(content: "🍎", isFaceUp: false, isMatched: false)
+        let card = EmojiMemorize.Card(content: "🍎", isFaceUp: false, isMatched: false)
         let viewModel = EmojiCardViewModel(card: card)
         return CardView(viewModel: viewModel, color: .red)
     }
     
     static var facedUpPreview: some View {
-        let card = Card(content: "🍎", isFaceUp: true, isMatched: false)
+        let card = EmojiMemorize.Card(content: "🍎", isFaceUp: true, isMatched: false)
         let viewModel = EmojiCardViewModel(card: card)
         return CardView(viewModel: viewModel, color: .red)
     }
     
     static var matchedPreview: some View {
-        let card = Card(content: "🍎", isFaceUp: true, isMatched: true)
+        let card = EmojiMemorize.Card(content: "🍎", isFaceUp: true, isMatched: true)
         let viewModel = EmojiCardViewModel(card: card)
         return CardView(viewModel: viewModel, color: .red)
     }

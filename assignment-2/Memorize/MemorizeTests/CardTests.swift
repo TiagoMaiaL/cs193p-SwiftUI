@@ -13,7 +13,7 @@ class CardTests: XCTestCase {
     // MARK: Tests
 
     func testInitialization() {
-        let card = Card<String>(
+        let card = Memorize<String>.Card(
             content: "test"
         )
         XCTAssertFalse(card.id.isEmpty)

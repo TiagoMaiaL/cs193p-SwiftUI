@@ -11,7 +11,7 @@ struct EmojiCardViewModel {
     
     // MARK: Properties
     
-    private let card: Card<Emoji>
+    private let card: EmojiMemorize.Card
     
     var id: String { card.id }
     var content: String { card.content }
@@ -20,7 +20,7 @@ struct EmojiCardViewModel {
     
     // MARK: Initializer
     
-    init(card: Card<Emoji>) {
+    init(card: EmojiMemorize.Card) {
         self.card = card
     }
 }

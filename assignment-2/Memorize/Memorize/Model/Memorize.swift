@@ -11,10 +11,9 @@ struct Memorize<Content> where Content: Hashable {
     
     // MARK: Properties
     
-    // TODO: Check if we can insert the Card definition as a subtype of Memorize.
-    private(set) var cards: [Card<Content>]
+    private(set) var cards: [Card]
     
-    private var unmatchedCards: [Card<Content>] {
+    private var unmatchedCards: [Card] {
         cards.filter { !$0.isMatched }
     }
     
@@ -22,7 +21,7 @@ struct Memorize<Content> where Content: Hashable {
     
     private(set) var score = 0
     
-    private var viewedCards = Set<Card<Content>>()
+    private var viewedCards = Set<Card>()
     
     // TODO: Create a proper type for this pair.
     private var currentFacedUpPair: (firstIndex: Int, secondIndex: Int)? {
@@ -44,12 +43,12 @@ struct Memorize<Content> where Content: Hashable {
     // MARK: Initializer
     
     init(pairsCount: Int, contentProvider: (Int) -> Content) {
-        var cards = [Card<Content>]()
+        var cards = [Card]()
         
         for index in 0 ..< pairsCount {
             let pair = [
-                Card<Content>(content: contentProvider(index)),
-                Card<Content>(content: contentProvider(index))
+                Card(content: contentProvider(index)),
+                Card(content: contentProvider(index))
             ]
             cards.append(contentsOf: pair)
         }
@@ -112,7 +111,7 @@ struct Memorize<Content> where Content: Hashable {
         score += 2
     }
     
-    mutating private func scoreMismatch(for cards: Card<Content>...) {
+    mutating private func scoreMismatch(for cards: Card...) {
         for card in cards {
             if viewedCards.contains(card) {
                 score -= 1
@@ -122,7 +121,7 @@ struct Memorize<Content> where Content: Hashable {
         }
     }
     
-    mutating private func penalizeUserForFlippingCard(_ card: Card<Content>) {
+    mutating private func penalizeUserForFlippingCard(_ card: Card) {
         score -= 1
         viewedCards.insert(card)
     }
