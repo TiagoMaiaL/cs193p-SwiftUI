@@ -37,11 +37,12 @@ struct CardView: View {
                 Group {
                     if viewModel.isFaceUp {
                         rectangle
-                            .stroke(lineWidth: Constants.borderWidth)
+                            .stroke(colorGradient, lineWidth: Constants.borderWidth)
                         Text(viewModel.content)
                             .font(.based(on: proxy))
                     } else {
                         rectangle
+                            .fill(colorGradient)
                     }
                 }
                 .foregroundColor(color)
@@ -55,6 +56,14 @@ struct CardView: View {
     private var rectangle: RoundedRectangle {
         RoundedRectangle(cornerRadius: Constants.rectangleRadius)
     }
+    
+    private var colorGradient: LinearGradient {
+        LinearGradient(
+            colors: [color, color.opacity(Constants.endGradientOpacity)],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
 }
 
 // MARK: Constants
@@ -65,6 +74,7 @@ private extension CardView {
         static let borderWidth = 2.0
         static let matchedOpacity = 0.2
         static let unmatchedOpacity = 1.0
+        static let endGradientOpacity = 0.7
     }
 }
 

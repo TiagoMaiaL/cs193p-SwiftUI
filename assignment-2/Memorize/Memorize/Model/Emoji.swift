@@ -70,7 +70,7 @@ enum EmojiThemes {
     static func random(excluding themeToExclude: EmojiTheme) -> EmojiTheme {
         var themes = allThemes
         
-        guard let removalIndex = allThemes.firstIndex(where: { $0.name == themeToExclude.name }) else {
+        guard let removalIndex = themes.firstIndex(where: { $0.name == themeToExclude.name }) else {
             return random
         }
         
