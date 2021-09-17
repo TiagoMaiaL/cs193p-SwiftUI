@@ -17,7 +17,6 @@ enum EmojiThemes {
     
     static let nature = EmojiTheme(
         name: "Nature",
-        pairsCount: 6,
         options: ["🌳", "🌲", "🌵", "🌴", "⛰", "🗻"],
         color: .green
     )
@@ -31,14 +30,12 @@ enum EmojiThemes {
     
     static let faces = EmojiTheme(
         name: "Faces",
-        pairsCount: 6,
         options: ["😀", "😃", "😂", "🥲", "😎", "🧐"],
         color: .yellow
     )
     
     static let halloween = EmojiTheme(
         name: "Halloween",
-        pairsCount: 6,
         options: ["🎃", "👻", "💀", "🦇", "🌕", "🐺"],
         color: .purple
     )
@@ -52,7 +49,6 @@ enum EmojiThemes {
     
     static let food = EmojiTheme(
         name: "Food",
-        pairsCount: 6,
         options: ["🌭", "🌶", "🍔", "🍟", "🍏", "🍇"],
         color: .red
     )

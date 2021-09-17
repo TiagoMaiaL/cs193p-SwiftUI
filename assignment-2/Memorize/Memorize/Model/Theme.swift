@@ -24,6 +24,7 @@ struct Theme<Content> where Content: Equatable {
     init(name: String, pairsCount: Int? = nil, options: [Content], color: Color) {
         self.name = name
         
+        // Extra-credit 1
         if let pairsCount = pairsCount {
             self.pairsCount = min(pairsCount, options.count)
         } else {

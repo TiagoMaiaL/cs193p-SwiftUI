@@ -57,6 +57,7 @@ struct CardView: View {
         RoundedRectangle(cornerRadius: Constants.rectangleRadius)
     }
     
+    // Extra-credit 3
     private var colorGradient: LinearGradient {
         LinearGradient(
             colors: [color, color.opacity(Constants.endGradientOpacity)],
