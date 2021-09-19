@@ -21,12 +21,14 @@ enum EmojiThemes {
         color: .green
     )
     
-    static let flags = EmojiTheme(
-        name: "Flags",
-        pairsCount: 10,
-        options: ["🇧🇷", "🇪🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🇿🇦", "🇲🇽", "🇯🇵", "🇵🇹", "🇩🇪", "🇵🇱", "🇦🇹", "🇮🇹", "🇫🇷", "🇦🇷", "🇨🇱"],
-        color: .gray
-    )
+    static var flags: EmojiTheme {
+        EmojiTheme(
+            name: "Flags",
+            options: ["🇧🇷", "🇪🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🇿🇦", "🇲🇽", "🇯🇵", "🇵🇹", "🇩🇪", "🇵🇱", "🇦🇹", "🇮🇹", "🇫🇷", "🇦🇷", "🇨🇱"],
+            color: .gray,
+            maxRandomPairs: 12
+        )
+    }
     
     static let faces = EmojiTheme(
         name: "Faces",

@@ -34,4 +34,20 @@ struct Theme<Content> where Content: Equatable {
         self.options = options
         self.color = color
     }
+    
+    init(name: String, options: [Content], color: Color, maxRandomPairs: Int) {
+        assert(maxRandomPairs <= options.count, "maxRandomPairs should be smaller or equals to the number of options.")
+        assert(options.count >= 2, "The number of options should be greater than 1.")
+        
+        // Extra-credit 2
+        let maxPairs = min(options.count, maxRandomPairs)
+        let randomPairsCount = Int.random(in: 2 ... maxPairs)
+        
+        self.init(
+            name: name,
+            pairsCount: randomPairsCount,
+            options: options,
+            color: color
+        )
+    }
 }

@@ -90,4 +90,18 @@ class ThemeTests: XCTestCase {
         
         XCTAssertEqual(theme.shuffledOptions.count, 3)
     }
+    
+    func testThatRandomOptionsAreWithinAllowedRange() {
+        let options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let maxRandomPairs = 8
+        
+        let theme = Theme(
+            name: name,
+            options: options,
+            color: .gray,
+            maxRandomPairs: maxRandomPairs
+        )
+        
+        XCTAssertTrue((2...maxRandomPairs).contains(theme.pairsCount))
+    }
 }
