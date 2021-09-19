@@ -16,5 +16,5 @@ Build a working memory game.
 #### Notes:
 - All required tasks were developed
 - The business logic is covered by unit tests 
-- The extra credit work was not addressed
+- The extra credit assignments 1, 2, and 3 were developed (search for "Extra-credit" in the source code)
 
