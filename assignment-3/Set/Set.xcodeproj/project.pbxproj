@@ -11,6 +11,8 @@
 		5A66C13D26FCA94000203751 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C13C26FCA94000203751 /* ContentView.swift */; };
 		5A66C13F26FCA94500203751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A66C13E26FCA94500203751 /* Assets.xcassets */; };
 		5A66C14226FCA94500203751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A66C14126FCA94500203751 /* Preview Assets.xcassets */; };
+		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
+		5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* AspectVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		5A66C14126FCA94500203751 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A66C14726FCA94500203751 /* SetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A66C15126FCA94500203751 /* SetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		5A88340F26FD329A00292F1F /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				5A66C13C26FCA94000203751 /* ContentView.swift */,
+				5A88340F26FD329A00292F1F /* AspectVGrid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 		5A66C16726FCAA0B00203751 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A66C16826FCB65F00203751 /* SetGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,7 +270,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */,
 				5A66C13D26FCA94000203751 /* ContentView.swift in Sources */,
+				5A66C16926FCB65F00203751 /* SetGame.swift in Sources */,
 				5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
