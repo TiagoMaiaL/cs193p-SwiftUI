@@ -65,3 +65,23 @@ extension SetGame.Card {
         case third
     }
 }
+
+// MARK: - Hashable & Equatable
+
+extension SetGame.Card: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(color)
+        hasher.combine(shape)
+        hasher.combine(count)
+        hasher.combine(shading)
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return (
+            lhs.color == rhs.color &&
+            lhs.shape == rhs.shape &&
+            lhs.count == rhs.count &&
+            lhs.shading == rhs.shading
+        )
+    }
+}
