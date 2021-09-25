@@ -15,17 +15,12 @@
 		5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* AspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
 		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
+		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
+		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		5A66C14826FCA94500203751 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A66C12F26FCA94000203751 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A66C13626FCA94000203751;
-			remoteInfo = Set;
-		};
-		5A66C15226FCA94500203751 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A66C12F26FCA94000203751 /* Project object */;
 			proxyType = 1;
@@ -41,11 +36,12 @@
 		5A66C13E26FCA94500203751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A66C14126FCA94500203751 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A66C14726FCA94500203751 /* SetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A66C15126FCA94500203751 /* SetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
+		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +53,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A66C14426FCA94500203751 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A66C14E26FCA94500203751 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -87,7 +76,6 @@
 			children = (
 				5A66C13726FCA94000203751 /* Set.app */,
 				5A66C14726FCA94500203751 /* SetTests.xctest */,
-				5A66C15126FCA94500203751 /* SetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +102,8 @@
 		5A66C14A26FCA94500203751 /* SetTests */ = {
 			isa = PBXGroup;
 			children = (
+				5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */,
+				5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */,
 			);
 			path = SetTests;
 			sourceTree = "<group>";
@@ -184,24 +174,6 @@
 			productReference = 5A66C14726FCA94500203751 /* SetTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5A66C15026FCA94500203751 /* SetUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A66C16126FCA94500203751 /* Build configuration list for PBXNativeTarget "SetUITests" */;
-			buildPhases = (
-				5A66C14D26FCA94500203751 /* Sources */,
-				5A66C14E26FCA94500203751 /* Frameworks */,
-				5A66C14F26FCA94500203751 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A66C15326FCA94500203751 /* PBXTargetDependency */,
-			);
-			name = SetUITests;
-			productName = SetUITests;
-			productReference = 5A66C15126FCA94500203751 /* SetUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -217,10 +189,7 @@
 					};
 					5A66C14626FCA94500203751 = {
 						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 5A66C13626FCA94000203751;
-					};
-					5A66C15026FCA94500203751 = {
-						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 						TestTargetID = 5A66C13626FCA94000203751;
 					};
 				};
@@ -240,7 +209,6 @@
 			targets = (
 				5A66C13626FCA94000203751 /* Set */,
 				5A66C14626FCA94500203751 /* SetTests */,
-				5A66C15026FCA94500203751 /* SetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,13 +224,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A66C14526FCA94500203751 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A66C14F26FCA94500203751 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,13 +250,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A66C14D26FCA94500203751 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */,
+				5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +262,6 @@
 			isa = PBXTargetDependency;
 			target = 5A66C13626FCA94000203751 /* Set */;
 			targetProxy = 5A66C14826FCA94500203751 /* PBXContainerItemProxy */;
-		};
-		5A66C15326FCA94500203751 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5A66C13626FCA94000203751 /* Set */;
-			targetProxy = 5A66C15226FCA94500203751 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,6 +445,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -507,6 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tiago.lopes.SetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Set.app/Set";
@@ -518,6 +471,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -534,50 +488,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Set.app/Set";
-			};
-			name = Release;
-		};
-		5A66C16226FCA94500203751 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tiago.lopes.SetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Set;
-			};
-			name = Debug;
-		};
-		5A66C16326FCA94500203751 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tiago.lopes.SetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Set;
 			};
 			name = Release;
 		};
@@ -607,15 +517,6 @@
 			buildConfigurations = (
 				5A66C15F26FCA94500203751 /* Debug */,
 				5A66C16026FCA94500203751 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5A66C16126FCA94500203751 /* Build configuration list for PBXNativeTarget "SetUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A66C16226FCA94500203751 /* Debug */,
-				5A66C16326FCA94500203751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

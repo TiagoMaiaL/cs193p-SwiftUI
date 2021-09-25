@@ -54,9 +54,9 @@ extension SetGame.Card {
     }
     
     enum CountFeature: CaseIterable {
-        case first
-        case second
-        case third
+        case one
+        case two
+        case three
     }
     
     enum ShadingFeature: CaseIterable {

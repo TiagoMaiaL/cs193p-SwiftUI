@@ -21,6 +21,8 @@ extension SetGame {
     }
 }
 
+// TODO: Include methods for dealing the cards.
+
 // MARK: - Cards generation
 
 private extension SetGame.Deck {

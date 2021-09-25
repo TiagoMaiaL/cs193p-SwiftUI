@@ -21,7 +21,5 @@ struct SetGame {
     // TODO: Add a method to start a new game.
     // TODO: Add a property to check if the game is finished.
         
-    // TODO: Add a DeckFactory.
-    
     // TODO: Decide if we need to make the cards content generic.
 }
