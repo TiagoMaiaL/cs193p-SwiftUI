@@ -9,15 +9,94 @@ import XCTest
 @testable import Set
 
 class DeckTests: XCTestCase {
+    
+    // MARK: Constants
+    
+    let totalCardsCount = 81
 
-    // MARK: Tests
+    // MARK: Creation Tests
 
-    func testDeckCreation() {
+    func testCreation() {
         // Given
         let deck = SetGame.Deck()
         
         // Then
-        XCTAssertEqual(deck.cards.count, 81)
+        XCTAssertEqual(deck.cards.count, totalCardsCount)
         XCTAssertEqual(deck.cards, DeckConstants.cards)
+    }
+    
+    // MARK: Dealing Tests
+    
+    func testDefaultDealing() {
+        // Given
+        var deck = SetGame.Deck()
+        
+        // When
+        let dealtCards = deck.dealCards()
+        
+        // Then
+        XCTAssertEqual(deck.cards.count, totalCardsCount - 3)
+        XCTAssertEqual(dealtCards.count, 3)
+        XCTAssertTrue(Set(dealtCards).isDisjoint(with: deck.cards))
+    }
+    
+    func testDealingAnyAmountOfCards() {
+        // Given
+        var deck = SetGame.Deck()
+        let amountToDeal = 12
+        
+        // When
+        let dealtCards = deck.dealCards(count: amountToDeal)
+        
+        // Then
+        XCTAssertEqual(deck.cards.count, totalCardsCount - amountToDeal)
+        XCTAssertEqual(dealtCards.count, amountToDeal)
+    }
+    
+    func testDealingReturnsNoCardsIfDeckIsEmpty() {
+        // Given
+        var deck = SetGame.Deck()
+        
+        // When
+        _ = deck.dealCards(count: totalCardsCount)
+        let dealtCards = deck.dealCards()
+        
+        // Then
+        XCTAssertEqual(dealtCards.count, 0)
+        XCTAssertEqual(deck.cards.count, 0)
+    }
+    
+    func testDealingReturnsAllLeftOverCards() {
+        // Given
+        var deck = SetGame.Deck()
+        
+        // When
+        _ = deck.dealCards(count: totalCardsCount - 2)
+        let dealtCards = deck.dealCards(count: 5)
+        
+        // Then
+        XCTAssertEqual(dealtCards.count, 2)
+        XCTAssertEqual(deck.cards.count, 0)
+    }
+    
+    // MARK: isEmpty Tests
+    
+    func testDeckStartsNonEmpty() {
+        // Given
+        let deck = SetGame.Deck()
+        
+        // Then
+        XCTAssertFalse(deck.isEmpty)
+    }
+    
+    func testDeckGetsEmptyAfterDealingAllCards() {
+        // Given
+        var deck = SetGame.Deck()
+        
+        // When
+        _ = deck.dealCards(count: totalCardsCount)
+        
+        // Then
+        XCTAssertTrue(deck.isEmpty)
     }
 }

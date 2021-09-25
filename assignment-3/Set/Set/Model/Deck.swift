@@ -12,6 +12,7 @@ extension SetGame {
         // MARK: Properties
         
         private(set) var cards: Set<SetGame.Card>
+        var isEmpty: Bool { cards.isEmpty }
         
         // MARK: Initializer
         
@@ -21,7 +22,16 @@ extension SetGame {
     }
 }
 
-// TODO: Include methods for dealing the cards.
+extension SetGame.Deck {
+    mutating func dealCards(count: Int = 3) -> [SetGame.Card] {
+        guard !cards.isEmpty else {
+            return []
+        }
+        let count = min(cards.count, count)
+        
+        return (0 ..< count).map { _ in cards.removeFirst() }
+    }
+}
 
 // MARK: - Cards generation
 

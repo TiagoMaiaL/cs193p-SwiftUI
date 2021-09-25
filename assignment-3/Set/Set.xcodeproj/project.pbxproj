@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				5A66C16826FCB65F00203751 /* SetGame.swift */,
-				5A88341126FD339100292F1F /* Card.swift */,
 				5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */,
+				5A88341126FD339100292F1F /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
