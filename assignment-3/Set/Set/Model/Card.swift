@@ -41,25 +41,25 @@ extension SetGame {
 // MARK: - Card Feature
 
 extension SetGame.Card {
-    enum ColorFeature {
+    enum ColorFeature: CaseIterable {
         case first
         case second
         case third
     }
     
-    enum ShapeFeature {
+    enum ShapeFeature: CaseIterable {
         case first
         case second
         case third
     }
     
-    enum CountFeature {
+    enum CountFeature: CaseIterable {
         case first
         case second
         case third
     }
     
-    enum ShadingFeature {
+    enum ShadingFeature: CaseIterable {
         case first
         case second
         case third

@@ -14,6 +14,7 @@
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
 		5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* AspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
+		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				5A66C16826FCB65F00203751 /* SetGame.swift */,
 				5A88341126FD339100292F1F /* Card.swift */,
+				5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
 				5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */,
 				5A66C13D26FCA94000203751 /* ContentView.swift in Sources */,
 				5A88341226FD339100292F1F /* Card.swift in Sources */,
