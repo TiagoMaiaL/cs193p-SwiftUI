@@ -14,7 +14,7 @@ extension SetGame {
         
         // MARK: Properties
         
-        var isFaceUp = false
+        var isSelected = false
         var isMatched = false
         
         let color: ColorFeature
