@@ -57,7 +57,7 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(card.isSelected)
     }
     
-    func testItDeselectsACardWhenTheUserChoosesASelectedOne() {
+    func testItAllowsDeselection() {
         // Given
         let deck = SetGame.Deck()
         var game = SetGame(deck: deck)
@@ -69,5 +69,56 @@ class SetGameTests: XCTestCase {
         
         // Then
         XCTAssertFalse(card.isSelected)
+    }
+    
+    func testItAllowsTwoCardsToBeChosen() {
+        // Given
+        let deck = SetGame.Deck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        let firstCard = game.tableCards[0]
+        let secondCard = game.tableCards[1]
+        
+        // Then
+        XCTAssertTrue(firstCard.isSelected)
+        XCTAssertTrue(secondCard.isSelected)
+    }
+    
+    func testItAllowsDeselectingTwoCards() {
+        // Given
+        let deck = SetGame.Deck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 1)
+        let firstCard = game.tableCards[0]
+        let secondCard = game.tableCards[1]
+        
+        // Then
+        XCTAssertFalse(firstCard.isSelected)
+        XCTAssertFalse(secondCard.isSelected)
+    }
+    
+    func testItAllowsDeselectingOneOfTheCardsAfterTwoAreChosen() {
+        // Given
+        let deck = SetGame.Deck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 1)
+        let firstCard = game.tableCards[0]
+        let secondCard = game.tableCards[1]
+        
+        // Then
+        XCTAssertTrue(firstCard.isSelected)
+        XCTAssertFalse(secondCard.isSelected)
     }
 }
