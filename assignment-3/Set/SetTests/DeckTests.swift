@@ -32,7 +32,7 @@ class DeckTests: XCTestCase {
         var deck = SetGame.Deck()
         
         // When
-        let dealtCards = deck.dealCards()
+        let dealtCards = deck.deal()
         
         // Then
         XCTAssertEqual(deck.cards.count, totalCardsCount - 3)
@@ -46,7 +46,7 @@ class DeckTests: XCTestCase {
         let amountToDeal = 12
         
         // When
-        let dealtCards = deck.dealCards(count: amountToDeal)
+        let dealtCards = deck.deal(amount: amountToDeal)
         
         // Then
         XCTAssertEqual(deck.cards.count, totalCardsCount - amountToDeal)
@@ -58,8 +58,8 @@ class DeckTests: XCTestCase {
         var deck = SetGame.Deck()
         
         // When
-        _ = deck.dealCards(count: totalCardsCount)
-        let dealtCards = deck.dealCards()
+        _ = deck.deal(amount: totalCardsCount)
+        let dealtCards = deck.deal()
         
         // Then
         XCTAssertEqual(dealtCards.count, 0)
@@ -71,8 +71,8 @@ class DeckTests: XCTestCase {
         var deck = SetGame.Deck()
         
         // When
-        _ = deck.dealCards(count: totalCardsCount - 2)
-        let dealtCards = deck.dealCards(count: 5)
+        _ = deck.deal(amount: totalCardsCount - 2)
+        let dealtCards = deck.deal(amount: 5)
         
         // Then
         XCTAssertEqual(dealtCards.count, 2)
@@ -94,7 +94,7 @@ class DeckTests: XCTestCase {
         var deck = SetGame.Deck()
         
         // When
-        _ = deck.dealCards(count: totalCardsCount)
+        _ = deck.deal(amount: totalCardsCount)
         
         // Then
         XCTAssertTrue(deck.isEmpty)

@@ -23,13 +23,13 @@ extension SetGame {
 }
 
 extension SetGame.Deck {
-    mutating func dealCards(count: Int = 3) -> [SetGame.Card] {
+    mutating func deal(amount: Int = 3) -> [SetGame.Card] {
         guard !cards.isEmpty else {
             return []
         }
-        let count = min(cards.count, count)
+        let amount = min(cards.count, amount)
         
-        return (0 ..< count).map { _ in cards.removeFirst() }
+        return (0 ..< amount).map { _ in cards.removeFirst() }
     }
 }
 

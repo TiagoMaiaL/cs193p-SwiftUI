@@ -17,6 +17,7 @@
 		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
 		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
+		5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
+		5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */,
 				5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */,
+				5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */,
 			);
 			path = SetTests;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */,
 				5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */,
+				5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
