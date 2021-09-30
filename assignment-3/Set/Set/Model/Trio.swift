@@ -39,3 +39,5 @@ extension SetGame.Trio {
         card == first || card == second || card == third
     }
 }
+
+// TODO: Include matching function.
