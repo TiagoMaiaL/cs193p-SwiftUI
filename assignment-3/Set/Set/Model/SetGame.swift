@@ -41,13 +41,38 @@ extension SetGame {
 // MARK: - Choosing Cards
 
 extension SetGame {
+    // TODO: Refactor -> create a proper Trio type.
+    private var selectedTrio: (first: Card, second: Card, third: Card)? {
+        let selectedCards = tableCards.filter { $0.isSelected }
+        
+        guard selectedCards.count == 3 else {
+            return nil
+        }
+        
+        return (first: selectedCards[0],
+                second: selectedCards[1],
+                third: selectedCards[2])
+    }
+    
     mutating func chooseCard(atIndex index: Int) {
         guard index < tableCards.count else {
             assertionFailure("Selecting an out of bounds card.")
             return
         }
         
-        tableCards[index].isSelected.toggle()
+        if let trio = selectedTrio {
+            guard tableCards[index] != trio.first,
+                  tableCards[index] != trio.second,
+                  tableCards[index] != trio.third else {
+                      return
+                  }
+            
+            // TODO: Select the new card.
+            // TODO: Check if the trio is a Set or not.
+            
+        } else {
+            tableCards[index].isSelected.toggle()
+        }
     }
 }
 

@@ -121,4 +121,47 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(firstCard.isSelected)
         XCTAssertFalse(secondCard.isSelected)
     }
+    
+    func testItAllowsSelectingThreeCardsAtTheSameTime() {
+        // Given
+        let deck = SetGame.Deck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        let firstCard = game.tableCards[0]
+        let secondCard = game.tableCards[1]
+        let thirdCard = game.tableCards[2]
+        
+        // Then
+        XCTAssertTrue(firstCard.isSelected)
+        XCTAssertTrue(secondCard.isSelected)
+        XCTAssertTrue(thirdCard.isSelected)
+    }
+
+    func testItForbidsDeselectionOnceThreeCardsAreChosen() {
+        // Given
+        let deck = SetGame.Deck()
+        var game = SetGame(deck: deck)
+
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        let firstCard = game.tableCards[0]
+        let secondCard = game.tableCards[1]
+        let thirdCard = game.tableCards[2]
+
+        // Then
+        XCTAssertTrue(firstCard.isSelected)
+        XCTAssertTrue(secondCard.isSelected)
+        XCTAssertTrue(thirdCard.isSelected)
+    }
 }
