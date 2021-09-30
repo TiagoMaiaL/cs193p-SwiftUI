@@ -15,6 +15,7 @@ extension SetGame {
         private let first: Card
         private let second: Card
         private let third: Card
+        let isSet: Bool
         
         // MARK: Initializer
         
@@ -28,11 +29,16 @@ extension SetGame {
             self.first = first
             self.second = second
             self.third = third
+            self.isSet = Trio.checkIfCardsMatch(
+                first: first,
+                second: second,
+                third: third
+            )
         }
     }
 }
 
-// MARK: - Public Methods
+// MARK: - Contains
 
 extension SetGame.Trio {
     func contains(_ card: SetGame.Card) -> Bool {
@@ -40,4 +46,15 @@ extension SetGame.Trio {
     }
 }
 
-// TODO: Include matching function.
+// MARK: - Matching
+
+private extension SetGame.Trio {
+    static func checkIfCardsMatch(
+        first: SetGame.Card,
+        second: SetGame.Card,
+        third: SetGame.Card
+    ) -> Bool {
+        (first.color == second.color && second.color == third.color) ||
+        (first.color != second.color && second.color != third.color && first.color != third.color)
+    }
+}

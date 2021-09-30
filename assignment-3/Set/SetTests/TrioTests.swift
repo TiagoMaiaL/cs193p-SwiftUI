@@ -65,4 +65,34 @@ class TrioTests: XCTestCase {
         // Then
         XCTAssertFalse(trio?.contains(fourth) ?? true)
     }
+    
+    // MARK: Matching
+    
+    func testMatchingASetWithDifferentColors() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.isSet ?? false)
+    }
+    
+    func testMatchingASetWithEqualColorsAndDifferentShapes() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .first, shape: .second, count: .one, shading: .first)
+        let third = SetGame.Card(color: .first, shape: .third, count: .one, shading: .first)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.isSet ?? false)
+    }
+    
+    // TODO: Test the match method with the shape features.
+    // TODO: Test the match method with the count features.
+    // TODO: Test the match method with the shading features.
 }
