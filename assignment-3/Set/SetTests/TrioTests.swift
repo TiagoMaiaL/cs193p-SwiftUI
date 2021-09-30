@@ -37,4 +37,32 @@ class TrioTests: XCTestCase {
         // Then
         XCTAssertNil(trio)
     }
+    
+    // MARK: Contains
+    
+    func testTrioContainsCard() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.contains(third) ?? false)
+    }
+    
+    func testTrioDoesNotContainCard() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        let fourth = SetGame.Card(color: .first, shape: .second, count: .one, shading: .first)
+        
+        // Then
+        XCTAssertFalse(trio?.contains(fourth) ?? true)
+    }
 }
