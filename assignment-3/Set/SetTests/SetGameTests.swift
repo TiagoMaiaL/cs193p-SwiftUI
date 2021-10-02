@@ -165,5 +165,5 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(thirdCard.isSelected)
     }
     
-    // MARK: Matching Cards    
+    // MARK: Matching Cards
 }
