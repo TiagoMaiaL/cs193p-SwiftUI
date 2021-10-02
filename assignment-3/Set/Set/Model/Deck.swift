@@ -7,12 +7,33 @@
 
 import Foundation
 
+// MARK: - Deck Protocol
+
+protocol DeckProtocol {
+    
+    // MARK: Properties
+    
+    var cards: Set<SetGame.Card> { get }
+    var isEmpty: Bool { get }
+    
+    // MARK: Methods
+    
+    mutating func deal(amount: Int) -> [SetGame.Card]
+    mutating func deal() -> [SetGame.Card]
+}
+
+extension DeckProtocol {
+    var isEmpty: Bool { cards.isEmpty }
+}
+
+// MARK: - Deck Implementation
+
 extension SetGame {
-    struct Deck {
+    struct Deck: DeckProtocol {
+        
         // MARK: Properties
         
         private(set) var cards: Set<SetGame.Card>
-        var isEmpty: Bool { cards.isEmpty }
         
         // MARK: Initializer
         
@@ -23,13 +44,18 @@ extension SetGame {
 }
 
 extension SetGame.Deck {
-    mutating func deal(amount: Int = 3) -> [SetGame.Card] {
+    mutating func deal(amount: Int) -> [SetGame.Card] {
         guard !cards.isEmpty else {
             return []
         }
         let amount = min(cards.count, amount)
         
         return (0 ..< amount).map { _ in cards.removeFirst() }
+    }
+    
+    // Protocols don't allow default arguments. That's why we need an extra method.
+    mutating func deal() -> [SetGame.Card] {
+        deal(amount: 3)
     }
 }
 

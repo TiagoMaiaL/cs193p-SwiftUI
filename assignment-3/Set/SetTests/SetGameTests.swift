@@ -164,4 +164,6 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(secondCard.isSelected)
         XCTAssertTrue(thirdCard.isSelected)
     }
+    
+    // MARK: Matching Cards    
 }

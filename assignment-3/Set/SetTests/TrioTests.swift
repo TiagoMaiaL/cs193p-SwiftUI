@@ -175,6 +175,4 @@ class TrioTests: XCTestCase {
         // Then
         XCTAssertFalse(trio?.isSet ?? true)
     }
-    
-    // TODO: test non matching shapes, count, shading.
 }
