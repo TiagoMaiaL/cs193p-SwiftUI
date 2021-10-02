@@ -13,7 +13,11 @@ protocol Deck {
     
     // MARK: Properties
     
-    var cards: Set<SetGame.Card> { get }
+    /// The internal cards in a deck.
+    /// - Note: Intended to be used internally only. This property is declared here
+    ///         to enable the default `deal()` implementations.
+    var _cards: Set<SetGame.Card> { get set }
+    var count: Int { get }
     var isEmpty: Bool { get }
     
     // MARK: Methods
@@ -22,8 +26,27 @@ protocol Deck {
     mutating func deal() -> [SetGame.Card]
 }
 
+// MARK: - Default Implementations
+
 extension Deck {
-    var isEmpty: Bool { cards.isEmpty }
+    var isEmpty: Bool { _cards.isEmpty }
+    var count: Int { _cards.count }
+}
+
+extension Deck {
+    mutating func deal(amount: Int) -> [SetGame.Card] {
+        guard !_cards.isEmpty else {
+            return []
+        }
+        let amount = min(_cards.count, amount)
+        
+        return (0 ..< amount).map { _ in _cards.removeFirst() }
+    }
+    
+    // Protocols don't allow default arguments. That's why we need an extra method.
+    mutating func deal() -> [SetGame.Card] {
+        deal(amount: 3)
+    }
 }
 
 // MARK: - Deck Implementation
@@ -33,29 +56,13 @@ extension SetGame {
         
         // MARK: Properties
         
-        private(set) var cards: Set<SetGame.Card>
+        var _cards: Set<SetGame.Card>
         
         // MARK: Initializer
         
         init() {
-            cards = Set(FullDeck.makeCards())
+            _cards = Set(FullDeck.makeCards())
         }
-    }
-}
-
-extension SetGame.FullDeck {
-    mutating func deal(amount: Int) -> [SetGame.Card] {
-        guard !cards.isEmpty else {
-            return []
-        }
-        let amount = min(cards.count, amount)
-        
-        return (0 ..< amount).map { _ in cards.removeFirst() }
-    }
-    
-    // Protocols don't allow default arguments. That's why we need an extra method.
-    mutating func deal() -> [SetGame.Card] {
-        deal(amount: 3)
     }
 }
 
