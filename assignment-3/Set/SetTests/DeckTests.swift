@@ -18,7 +18,7 @@ class DeckTests: XCTestCase {
 
     func testCreation() {
         // Given
-        let deck = SetGame.Deck()
+        let deck = SetGame.FullDeck()
         
         // Then
         XCTAssertEqual(deck.cards.count, totalCardsCount)
@@ -29,7 +29,7 @@ class DeckTests: XCTestCase {
     
     func testDefaultDealing() {
         // Given
-        var deck = SetGame.Deck()
+        var deck = SetGame.FullDeck()
         
         // When
         let dealtCards = deck.deal()
@@ -42,7 +42,7 @@ class DeckTests: XCTestCase {
     
     func testDealingAnyAmountOfCards() {
         // Given
-        var deck = SetGame.Deck()
+        var deck = SetGame.FullDeck()
         let amountToDeal = 12
         
         // When
@@ -55,7 +55,7 @@ class DeckTests: XCTestCase {
     
     func testDealingReturnsNoCardsIfDeckIsEmpty() {
         // Given
-        var deck = SetGame.Deck()
+        var deck = SetGame.FullDeck()
         
         // When
         _ = deck.deal(amount: totalCardsCount)
@@ -68,7 +68,7 @@ class DeckTests: XCTestCase {
     
     func testDealingReturnsAllLeftOverCards() {
         // Given
-        var deck = SetGame.Deck()
+        var deck = SetGame.FullDeck()
         
         // When
         _ = deck.deal(amount: totalCardsCount - 2)
@@ -83,7 +83,7 @@ class DeckTests: XCTestCase {
     
     func testDeckStartsNonEmpty() {
         // Given
-        let deck = SetGame.Deck()
+        let deck = SetGame.FullDeck()
         
         // Then
         XCTAssertFalse(deck.isEmpty)
@@ -91,7 +91,7 @@ class DeckTests: XCTestCase {
     
     func testDeckGetsEmptyAfterDealingAllCards() {
         // Given
-        var deck = SetGame.Deck()
+        var deck = SetGame.FullDeck()
         
         // When
         _ = deck.deal(amount: totalCardsCount)

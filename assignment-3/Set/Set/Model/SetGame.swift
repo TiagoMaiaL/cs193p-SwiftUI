@@ -11,13 +11,13 @@ struct SetGame {
     
     // MARK: Properties
     
-    private var deck: DeckProtocol
+    private var deck: Deck
     private(set) var tableCards = [Card]()
     private var matchedCards = Set<Card>()
     
     // MARK: Initializer
     
-    init(deck: DeckProtocol) {
+    init(deck: Deck) {
         self.deck = deck
         let initialCards = self.deck.deal(amount: Constants.initialCardsAmount)
         tableCards.append(contentsOf: initialCards)

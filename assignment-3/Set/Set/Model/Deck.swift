@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Deck Protocol
 
-protocol DeckProtocol {
+protocol Deck {
     
     // MARK: Properties
     
@@ -22,14 +22,14 @@ protocol DeckProtocol {
     mutating func deal() -> [SetGame.Card]
 }
 
-extension DeckProtocol {
+extension Deck {
     var isEmpty: Bool { cards.isEmpty }
 }
 
 // MARK: - Deck Implementation
 
 extension SetGame {
-    struct Deck: DeckProtocol {
+    struct FullDeck: Deck {
         
         // MARK: Properties
         
@@ -38,12 +38,12 @@ extension SetGame {
         // MARK: Initializer
         
         init() {
-            cards = Set(Deck.makeCards())
+            cards = Set(FullDeck.makeCards())
         }
     }
 }
 
-extension SetGame.Deck {
+extension SetGame.FullDeck {
     mutating func deal(amount: Int) -> [SetGame.Card] {
         guard !cards.isEmpty else {
             return []
@@ -61,7 +61,7 @@ extension SetGame.Deck {
 
 // MARK: - Cards generation
 
-private extension SetGame.Deck {
+private extension SetGame.FullDeck {
     typealias Card = SetGame.Card
     typealias ColorFeature = SetGame.Card.ColorFeature
     typealias ShapeFeature = SetGame.Card.ShapeFeature
