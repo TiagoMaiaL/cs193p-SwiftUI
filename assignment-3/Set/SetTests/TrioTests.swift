@@ -92,7 +92,89 @@ class TrioTests: XCTestCase {
         XCTAssertTrue(trio?.isSet ?? false)
     }
     
-    // TODO: Test the match method with the shape features.
-    // TODO: Test the match method with the count features.
-    // TODO: Test the match method with the shading features.
+    func testMatchingASetWithDifferentCounts() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .first)
+        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .first)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.isSet ?? false)
+    }
+    
+    func testMatchingASetWithDifferentShadings() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .second)
+        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .third)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.isSet ?? false)
+    }
+    
+    func testMatchingASetWithTotallyDifferentFeatures() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .second)
+        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertTrue(trio?.isSet ?? false)
+    }
+    
+    func testMatchingASetWithWrongColors() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .first, shape: .first, count: .two, shading: .second)
+        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .third)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertFalse(trio?.isSet ?? true)
+    }
+    
+    func testMatchingASetWithWrongShapes() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .second)
+        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertFalse(trio?.isSet ?? true)
+    }
+    
+    func testMatchingASetWithWrongCounts() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .two, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .second)
+        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertFalse(trio?.isSet ?? true)
+    }
+    
+    func testMatchingASetWithWrongShadings() {
+        // Given
+        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .first)
+        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .second)
+        
+        let trio = SetGame.Trio(first: first, second: second, third: third)
+        
+        // Then
+        XCTAssertFalse(trio?.isSet ?? true)
+    }
+    
+    // TODO: test non matching shapes, count, shading.
 }

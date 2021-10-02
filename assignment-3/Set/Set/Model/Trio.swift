@@ -54,7 +54,18 @@ private extension SetGame.Trio {
         second: SetGame.Card,
         third: SetGame.Card
     ) -> Bool {
-        (first.color == second.color && second.color == third.color) ||
-        (first.color != second.color && second.color != third.color && first.color != third.color)
+        (
+            (first.color == second.color && second.color == third.color) ||
+            (first.color != second.color && second.color != third.color && first.color != third.color)
+        ) && (
+            (first.shape == second.shape && second.shape == third.shape) ||
+            (first.shape != second.shape && second.shape != third.shape && first.shape != third.shape)
+        ) && (
+            (first.count == second.count && second.count == third.count) ||
+            (first.count != second.count && second.count != third.count && first.count != third.count)
+        ) && (
+            (first.shading == second.shading && second.shading == third.shading) ||
+            (first.shading != second.shading && second.shading != third.shading && first.shading != third.shading)
+        )
     }
 }
