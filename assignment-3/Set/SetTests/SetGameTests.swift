@@ -182,4 +182,20 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(game.tableCards[1].isMatched)
         XCTAssertTrue(game.tableCards[2].isMatched)
     }
+    
+    func testTheChosenCardsDoNotMatch() {
+        // Given
+        let deck = NonMatchingDeck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertFalse(game.tableCards[0].isMatched)
+        XCTAssertFalse(game.tableCards[1].isMatched)
+        XCTAssertFalse(game.tableCards[2].isMatched)
+    }
 }
