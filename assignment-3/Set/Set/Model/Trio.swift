@@ -16,6 +16,9 @@ extension SetGame {
         private let second: Card
         private let third: Card
         let isSet: Bool
+        var cards: [Card] {
+            [first, second, third]
+        }
         
         // MARK: Initializer
         

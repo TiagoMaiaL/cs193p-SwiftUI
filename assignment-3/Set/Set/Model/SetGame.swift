@@ -83,9 +83,7 @@ extension SetGame {
 private extension SetGame {
     mutating func performMatchIfNeeded() {
         if let trio = selectedTrio, trio.isSet {
-            let selectedCards = tableCards.filter { $0.isSelected }
-            
-            selectedCards
+            trio.cards
                 .compactMap { tableCards.firstIndex(of: $0 ) }
                 .forEach { tableCards[$0].isMatched = true }
         }
