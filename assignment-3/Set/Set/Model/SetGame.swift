@@ -52,7 +52,7 @@ extension SetGame {
                     second: selectedCards[1],
                     third: selectedCards[2])
         
-        // TODO: Consider adding a setter that unselects all selected cards.
+        // TODO: Consider adding a setter that unselects all cards.
     }
     
     mutating func chooseCard(atIndex index: Int) {
@@ -62,17 +62,32 @@ extension SetGame {
         }
         
         if let trio = selectedTrio {
-            let card = tableCards[index]
+            // TODO: If the trio is a match, replace it by dealing more cards.
+            // TODO: If there're no more cards to be dealt, simply remove the matched ones.
             
-            guard !trio.contains(card) else {
+            guard !trio.contains(tableCards[index]) else {
                 return
             }
             
-            // TODO: Select the new card.
-            // TODO: Check if the trio is a Set or not.
+            // TODO: Select the card.
             
         } else {
             tableCards[index].isSelected.toggle()
+            performMatchIfNeeded()
+        }
+    }
+}
+
+// MARK: - Matching
+
+private extension SetGame {
+    mutating func performMatchIfNeeded() {
+        if let trio = selectedTrio, trio.isSet {
+            let selectedCards = tableCards.filter { $0.isSelected }
+            
+            selectedCards
+                .compactMap { tableCards.firstIndex(of: $0 ) }
+                .forEach { tableCards[$0].isMatched = true }
         }
     }
 }

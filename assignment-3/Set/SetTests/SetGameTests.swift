@@ -166,4 +166,20 @@ class SetGameTests: XCTestCase {
     }
     
     // MARK: Matching Cards
+    
+    func testTheChosenCardsAreMatched() {
+        // Given
+        let deck = MatchingDeck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertTrue(game.tableCards[0].isMatched)
+        XCTAssertTrue(game.tableCards[1].isMatched)
+        XCTAssertTrue(game.tableCards[2].isMatched)
+    }
 }
