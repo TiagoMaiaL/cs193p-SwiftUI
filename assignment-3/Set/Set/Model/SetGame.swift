@@ -13,7 +13,7 @@ struct SetGame {
     
     private var deck: Deck
     private(set) var tableCards = [Card]()
-    private var matchedCards = Set<Card>()
+    private(set) var matchedCards = Set<Card>()
     
     // MARK: Initializer
     
@@ -62,12 +62,14 @@ extension SetGame {
         }
         
         if let trio = selectedTrio {
-            // TODO: If the trio is a match, replace it by dealing more cards.
-            // TODO: If there're no more cards to be dealt, simply remove the matched ones.
+            removeMatchedCardsFromTable()
             
-            guard !trio.contains(tableCards[index]) else {
-                return
-            }
+            // TODO: If the trio is a match, replace it by dealing more cards.
+            
+            guard tableCards.count > index,
+                  !trio.contains(tableCards[index]) else {
+                      return
+                  }
             
             // TODO: Select the card.
             
@@ -87,6 +89,14 @@ private extension SetGame {
                 .compactMap { tableCards.firstIndex(of: $0 ) }
                 .forEach { tableCards[$0].isMatched = true }
         }
+    }
+    
+    mutating func removeMatchedCardsFromTable() {
+        tableCards
+            .filter { $0.isMatched }
+            .forEach { matchedCards.insert($0) }
+        
+        tableCards.removeAll(where: { $0.isMatched })
     }
 }
 

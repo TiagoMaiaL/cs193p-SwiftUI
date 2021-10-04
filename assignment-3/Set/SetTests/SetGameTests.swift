@@ -198,4 +198,37 @@ class SetGameTests: XCTestCase {
         XCTAssertFalse(game.tableCards[1].isMatched)
         XCTAssertFalse(game.tableCards[2].isMatched)
     }
+    
+    // MARK: Removing Matched Cards
+    
+    func testTheMatchedCardsAreRemovedAfterANewSelection() {
+        // Given
+        let deck = MatchingDeck()
+        var game = SetGame(deck: deck)
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // When
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertTrue(game.tableCards.isEmpty)
+    }
+    
+    func testTheMatchedCardsAreMovedToTheMatchedPileAfterANewSelection() {
+        // Given
+        let deck = MatchingDeck()
+        var game = SetGame(deck: deck)
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        let matchedCards = game.tableCards
+        
+        // When
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertEqual(game.matchedCards, Set(matchedCards))
+    }
 }
