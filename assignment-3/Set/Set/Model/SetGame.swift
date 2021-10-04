@@ -63,8 +63,7 @@ extension SetGame {
         
         if let trio = selectedTrio {
             removeMatchedCardsFromTable()
-            
-            // TODO: If the trio is a match, replace it by dealing more cards.
+            deal()
             
             guard tableCards.count > index,
                   !trio.contains(tableCards[index]) else {

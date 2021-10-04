@@ -8,7 +8,7 @@
 import Foundation
 @testable import Set
 
-struct MatchingDeck: Deck {
+final class MatchingDeck: Deck {
     
     // MARK: Properties
     
@@ -22,6 +22,12 @@ struct MatchingDeck: Deck {
         let third = SetGame.Card(color: .first, shape: .third, count: .one, shading: .first)
         
         _cards = Set(arrayLiteral: first, second, third)
+    }
+    
+    // MARK: Imperatives
+    
+    func insert(_ card: SetGame.Card) {
+        _cards.insert(card)
     }
 }
 
