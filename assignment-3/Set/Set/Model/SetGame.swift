@@ -62,8 +62,10 @@ extension SetGame {
         }
         
         if let trio = selectedTrio {
-            removeMatchedCardsFromTable()
-            deal()
+            if trio.isSet {
+                removeMatchedCardsFromTable()
+                deal()
+            }
             
             guard tableCards.count > index,
                   !trio.contains(tableCards[index]) else {

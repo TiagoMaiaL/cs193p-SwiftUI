@@ -258,6 +258,30 @@ class SetGameTests: XCTestCase {
         XCTAssertEqual(Set(game.tableCards), Set([cardToBeDealt]))
     }
     
-    // TODO: Test the deal method if there's no match.
+    func testThatCardsAreNotDealtAfterAFailedMatchAttempt() {
+        // Given
+        let deck = NonMatchingDeck()
+        var game = SetGame(deck: deck)
+        
+        let extraCard = SetGame.Card(
+            color: .third,
+            shape: .first,
+            count: .two,
+            shading: .second
+        )
+        deck.insert(extraCard)
+        
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // When
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertEqual(game.tableCards.count, 3)
+        XCTAssertEqual(deck._cards.first, extraCard)
+    }
+    
     // TODO: Test selection after removing the matched cards.
 }

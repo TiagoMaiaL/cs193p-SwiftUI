@@ -31,7 +31,7 @@ final class MatchingDeck: Deck {
     }
 }
 
-struct NonMatchingDeck: Deck {
+final class NonMatchingDeck: Deck {
     
     // MARK: Properties
     
@@ -45,5 +45,11 @@ struct NonMatchingDeck: Deck {
         let third = SetGame.Card(color: .third, shape: .third, count: .one, shading: .first)
         
         _cards = Set(arrayLiteral: first, second, third)
+    }
+    
+    // MARK: Imperatives
+    
+    func insert(_ card: SetGame.Card) {
+        _cards.insert(card)
     }
 }
