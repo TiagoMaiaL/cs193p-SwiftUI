@@ -313,5 +313,40 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(game.tableCards.first?.isSelected ?? false)
     }
     
+    func testThatAFourthCardIsSelectedAfterAFailedMatchAttempt() {
+        // Given
+        let deck = NonMatchingDeck()
+        let nonMatchingCards = Array(deck._cards)
+        let fourthCard = SetGame.Card(
+            color: .third,
+            shape: .first,
+            count: .two,
+            shading: .second
+        )
+        deck.insert(fourthCard)
+
+        var game = SetGame(deck: deck)
+        
+        nonMatchingCards
+            .compactMap { game.tableCards.firstIndex(of: $0) }
+            .forEach { game.chooseCard(atIndex: $0) }
+        
+        // When
+        guard let fourthCardIndex = game.tableCards.firstIndex(of: fourthCard) else {
+            XCTFail()
+            return
+        }
+        game.chooseCard(atIndex: fourthCardIndex)
+        
+        // Then
+        XCTAssertTrue(game.tableCards[fourthCardIndex].isSelected)
+    }
+    
+    // MARK: Unselecting After Matching
+    
     // TODO: Test card deselection after a failed match attempt.
+    
+    func testThatCardsAreUnselectedAfterAMatchFailure() {
+        XCTFail("Non-implemented")
+    }
 }
