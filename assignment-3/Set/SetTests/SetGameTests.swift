@@ -140,30 +140,6 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(secondCard.isSelected)
         XCTAssertTrue(thirdCard.isSelected)
     }
-
-    func testItForbidsDeselectionOnceThreeCardsAreChosen() {
-        // Given
-        let deck = SetGame.FullDeck()
-        var game = SetGame(deck: deck)
-
-        // When
-        game.chooseCard(atIndex: 0)
-        game.chooseCard(atIndex: 1)
-        game.chooseCard(atIndex: 2)
-        
-        game.chooseCard(atIndex: 0)
-        game.chooseCard(atIndex: 1)
-        game.chooseCard(atIndex: 2)
-        
-        let firstCard = game.tableCards[0]
-        let secondCard = game.tableCards[1]
-        let thirdCard = game.tableCards[2]
-
-        // Then
-        XCTAssertTrue(firstCard.isSelected)
-        XCTAssertTrue(secondCard.isSelected)
-        XCTAssertTrue(thirdCard.isSelected)
-    }
     
     // MARK: Matching Cards
     
@@ -344,9 +320,56 @@ class SetGameTests: XCTestCase {
     
     // MARK: Unselecting After Matching
     
-    // TODO: Test card deselection after a failed match attempt.
+    func testThatCardsAreUnselectedAfterAMismatch() {
+        // Given
+        let deck = NonMatchingDeck()
+        var game = SetGame(deck: deck)
+
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // When
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertFalse(game.tableCards[0].isSelected)
+        XCTAssertFalse(game.tableCards[1].isSelected)
+        XCTAssertTrue(game.tableCards[2].isSelected)
+    }
     
-    func testThatCardsAreUnselectedAfterAMatchFailure() {
-        XCTFail("Non-implemented")
+    func testThatTheUnmatchedTrioIsUnselectedAfterChoosingAFourthCard() {
+        // Given
+        let deck = NonMatchingDeck()
+        let nonMatchingCards = Array(deck._cards)
+        let fourthCard = SetGame.Card(
+            color: .third,
+            shape: .first,
+            count: .two,
+            shading: .second
+        )
+        deck.insert(fourthCard)
+
+        var game = SetGame(deck: deck)
+        
+        nonMatchingCards
+            .compactMap(game.tableCards.firstIndex(of:))
+            .forEach { game.chooseCard(atIndex: $0) }
+        
+        // When
+        guard let fourthCardIndex = game.tableCards.firstIndex(of: fourthCard) else {
+            XCTFail()
+            return
+        }
+        game.chooseCard(atIndex: fourthCardIndex)
+        
+        // Then
+        nonMatchingCards
+            .compactMap(game.tableCards.firstIndex(of:))
+            .forEach {
+                XCTAssertFalse(game.tableCards[$0].isSelected)
+            }
+        
+        XCTAssertTrue(game.tableCards[fourthCardIndex].isSelected)
     }
 }

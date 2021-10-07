@@ -42,17 +42,23 @@ extension SetGame {
 
 extension SetGame {
     private var selectedTrio: Trio? {
-        let selectedCards = tableCards.filter { $0.isSelected }
-        
-        guard selectedCards.count == 3 else {
-            return nil
+        get {
+            let selectedCards = tableCards.filter { $0.isSelected }
+            
+            guard selectedCards.count == 3 else {
+                return nil
+            }
+            
+            return Trio(first: selectedCards[0],
+                        second: selectedCards[1],
+                        third: selectedCards[2])
         }
-        
-        return Trio(first: selectedCards[0],
-                    second: selectedCards[1],
-                    third: selectedCards[2])
-        
-        // TODO: Consider adding a setter that unselects all cards.
+        set {
+            tableCards
+                .filter(\.isSelected)
+                .compactMap(tableCards.firstIndex(of:))
+                .forEach { tableCards[$0].isSelected = false }
+        }
     }
     
     mutating func chooseCard(atIndex index: Int) {
@@ -62,15 +68,13 @@ extension SetGame {
         }
         
         if let trio = selectedTrio {
-            if !trio.contains(tableCards[index]) {
-                tableCards[index].isSelected = true
-            }
-            
             if trio.isSet {
+                tableCards[index].isSelected = true
                 removeMatchedCardsFromTable()
                 deal()
             } else {
-                // TODO: Unselect all cards.
+                selectedTrio = nil
+                tableCards[index].isSelected = true
             }
             
         } else {
