@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21327112269006AB3A8 /* SetGameView.swift */; };
 		5A55B93C2705436500B5248D /* Trio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93B2705436500B5248D /* Trio.swift */; };
 		5A55B9402705DC0800B5248D /* TrioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93F2705DC0800B5248D /* TrioTests.swift */; };
 		5A5650022708844100EDAEEB /* DeckDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5650012708844100EDAEEB /* DeckDoubles.swift */; };
 		5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C13A26FCA94000203751 /* SetGameApp.swift */; };
-		5A66C13D26FCA94000203751 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C13C26FCA94000203751 /* ContentView.swift */; };
 		5A66C13F26FCA94500203751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A66C13E26FCA94500203751 /* Assets.xcassets */; };
 		5A66C14226FCA94500203751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A66C14126FCA94500203751 /* Preview Assets.xcassets */; };
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
@@ -34,12 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A0FE21327112269006AB3A8 /* SetGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameView.swift; sourceTree = "<group>"; };
 		5A55B93B2705436500B5248D /* Trio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trio.swift; sourceTree = "<group>"; };
 		5A55B93F2705DC0800B5248D /* TrioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrioTests.swift; sourceTree = "<group>"; };
 		5A5650012708844100EDAEEB /* DeckDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDoubles.swift; sourceTree = "<group>"; };
 		5A66C13726FCA94000203751 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A66C13A26FCA94000203751 /* SetGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameApp.swift; sourceTree = "<group>"; };
-		5A66C13C26FCA94000203751 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A66C13E26FCA94500203751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A66C14126FCA94500203751 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A66C14726FCA94500203751 /* SetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,8 +131,8 @@
 		5A66C16626FCAA0500203751 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5A66C13C26FCA94000203751 /* ContentView.swift */,
 				5A88340F26FD329A00292F1F /* AspectVGrid.swift */,
+				5A0FE21327112269006AB3A8 /* SetGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,8 +251,8 @@
 			files = (
 				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
 				5A55B93C2705436500B5248D /* Trio.swift in Sources */,
+				5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */,
 				5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */,
-				5A66C13D26FCA94000203751 /* ContentView.swift in Sources */,
 				5A88341226FD339100292F1F /* Card.swift in Sources */,
 				5A66C16926FCB65F00203751 /* SetGame.swift in Sources */,
 				5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */,
