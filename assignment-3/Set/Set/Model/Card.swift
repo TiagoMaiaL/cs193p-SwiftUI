@@ -64,7 +64,7 @@ extension Card {
     }
 }
 
-// MARK: - Hashable & Equatable
+// MARK: - Hashable
 
 extension Card: Hashable {
     func hash(into hasher: inout Hasher) {
@@ -82,4 +82,13 @@ extension Card: Hashable {
             lhs.shading == rhs.shading
         )
     }
+}
+
+// MARK: - SetCard Conformance
+
+extension Card: SetCard {
+    var firstFeature: ColorFeature { color }
+    var secondFeature: ShapeFeature { shape }
+    var thirdFeature: CountFeature { count }
+    var fourthFeature: ShadingFeature { shading }
 }
