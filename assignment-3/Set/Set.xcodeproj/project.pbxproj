@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21327112269006AB3A8 /* SetGameView.swift */; };
 		5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */; };
-		5A0FE21827146B58006AB3A8 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21727146B58006AB3A8 /* CardViewModel.swift */; };
+		5A0FE21827146B58006AB3A8 /* SetCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */; };
 		5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21B27160167006AB3A8 /* SetCard.swift */; };
 		5A55B93C2705436500B5248D /* SetTrio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93B2705436500B5248D /* SetTrio.swift */; };
 		5A55B9402705DC0800B5248D /* SetTrioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93F2705DC0800B5248D /* SetTrioTests.swift */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		5A0FE21327112269006AB3A8 /* SetGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameView.swift; sourceTree = "<group>"; };
 		5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
-		5A0FE21727146B58006AB3A8 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardViewModel.swift; sourceTree = "<group>"; };
 		5A0FE21B27160167006AB3A8 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
 		5A55B93B2705436500B5248D /* SetTrio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrio.swift; sourceTree = "<group>"; };
 		5A55B93F2705DC0800B5248D /* SetTrioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrioTests.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				5A88340F26FD329A00292F1F /* AspectVGrid.swift */,
 				5A0FE21327112269006AB3A8 /* SetGameView.swift */,
 				5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */,
-				5A0FE21727146B58006AB3A8 /* CardViewModel.swift */,
+				5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 				5A88341226FD339100292F1F /* Card.swift in Sources */,
 				5A66C16926FCB65F00203751 /* SetGame.swift in Sources */,
 				5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */,
-				5A0FE21827146B58006AB3A8 /* CardViewModel.swift in Sources */,
+				5A0FE21827146B58006AB3A8 /* SetCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
