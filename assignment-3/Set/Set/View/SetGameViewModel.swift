@@ -11,14 +11,15 @@ final class SetGameViewModel {
     
     // MARK: Properties
     
-    private lazy var game = SetGame(deck: SetGame.FullDeck())
+    private lazy var game = SetGame(deck: FullDeck())
     
+    // TODO: Add a method to start a new game.
     // TODO: Add the cards property, which will return an array of cardViewModels.
     
     // MARK: Imperatives
     
     func startNewGame() {
-        game = SetGame(deck: SetGame.FullDeck())
+        game = SetGame(deck: FullDeck())
     }
     
     // TODO: Add a method to choose a card.

@@ -11,6 +11,10 @@ import Foundation
 
 protocol Deck {
     
+    // MARK: Types
+    
+    associatedtype Card: SetCard
+    
     // MARK: Properties
     
     /// The internal cards in a deck.
@@ -26,7 +30,7 @@ protocol Deck {
     mutating func deal() -> [Card]
 }
 
-// MARK: - Default Implementations
+// MARK: - Default
 
 extension Deck {
     var isEmpty: Bool { _cards.isEmpty }
@@ -49,26 +53,24 @@ extension Deck {
     }
 }
 
-// MARK: - Deck Implementation
+// MARK: - FullDeck
 
-extension SetGame {
-    struct FullDeck: Deck {
-        
-        // MARK: Properties
-        
-        var _cards: Set<Card>
-        
-        // MARK: Initializer
-        
-        init() {
-            _cards = Set(FullDeck.makeCards())
-        }
+struct FullDeck: Deck {
+    
+    // MARK: Properties
+    
+    var _cards: Set<Card>
+    
+    // MARK: Initializer
+    
+    init() {
+        _cards = Set(FullDeck.makeCards())
     }
 }
 
 // MARK: - Cards generation
 
-private extension SetGame.FullDeck {
+private extension FullDeck {
     typealias ColorFeature = Card.ColorFeature
     typealias ShapeFeature = Card.ShapeFeature
     typealias CountFeature = Card.CountFeature

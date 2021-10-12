@@ -19,7 +19,7 @@ class TrioTests: XCTestCase {
         let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         // When
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertNotNil(trio)
@@ -32,7 +32,7 @@ class TrioTests: XCTestCase {
         let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         // When
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertNil(trio)
@@ -46,7 +46,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .one, shading: .first)
         let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.contains(third) ?? false)
@@ -58,7 +58,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .one, shading: .first)
         let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         let fourth = Card(color: .first, shape: .second, count: .one, shading: .first)
         
@@ -74,7 +74,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .one, shading: .first)
         let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.isSet ?? false)
@@ -86,7 +86,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .first, shape: .second, count: .one, shading: .first)
         let third = Card(color: .first, shape: .third, count: .one, shading: .first)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.isSet ?? false)
@@ -98,7 +98,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .two, shading: .first)
         let third = Card(color: .third, shape: .first, count: .three, shading: .first)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.isSet ?? false)
@@ -110,7 +110,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .two, shading: .second)
         let third = Card(color: .third, shape: .first, count: .three, shading: .third)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.isSet ?? false)
@@ -122,7 +122,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .second, count: .two, shading: .second)
         let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertTrue(trio?.isSet ?? false)
@@ -134,7 +134,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .first, shape: .first, count: .two, shading: .second)
         let third = Card(color: .third, shape: .first, count: .three, shading: .third)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertFalse(trio?.isSet ?? true)
@@ -146,7 +146,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .first, count: .two, shading: .second)
         let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertFalse(trio?.isSet ?? true)
@@ -158,7 +158,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .second, count: .two, shading: .second)
         let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertFalse(trio?.isSet ?? true)
@@ -170,7 +170,7 @@ class TrioTests: XCTestCase {
         let second = Card(color: .second, shape: .second, count: .two, shading: .first)
         let third = Card(color: .third, shape: .third, count: .three, shading: .second)
         
-        let trio = SetGame.Trio(first: first, second: second, third: third)
+        let trio = Trio(first: first, second: second, third: third)
         
         // Then
         XCTAssertFalse(trio?.isSet ?? true)

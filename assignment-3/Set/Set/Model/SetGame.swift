@@ -7,26 +7,22 @@
 
 import Foundation
 
-struct SetGame {
+struct SetGame<CardType, DeckType: Deck> where CardType == DeckType.Card {
     
     // MARK: Properties
     
-    private var deck: Deck
-    private(set) var tableCards = [Card]()
-    private(set) var matchedCards = Set<Card>()
+    private var deck: DeckType
+    private(set) var tableCards = [CardType]()
+    private(set) var matchedCards = Set<CardType>()
     
     // MARK: Initializer
     
-    init(deck: Deck) {
+    init(deck: DeckType) {
         self.deck = deck
         let initialCards = self.deck.deal(amount: Constants.initialCardsAmount)
         tableCards.append(contentsOf: initialCards)
     }
-    
-    // TODO: Add a method to start a new game. Add this to the view model.
     // TODO: Add a property to check if the game is finished.
-    
-    // TODO: Decide if we need to make the cards content generic.
 }
 
 // MARK: - Dealing
@@ -41,7 +37,7 @@ extension SetGame {
 // MARK: - Choosing Cards
 
 extension SetGame {
-    private var selectedTrio: Trio? {
+    private var selectedTrio: Trio<CardType>? {
         get {
             let selectedCards = tableCards.filter { $0.isSelected }
             
@@ -106,8 +102,6 @@ private extension SetGame {
 
 // MARK: - Constants
 
-private extension SetGame {
-    enum Constants {
-        static let initialCardsAmount = 12
-    }
+fileprivate enum Constants {
+    static let initialCardsAmount = 12
 }

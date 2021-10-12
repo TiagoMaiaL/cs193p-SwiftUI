@@ -7,68 +7,66 @@
 
 import Foundation
 
-extension SetGame {
-    struct Trio {
+struct Trio<CardType: SetCard> {
+    
+    // MARK: Properties
+    
+    private let first: CardType
+    private let second: CardType
+    private let third: CardType
+    let isSet: Bool
+    var cards: [CardType] {
+        [first, second, third]
+    }
+    
+    // MARK: Initializer
+    
+    init?(first: CardType, second: CardType, third: CardType) {
+        let cards = Set([first, second, third])
         
-        // MARK: Properties
-        
-        private let first: Card
-        private let second: Card
-        private let third: Card
-        let isSet: Bool
-        var cards: [Card] {
-            [first, second, third]
+        guard cards.count == 3 else {
+            return nil
         }
         
-        // MARK: Initializer
-        
-        init?(first: Card, second: Card, third: Card) {
-            let cards = Set([first, second, third])
-            
-            guard cards.count == 3 else {
-                return nil
-            }
-            
-            self.first = first
-            self.second = second
-            self.third = third
-            self.isSet = Trio.checkIfCardsMatch(
-                first: first,
-                second: second,
-                third: third
-            )
-        }
+        self.first = first
+        self.second = second
+        self.third = third
+        self.isSet = Trio.checkIfCardsMatch(
+            first: first,
+            second: second,
+            third: third
+        )
     }
 }
 
 // MARK: - Contains
 
-extension SetGame.Trio {
-    func contains(_ card: Card) -> Bool {
+extension Trio {
+    func contains(_ card: CardType) -> Bool {
         card == first || card == second || card == third
     }
 }
 
 // MARK: - Matching
 
-private extension SetGame.Trio {
+private extension Trio {
     static func checkIfCardsMatch(
-        first: Card,
-        second: Card,
-        third: Card
+        first: CardType,
+        second: CardType,
+        third: CardType
     ) -> Bool {
         (
-            (first.color == second.color && second.color == third.color) ||
-            (first.color != second.color && second.color != third.color && first.color != third.color)
+            (first.firstFeature == second.firstFeature && second.firstFeature == third.firstFeature) ||
+            (first.firstFeature != second.firstFeature && second.firstFeature != third.firstFeature && first.firstFeature != third.firstFeature)
         ) && (
-            (first.shape == second.shape && second.shape == third.shape) ||
-            (first.shape != second.shape && second.shape != third.shape && first.shape != third.shape)
+            (first.secondFeature == second.secondFeature && second.secondFeature == third.secondFeature) ||
+            (first.secondFeature != second.secondFeature && second.secondFeature != third.secondFeature && first.secondFeature != third.secondFeature)
         ) && (
-            (first.count == second.count && second.count == third.count) ||
-            (first.count != second.count && second.count != third.count && first.count != third.count)
+            (first.thirdFeature == second.thirdFeature && second.thirdFeature == third.thirdFeature) ||
+            (first.thirdFeature != second.thirdFeature && second.thirdFeature != third.thirdFeature && first.thirdFeature != third.thirdFeature)
         ) && (
-            (first.shading == second.shading && second.shading == third.shading) ||
-            (first.shading != second.shading && second.shading != third.shading && first.shading != third.shading)
+            (first.fourthFeature == second.fourthFeature && second.fourthFeature == third.fourthFeature) ||
+            (first.fourthFeature != second.fourthFeature && second.fourthFeature != third.fourthFeature && first.fourthFeature != third.fourthFeature)
         )
     }
 }
