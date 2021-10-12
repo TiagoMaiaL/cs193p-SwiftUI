@@ -6,20 +6,39 @@
 //
 
 import Foundation
+import struct SwiftUI.Color
 
 struct CardViewModel {
     
     // MARK: Properties
     
-    let isSelected: Bool
-    let isMatched: Bool
+    private let card: Card
     
+    var isSelected: Bool { card.isSelected }
+    var isMatched: Bool { card.isMatched }
+    
+//    let color: Color {
+//        switch card.color {
+//        case .first:
+//            return .blue
+//
+//        case .second:
+//            return .red
+//
+//        case .third:
+//            return .green
+//        }
+//    }
+//
+//    let count: Int {
+//
+//    }
+//
     // TODO: Declare the features once we have the game being generic.
     
     // MARK: Initializer
     
     init(_ card: Card) {
-        isSelected = card.isSelected
-        isMatched = card.isMatched
+        self.card = card
     }
 }

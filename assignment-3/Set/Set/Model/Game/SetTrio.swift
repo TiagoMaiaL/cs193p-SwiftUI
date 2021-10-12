@@ -1,5 +1,5 @@
 //
-//  Trio.swift
+//  SetTrio.swift
 //  Set
 //
 //  Created by Tiago Lopes on 29/09/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trio<CardType: SetCard> {
+struct SetTrio<CardType: SetCard> {
     
     // MARK: Properties
     
@@ -31,7 +31,7 @@ struct Trio<CardType: SetCard> {
         self.first = first
         self.second = second
         self.third = third
-        self.isSet = Trio.checkIfCardsMatch(
+        self.isSet = SetTrio.checkIfCardsMatch(
             first: first,
             second: second,
             third: third
@@ -41,7 +41,7 @@ struct Trio<CardType: SetCard> {
 
 // MARK: - Contains
 
-extension Trio {
+extension SetTrio {
     func contains(_ card: CardType) -> Bool {
         card == first || card == second || card == third
     }
@@ -49,7 +49,7 @@ extension Trio {
 
 // MARK: - Matching
 
-private extension Trio {
+private extension SetTrio {
     static func checkIfCardsMatch(
         first: CardType,
         second: CardType,

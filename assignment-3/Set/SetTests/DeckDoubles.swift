@@ -8,7 +8,7 @@
 import Foundation
 @testable import Set
 
-final class MatchingDeck: Deck {
+final class MatchingDeck: SetDeck {
     
     // MARK: Properties
     
@@ -31,7 +31,7 @@ final class MatchingDeck: Deck {
     }
 }
 
-final class NonMatchingDeck: Deck {
+final class NonMatchingDeck: SetDeck {
     
     // MARK: Properties
     

@@ -11,8 +11,8 @@
 		5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */; };
 		5A0FE21827146B58006AB3A8 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21727146B58006AB3A8 /* CardViewModel.swift */; };
 		5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21B27160167006AB3A8 /* SetCard.swift */; };
-		5A55B93C2705436500B5248D /* Trio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93B2705436500B5248D /* Trio.swift */; };
-		5A55B9402705DC0800B5248D /* TrioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93F2705DC0800B5248D /* TrioTests.swift */; };
+		5A55B93C2705436500B5248D /* SetTrio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93B2705436500B5248D /* SetTrio.swift */; };
+		5A55B9402705DC0800B5248D /* SetTrioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93F2705DC0800B5248D /* SetTrioTests.swift */; };
 		5A5650022708844100EDAEEB /* DeckDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5650012708844100EDAEEB /* DeckDoubles.swift */; };
 		5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C13A26FCA94000203751 /* SetGameApp.swift */; };
 		5A66C13F26FCA94500203751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A66C13E26FCA94500203751 /* Assets.xcassets */; };
@@ -20,10 +20,11 @@
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
 		5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* AspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
-		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
-		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
+		5AB1BD3026FEA4E900FA8FDF /* FullDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */; };
+		5AB1BD3226FF7B6B00FA8FDF /* FullDeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */; };
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
 		5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */; };
+		5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +42,8 @@
 		5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
 		5A0FE21727146B58006AB3A8 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		5A0FE21B27160167006AB3A8 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
-		5A55B93B2705436500B5248D /* Trio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trio.swift; sourceTree = "<group>"; };
-		5A55B93F2705DC0800B5248D /* TrioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrioTests.swift; sourceTree = "<group>"; };
+		5A55B93B2705436500B5248D /* SetTrio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrio.swift; sourceTree = "<group>"; };
+		5A55B93F2705DC0800B5248D /* SetTrioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrioTests.swift; sourceTree = "<group>"; };
 		5A5650012708844100EDAEEB /* DeckDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDoubles.swift; sourceTree = "<group>"; };
 		5A66C13726FCA94000203751 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A66C13A26FCA94000203751 /* SetGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameApp.swift; sourceTree = "<group>"; };
@@ -52,10 +53,11 @@
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
-		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
+		5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDeck.swift; sourceTree = "<group>"; };
+		5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDeckTests.swift; sourceTree = "<group>"; };
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
 		5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTests.swift; sourceTree = "<group>"; };
+		5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0FE21D27163439006AB3A8 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5A66C16826FCB65F00203751 /* SetGame.swift */,
+				5A0FE21B27160167006AB3A8 /* SetCard.swift */,
+				5A55B93B2705436500B5248D /* SetTrio.swift */,
+				5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		5A0FE21E2716344D006AB3A8 /* Default Cards */ = {
+			isa = PBXGroup;
+			children = (
+				5A88341126FD339100292F1F /* Card.swift */,
+				5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */,
+			);
+			path = "Default Cards";
+			sourceTree = "<group>";
+		};
 		5A66C12E26FCA94000203751 = {
 			isa = PBXGroup;
 			children = (
@@ -118,9 +140,9 @@
 			children = (
 				5A5650012708844100EDAEEB /* DeckDoubles.swift */,
 				5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */,
-				5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */,
+				5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */,
 				5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */,
-				5A55B93F2705DC0800B5248D /* TrioTests.swift */,
+				5A55B93F2705DC0800B5248D /* SetTrioTests.swift */,
 			);
 			path = SetTests;
 			sourceTree = "<group>";
@@ -148,11 +170,8 @@
 		5A66C16726FCAA0B00203751 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5A66C16826FCB65F00203751 /* SetGame.swift */,
-				5A0FE21B27160167006AB3A8 /* SetCard.swift */,
-				5A88341126FD339100292F1F /* Card.swift */,
-				5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */,
-				5A55B93B2705436500B5248D /* Trio.swift */,
+				5A0FE21D27163439006AB3A8 /* Game */,
+				5A0FE21E2716344D006AB3A8 /* Default Cards */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,8 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
-				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
-				5A55B93C2705436500B5248D /* Trio.swift in Sources */,
+				5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */,
+				5AB1BD3026FEA4E900FA8FDF /* FullDeck.swift in Sources */,
+				5A55B93C2705436500B5248D /* SetTrio.swift in Sources */,
 				5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */,
 				5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */,
 				5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */,
@@ -277,9 +297,9 @@
 			files = (
 				5A5650022708844100EDAEEB /* DeckDoubles.swift in Sources */,
 				5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */,
-				5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */,
+				5AB1BD3226FF7B6B00FA8FDF /* FullDeckTests.swift in Sources */,
 				5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */,
-				5A55B9402705DC0800B5248D /* TrioTests.swift in Sources */,
+				5A55B9402705DC0800B5248D /* SetTrioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

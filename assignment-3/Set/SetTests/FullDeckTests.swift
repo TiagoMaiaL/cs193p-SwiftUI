@@ -1,5 +1,5 @@
 //
-//  DeckTests.swift
+//  FullDeckTests.swift
 //  SetTests
 //
 //  Created by Tiago Lopes on 25/09/21.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Set
 
-class DeckTests: XCTestCase {
+class FullDeckTests: XCTestCase {
     
     // MARK: Constants
     

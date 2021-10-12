@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct SetGame<CardType, DeckType: Deck> where CardType == DeckType.Card {
+struct SetGame<Card, Deck: SetDeck> where Card == Deck.Card {
     
     // MARK: Properties
     
-    private var deck: DeckType
-    private(set) var tableCards = [CardType]()
-    private(set) var matchedCards = Set<CardType>()
+    private var deck: Deck
+    private(set) var tableCards = [Card]()
+    private(set) var matchedCards = Set<Card>()
     
     // MARK: Initializer
     
-    init(deck: DeckType) {
+    init(deck: Deck) {
         self.deck = deck
         let initialCards = self.deck.deal(amount: Constants.initialCardsAmount)
         tableCards.append(contentsOf: initialCards)
@@ -37,7 +37,7 @@ extension SetGame {
 // MARK: - Choosing Cards
 
 extension SetGame {
-    private var selectedTrio: Trio<CardType>? {
+    private var selectedTrio: SetTrio<Card>? {
         get {
             let selectedCards = tableCards.filter { $0.isSelected }
             
@@ -45,9 +45,9 @@ extension SetGame {
                 return nil
             }
             
-            return Trio(first: selectedCards[0],
-                        second: selectedCards[1],
-                        third: selectedCards[2])
+            return SetTrio(first: selectedCards[0],
+                           second: selectedCards[1],
+                           third: selectedCards[2])
         }
         set {
             tableCards
