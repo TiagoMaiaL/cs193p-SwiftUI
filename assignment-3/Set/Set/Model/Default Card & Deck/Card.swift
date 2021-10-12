@@ -91,4 +91,11 @@ extension Card: SetCard {
     var secondFeature: ShapeFeature { shape }
     var thirdFeature: CountFeature { count }
     var fourthFeature: ShadingFeature { shading }
+    
+    init(firstFeature: ColorFeature,
+         secondFeature: ShapeFeature,
+         thirdFeature: CountFeature,
+         fourthFeature: ShadingFeature) {
+        self.init(color: firstFeature, shape: secondFeature, count: thirdFeature, shading: fourthFeature)
+    }
 }

@@ -10,10 +10,22 @@ import Foundation
 // MARK: - SetCard
 
 protocol SetCard: Hashable {
-    associatedtype FirstFeature: Hashable
-    associatedtype SecondFeature: Hashable
-    associatedtype ThirdFeature: Hashable
-    associatedtype FourthFeature: Hashable
+    
+    // MARK: Associated Types
+    
+    associatedtype FirstFeature: Hashable, CaseIterable
+    associatedtype SecondFeature: Hashable, CaseIterable
+    associatedtype ThirdFeature: Hashable, CaseIterable
+    associatedtype FourthFeature: Hashable, CaseIterable
+    
+    // MARK: Initializer
+    
+    init(firstFeature: FirstFeature,
+         secondFeature: SecondFeature,
+         thirdFeature: ThirdFeature,
+         fourthFeature: FourthFeature)
+    
+    // MARK: Properties
     
     var isSelected: Bool { get set }
     var isMatched: Bool { get set }

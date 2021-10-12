@@ -1,5 +1,5 @@
 //
-//  FullDeckTests.swift
+//  DeckTests.swift
 //  SetTests
 //
 //  Created by Tiago Lopes on 25/09/21.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Set
 
-class FullDeckTests: XCTestCase {
+class DeckTests: XCTestCase {
     
     // MARK: Constants
     
@@ -18,7 +18,7 @@ class FullDeckTests: XCTestCase {
 
     func testCreation() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         
         // Then
         XCTAssertEqual(deck.count, totalCardsCount)
@@ -29,7 +29,7 @@ class FullDeckTests: XCTestCase {
     
     func testDefaultDealing() {
         // Given
-        var deck = FullDeck()
+        var deck = Deck()
         
         // When
         let dealtCards = deck.deal()
@@ -42,7 +42,7 @@ class FullDeckTests: XCTestCase {
     
     func testDealingAnyAmountOfCards() {
         // Given
-        var deck = FullDeck()
+        var deck = Deck()
         let amountToDeal = 12
         
         // When
@@ -55,7 +55,7 @@ class FullDeckTests: XCTestCase {
     
     func testDealingReturnsNoCardsIfDeckIsEmpty() {
         // Given
-        var deck = FullDeck()
+        var deck = Deck()
         
         // When
         _ = deck.deal(amount: totalCardsCount)
@@ -68,7 +68,7 @@ class FullDeckTests: XCTestCase {
     
     func testDealingReturnsAllLeftOverCards() {
         // Given
-        var deck = FullDeck()
+        var deck = Deck()
         
         // When
         _ = deck.deal(amount: totalCardsCount - 2)
@@ -83,7 +83,7 @@ class FullDeckTests: XCTestCase {
     
     func testDeckStartsNonEmpty() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         
         // Then
         XCTAssertFalse(deck.isEmpty)
@@ -91,7 +91,7 @@ class FullDeckTests: XCTestCase {
     
     func testDeckGetsEmptyAfterDealingAllCards() {
         // Given
-        var deck = FullDeck()
+        var deck = Deck()
         
         // When
         _ = deck.deal(amount: totalCardsCount)

@@ -20,8 +20,8 @@
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
 		5A88341026FD329A00292F1F /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* AspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
-		5AB1BD3026FEA4E900FA8FDF /* FullDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */; };
-		5AB1BD3226FF7B6B00FA8FDF /* FullDeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */; };
+		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
+		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
 		5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */; };
 		5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */; };
@@ -53,8 +53,8 @@
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDeck.swift; sourceTree = "<group>"; };
-		5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDeckTests.swift; sourceTree = "<group>"; };
+		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
 		5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTests.swift; sourceTree = "<group>"; };
 		5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
@@ -89,13 +89,13 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		5A0FE21E2716344D006AB3A8 /* Default Cards */ = {
+		5A0FE21E2716344D006AB3A8 /* Default Card & Deck */ = {
 			isa = PBXGroup;
 			children = (
 				5A88341126FD339100292F1F /* Card.swift */,
-				5AB1BD2F26FEA4E900FA8FDF /* FullDeck.swift */,
+				5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */,
 			);
-			path = "Default Cards";
+			path = "Default Card & Deck";
 			sourceTree = "<group>";
 		};
 		5A66C12E26FCA94000203751 = {
@@ -140,7 +140,7 @@
 			children = (
 				5A5650012708844100EDAEEB /* DeckDoubles.swift */,
 				5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */,
-				5AB1BD3126FF7B6B00FA8FDF /* FullDeckTests.swift */,
+				5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */,
 				5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */,
 				5A55B93F2705DC0800B5248D /* SetTrioTests.swift */,
 			);
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0FE21D27163439006AB3A8 /* Game */,
-				5A0FE21E2716344D006AB3A8 /* Default Cards */,
+				5A0FE21E2716344D006AB3A8 /* Default Card & Deck */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 			files = (
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
 				5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */,
-				5AB1BD3026FEA4E900FA8FDF /* FullDeck.swift in Sources */,
+				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
 				5A55B93C2705436500B5248D /* SetTrio.swift in Sources */,
 				5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */,
 				5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */,
@@ -297,7 +297,7 @@
 			files = (
 				5A5650022708844100EDAEEB /* DeckDoubles.swift in Sources */,
 				5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */,
-				5AB1BD3226FF7B6B00FA8FDF /* FullDeckTests.swift in Sources */,
+				5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */,
 				5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */,
 				5A55B9402705DC0800B5248D /* SetTrioTests.swift in Sources */,
 			);

@@ -17,7 +17,7 @@ class SetGameTests: XCTestCase {
     func testItStartsWithTwelveCardsOnTheTable() {
         // Given
         let initialCardsAmount = 12
-        let deck = FullDeck()
+        let deck = Deck()
         
         // When
         let game = SetGame(deck: deck)
@@ -32,7 +32,7 @@ class SetGameTests: XCTestCase {
         // Given
         let initialCardsAmount = 12
         let dealtCardsCount = 3
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -46,7 +46,7 @@ class SetGameTests: XCTestCase {
     
     func testItSelectsACardWhenTheUserChoosesOne() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -59,7 +59,7 @@ class SetGameTests: XCTestCase {
     
     func testItAllowsDeselection() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -73,7 +73,7 @@ class SetGameTests: XCTestCase {
     
     func testItAllowsTwoCardsToBeChosen() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -89,7 +89,7 @@ class SetGameTests: XCTestCase {
     
     func testItAllowsDeselectingTwoCards() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -107,7 +107,7 @@ class SetGameTests: XCTestCase {
     
     func testItAllowsDeselectingOneOfTheCardsAfterTwoAreChosen() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
@@ -124,7 +124,7 @@ class SetGameTests: XCTestCase {
     
     func testItAllowsSelectingThreeCardsAtTheSameTime() {
         // Given
-        let deck = FullDeck()
+        let deck = Deck()
         var game = SetGame(deck: deck)
         
         // When
