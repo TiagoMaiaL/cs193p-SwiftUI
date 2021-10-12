@@ -9,7 +9,7 @@ import Foundation
 @testable import Set
 
 enum DeckConstants {
-    /// The hard-coded cards of a SetGame.
+    /// The hard-coded cards of a
     ///
     /// Used only for testing the deck creation algorithm.
     static let cards = Set([
@@ -25,21 +25,21 @@ enum DeckConstants {
         //
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .first, count: .one, shading: .first),
-        SetGame.Card(color: .first, shape: .first, count: .one, shading: .second),
-        SetGame.Card(color: .first, shape: .first, count: .one, shading: .third),
+        Card(color: .first, shape: .first, count: .one, shading: .first),
+        Card(color: .first, shape: .first, count: .one, shading: .second),
+        Card(color: .first, shape: .first, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .first, count: .two, shading: .first),
-        SetGame.Card(color: .first, shape: .first, count: .two, shading: .second),
-        SetGame.Card(color: .first, shape: .first, count: .two, shading: .third),
+        Card(color: .first, shape: .first, count: .two, shading: .first),
+        Card(color: .first, shape: .first, count: .two, shading: .second),
+        Card(color: .first, shape: .first, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .first, count: .three, shading: .first),
-        SetGame.Card(color: .first, shape: .first, count: .three, shading: .second),
-        SetGame.Card(color: .first, shape: .first, count: .three, shading: .third),
+        Card(color: .first, shape: .first, count: .three, shading: .first),
+        Card(color: .first, shape: .first, count: .three, shading: .second),
+        Card(color: .first, shape: .first, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .second
@@ -47,21 +47,21 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .second, count: .one, shading: .first),
-        SetGame.Card(color: .first, shape: .second, count: .one, shading: .second),
-        SetGame.Card(color: .first, shape: .second, count: .one, shading: .third),
+        Card(color: .first, shape: .second, count: .one, shading: .first),
+        Card(color: .first, shape: .second, count: .one, shading: .second),
+        Card(color: .first, shape: .second, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .second, count: .two, shading: .first),
-        SetGame.Card(color: .first, shape: .second, count: .two, shading: .second),
-        SetGame.Card(color: .first, shape: .second, count: .two, shading: .third),
+        Card(color: .first, shape: .second, count: .two, shading: .first),
+        Card(color: .first, shape: .second, count: .two, shading: .second),
+        Card(color: .first, shape: .second, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .second, count: .three, shading: .first),
-        SetGame.Card(color: .first, shape: .second, count: .three, shading: .second),
-        SetGame.Card(color: .first, shape: .second, count: .three, shading: .third),
+        Card(color: .first, shape: .second, count: .three, shading: .first),
+        Card(color: .first, shape: .second, count: .three, shading: .second),
+        Card(color: .first, shape: .second, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .third
@@ -69,21 +69,21 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .third, count: .one, shading: .first),
-        SetGame.Card(color: .first, shape: .third, count: .one, shading: .second),
-        SetGame.Card(color: .first, shape: .third, count: .one, shading: .third),
+        Card(color: .first, shape: .third, count: .one, shading: .first),
+        Card(color: .first, shape: .third, count: .one, shading: .second),
+        Card(color: .first, shape: .third, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .third, count: .two, shading: .first),
-        SetGame.Card(color: .first, shape: .third, count: .two, shading: .second),
-        SetGame.Card(color: .first, shape: .third, count: .two, shading: .third),
+        Card(color: .first, shape: .third, count: .two, shading: .first),
+        Card(color: .first, shape: .third, count: .two, shading: .second),
+        Card(color: .first, shape: .third, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .first, shape: .third, count: .three, shading: .first),
-        SetGame.Card(color: .first, shape: .third, count: .three, shading: .second),
-        SetGame.Card(color: .first, shape: .third, count: .three, shading: .third),
+        Card(color: .first, shape: .third, count: .three, shading: .first),
+        Card(color: .first, shape: .third, count: .three, shading: .second),
+        Card(color: .first, shape: .third, count: .three, shading: .third),
         
         // =============
         //
@@ -97,21 +97,21 @@ enum DeckConstants {
         //
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .first, count: .one, shading: .first),
-        SetGame.Card(color: .second, shape: .first, count: .one, shading: .second),
-        SetGame.Card(color: .second, shape: .first, count: .one, shading: .third),
+        Card(color: .second, shape: .first, count: .one, shading: .first),
+        Card(color: .second, shape: .first, count: .one, shading: .second),
+        Card(color: .second, shape: .first, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .first, count: .two, shading: .first),
-        SetGame.Card(color: .second, shape: .first, count: .two, shading: .second),
-        SetGame.Card(color: .second, shape: .first, count: .two, shading: .third),
+        Card(color: .second, shape: .first, count: .two, shading: .first),
+        Card(color: .second, shape: .first, count: .two, shading: .second),
+        Card(color: .second, shape: .first, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .first, count: .three, shading: .first),
-        SetGame.Card(color: .second, shape: .first, count: .three, shading: .second),
-        SetGame.Card(color: .second, shape: .first, count: .three, shading: .third),
+        Card(color: .second, shape: .first, count: .three, shading: .first),
+        Card(color: .second, shape: .first, count: .three, shading: .second),
+        Card(color: .second, shape: .first, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .second
@@ -119,21 +119,21 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .second, count: .one, shading: .first),
-        SetGame.Card(color: .second, shape: .second, count: .one, shading: .second),
-        SetGame.Card(color: .second, shape: .second, count: .one, shading: .third),
+        Card(color: .second, shape: .second, count: .one, shading: .first),
+        Card(color: .second, shape: .second, count: .one, shading: .second),
+        Card(color: .second, shape: .second, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .second, count: .two, shading: .first),
-        SetGame.Card(color: .second, shape: .second, count: .two, shading: .second),
-        SetGame.Card(color: .second, shape: .second, count: .two, shading: .third),
+        Card(color: .second, shape: .second, count: .two, shading: .first),
+        Card(color: .second, shape: .second, count: .two, shading: .second),
+        Card(color: .second, shape: .second, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .second, count: .three, shading: .first),
-        SetGame.Card(color: .second, shape: .second, count: .three, shading: .second),
-        SetGame.Card(color: .second, shape: .second, count: .three, shading: .third),
+        Card(color: .second, shape: .second, count: .three, shading: .first),
+        Card(color: .second, shape: .second, count: .three, shading: .second),
+        Card(color: .second, shape: .second, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .third
@@ -141,21 +141,21 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .third, count: .one, shading: .first),
-        SetGame.Card(color: .second, shape: .third, count: .one, shading: .second),
-        SetGame.Card(color: .second, shape: .third, count: .one, shading: .third),
+        Card(color: .second, shape: .third, count: .one, shading: .first),
+        Card(color: .second, shape: .third, count: .one, shading: .second),
+        Card(color: .second, shape: .third, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .third, count: .two, shading: .first),
-        SetGame.Card(color: .second, shape: .third, count: .two, shading: .second),
-        SetGame.Card(color: .second, shape: .third, count: .two, shading: .third),
+        Card(color: .second, shape: .third, count: .two, shading: .first),
+        Card(color: .second, shape: .third, count: .two, shading: .second),
+        Card(color: .second, shape: .third, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .second, shape: .third, count: .three, shading: .first),
-        SetGame.Card(color: .second, shape: .third, count: .three, shading: .second),
-        SetGame.Card(color: .second, shape: .third, count: .three, shading: .third),
+        Card(color: .second, shape: .third, count: .three, shading: .first),
+        Card(color: .second, shape: .third, count: .three, shading: .second),
+        Card(color: .second, shape: .third, count: .three, shading: .third),
 
         // =============
         //
@@ -169,21 +169,21 @@ enum DeckConstants {
         //
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .first, count: .one, shading: .first),
-        SetGame.Card(color: .third, shape: .first, count: .one, shading: .second),
-        SetGame.Card(color: .third, shape: .first, count: .one, shading: .third),
+        Card(color: .third, shape: .first, count: .one, shading: .first),
+        Card(color: .third, shape: .first, count: .one, shading: .second),
+        Card(color: .third, shape: .first, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .first, count: .two, shading: .first),
-        SetGame.Card(color: .third, shape: .first, count: .two, shading: .second),
-        SetGame.Card(color: .third, shape: .first, count: .two, shading: .third),
+        Card(color: .third, shape: .first, count: .two, shading: .first),
+        Card(color: .third, shape: .first, count: .two, shading: .second),
+        Card(color: .third, shape: .first, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .first, count: .three, shading: .first),
-        SetGame.Card(color: .third, shape: .first, count: .three, shading: .second),
-        SetGame.Card(color: .third, shape: .first, count: .three, shading: .third),
+        Card(color: .third, shape: .first, count: .three, shading: .first),
+        Card(color: .third, shape: .first, count: .three, shading: .second),
+        Card(color: .third, shape: .first, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .second
@@ -191,21 +191,21 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .second, count: .one, shading: .first),
-        SetGame.Card(color: .third, shape: .second, count: .one, shading: .second),
-        SetGame.Card(color: .third, shape: .second, count: .one, shading: .third),
+        Card(color: .third, shape: .second, count: .one, shading: .first),
+        Card(color: .third, shape: .second, count: .one, shading: .second),
+        Card(color: .third, shape: .second, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .second, count: .two, shading: .first),
-        SetGame.Card(color: .third, shape: .second, count: .two, shading: .second),
-        SetGame.Card(color: .third, shape: .second, count: .two, shading: .third),
+        Card(color: .third, shape: .second, count: .two, shading: .first),
+        Card(color: .third, shape: .second, count: .two, shading: .second),
+        Card(color: .third, shape: .second, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .second, count: .three, shading: .first),
-        SetGame.Card(color: .third, shape: .second, count: .three, shading: .second),
-        SetGame.Card(color: .third, shape: .second, count: .three, shading: .third),
+        Card(color: .third, shape: .second, count: .three, shading: .first),
+        Card(color: .third, shape: .second, count: .three, shading: .second),
+        Card(color: .third, shape: .second, count: .three, shading: .third),
         
         // ------------
         // ShapeFeature: .third
@@ -213,20 +213,20 @@ enum DeckConstants {
         
         // CountFeature: .one, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .third, count: .one, shading: .first),
-        SetGame.Card(color: .third, shape: .third, count: .one, shading: .second),
-        SetGame.Card(color: .third, shape: .third, count: .one, shading: .third),
+        Card(color: .third, shape: .third, count: .one, shading: .first),
+        Card(color: .third, shape: .third, count: .one, shading: .second),
+        Card(color: .third, shape: .third, count: .one, shading: .third),
         
         // CountFeature: .two, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .third, count: .two, shading: .first),
-        SetGame.Card(color: .third, shape: .third, count: .two, shading: .second),
-        SetGame.Card(color: .third, shape: .third, count: .two, shading: .third),
+        Card(color: .third, shape: .third, count: .two, shading: .first),
+        Card(color: .third, shape: .third, count: .two, shading: .second),
+        Card(color: .third, shape: .third, count: .two, shading: .third),
         
         // CountFeature: .three, ShadingFeature: all
         
-        SetGame.Card(color: .third, shape: .third, count: .three, shading: .first),
-        SetGame.Card(color: .third, shape: .third, count: .three, shading: .second),
-        SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        Card(color: .third, shape: .third, count: .three, shading: .first),
+        Card(color: .third, shape: .third, count: .three, shading: .second),
+        Card(color: .third, shape: .third, count: .three, shading: .third)
     ])
 }

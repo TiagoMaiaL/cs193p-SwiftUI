@@ -215,7 +215,7 @@ class SetGameTests: XCTestCase {
         let deck = MatchingDeck()
         var game = SetGame(deck: deck)
         
-        let cardToBeDealt = SetGame.Card(
+        let cardToBeDealt = Card(
             color: .third,
             shape: .first,
             count: .two,
@@ -239,7 +239,7 @@ class SetGameTests: XCTestCase {
         let deck = NonMatchingDeck()
         var game = SetGame(deck: deck)
         
-        let extraCard = SetGame.Card(
+        let extraCard = Card(
             color: .third,
             shape: .first,
             count: .two,
@@ -263,7 +263,7 @@ class SetGameTests: XCTestCase {
         // Given
         let deck = MatchingDeck()
         let matchingCards = Array(deck._cards)
-        let fourthCard = SetGame.Card(
+        let fourthCard = Card(
             color: .third,
             shape: .first,
             count: .two,
@@ -293,7 +293,7 @@ class SetGameTests: XCTestCase {
         // Given
         let deck = NonMatchingDeck()
         let nonMatchingCards = Array(deck._cards)
-        let fourthCard = SetGame.Card(
+        let fourthCard = Card(
             color: .third,
             shape: .first,
             count: .two,
@@ -342,7 +342,7 @@ class SetGameTests: XCTestCase {
         // Given
         let deck = NonMatchingDeck()
         let nonMatchingCards = Array(deck._cards)
-        let fourthCard = SetGame.Card(
+        let fourthCard = Card(
             color: .third,
             shape: .first,
             count: .two,

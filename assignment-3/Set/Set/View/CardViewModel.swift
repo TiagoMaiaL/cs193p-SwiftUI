@@ -18,7 +18,7 @@ struct CardViewModel {
     
     // MARK: Initializer
     
-    init(_ card: SetGame.Card) {
+    init(_ card: Card) {
         isSelected = card.isSelected
         isMatched = card.isMatched
     }

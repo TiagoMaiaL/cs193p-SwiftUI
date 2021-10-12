@@ -44,7 +44,7 @@ extension SetGame {
 // MARK: - Contains
 
 extension SetGame.Trio {
-    func contains(_ card: SetGame.Card) -> Bool {
+    func contains(_ card: Card) -> Bool {
         card == first || card == second || card == third
     }
 }
@@ -53,9 +53,9 @@ extension SetGame.Trio {
 
 private extension SetGame.Trio {
     static func checkIfCardsMatch(
-        first: SetGame.Card,
-        second: SetGame.Card,
-        third: SetGame.Card
+        first: Card,
+        second: Card,
+        third: Card
     ) -> Bool {
         (
             (first.color == second.color && second.color == third.color) ||

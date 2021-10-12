@@ -14,9 +14,9 @@ class TrioTests: XCTestCase {
     
     func testTrioInitializesCorrectly() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         // When
         let trio = SetGame.Trio(first: first, second: second, third: third)
@@ -27,9 +27,9 @@ class TrioTests: XCTestCase {
     
     func testTrioDoesNotInitializeBecauseSomeCardsAreEqual() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         // When
         let trio = SetGame.Trio(first: first, second: second, third: third)
@@ -42,9 +42,9 @@ class TrioTests: XCTestCase {
     
     func testTrioContainsCard() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -54,13 +54,13 @@ class TrioTests: XCTestCase {
     
     func testTrioDoesNotContainCard() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
-        let fourth = SetGame.Card(color: .first, shape: .second, count: .one, shading: .first)
+        let fourth = Card(color: .first, shape: .second, count: .one, shading: .first)
         
         // Then
         XCTAssertFalse(trio?.contains(fourth) ?? true)
@@ -70,9 +70,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithDifferentColors() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .one, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .one, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .one, shading: .first)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -82,9 +82,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithEqualColorsAndDifferentShapes() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .first, shape: .second, count: .one, shading: .first)
-        let third = SetGame.Card(color: .first, shape: .third, count: .one, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .first, shape: .second, count: .one, shading: .first)
+        let third = Card(color: .first, shape: .third, count: .one, shading: .first)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -94,9 +94,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithDifferentCounts() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .first)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .two, shading: .first)
+        let third = Card(color: .third, shape: .first, count: .three, shading: .first)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -106,9 +106,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithDifferentShadings() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .second)
-        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .third)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .two, shading: .second)
+        let third = Card(color: .third, shape: .first, count: .three, shading: .third)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -118,9 +118,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithTotallyDifferentFeatures() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .second)
-        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .second, count: .two, shading: .second)
+        let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -130,9 +130,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithWrongColors() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .first, shape: .first, count: .two, shading: .second)
-        let third = SetGame.Card(color: .third, shape: .first, count: .three, shading: .third)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .first, shape: .first, count: .two, shading: .second)
+        let third = Card(color: .third, shape: .first, count: .three, shading: .third)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -142,9 +142,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithWrongShapes() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .first, count: .two, shading: .second)
-        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .first, count: .two, shading: .second)
+        let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -154,9 +154,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithWrongCounts() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .two, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .second)
-        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .third)
+        let first = Card(color: .first, shape: .first, count: .two, shading: .first)
+        let second = Card(color: .second, shape: .second, count: .two, shading: .second)
+        let third = Card(color: .third, shape: .third, count: .three, shading: .third)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         
@@ -166,9 +166,9 @@ class TrioTests: XCTestCase {
     
     func testMatchingASetWithWrongShadings() {
         // Given
-        let first = SetGame.Card(color: .first, shape: .first, count: .one, shading: .first)
-        let second = SetGame.Card(color: .second, shape: .second, count: .two, shading: .first)
-        let third = SetGame.Card(color: .third, shape: .third, count: .three, shading: .second)
+        let first = Card(color: .first, shape: .first, count: .one, shading: .first)
+        let second = Card(color: .second, shape: .second, count: .two, shading: .first)
+        let third = Card(color: .third, shape: .third, count: .three, shading: .second)
         
         let trio = SetGame.Trio(first: first, second: second, third: third)
         

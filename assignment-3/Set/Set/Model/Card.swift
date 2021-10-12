@@ -9,38 +9,36 @@ import Foundation
 
 // MARK: - Card
 
-extension SetGame {
-    struct Card {
-        
-        // MARK: Properties
-        
-        var isSelected = false
-        var isMatched = false
-        
-        let color: ColorFeature
-        let shape: ShapeFeature
-        let count: CountFeature
-        let shading: ShadingFeature
-        
-        // MARK: Initializer
-        
-        init(
-            color: ColorFeature,
-            shape: ShapeFeature,
-            count: CountFeature,
-            shading: ShadingFeature
-        ) {
-            self.color = color
-            self.shape = shape
-            self.count = count
-            self.shading = shading
-        }
+struct Card {
+    
+    // MARK: Properties
+    
+    var isSelected = false
+    var isMatched = false
+    
+    let color: ColorFeature
+    let shape: ShapeFeature
+    let count: CountFeature
+    let shading: ShadingFeature
+    
+    // MARK: Initializer
+    
+    init(
+        color: ColorFeature,
+        shape: ShapeFeature,
+        count: CountFeature,
+        shading: ShadingFeature
+    ) {
+        self.color = color
+        self.shape = shape
+        self.count = count
+        self.shading = shading
     }
 }
 
 // MARK: - Card Feature
 
-extension SetGame.Card {
+extension Card {
     enum ColorFeature: CaseIterable {
         case first
         case second
@@ -68,7 +66,7 @@ extension SetGame.Card {
 
 // MARK: - Hashable & Equatable
 
-extension SetGame.Card: Hashable {
+extension Card: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(color)
         hasher.combine(shape)

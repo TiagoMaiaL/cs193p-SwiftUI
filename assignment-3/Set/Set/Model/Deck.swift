@@ -16,14 +16,14 @@ protocol Deck {
     /// The internal cards in a deck.
     /// - Note: Intended to be used internally only. This property is declared here
     ///         to enable the default `deal()` implementations.
-    var _cards: Set<SetGame.Card> { get set }
+    var _cards: Set<Card> { get set }
     var count: Int { get }
     var isEmpty: Bool { get }
     
     // MARK: Methods
     
-    mutating func deal(amount: Int) -> [SetGame.Card]
-    mutating func deal() -> [SetGame.Card]
+    mutating func deal(amount: Int) -> [Card]
+    mutating func deal() -> [Card]
 }
 
 // MARK: - Default Implementations
@@ -34,7 +34,7 @@ extension Deck {
 }
 
 extension Deck {
-    mutating func deal(amount: Int) -> [SetGame.Card] {
+    mutating func deal(amount: Int) -> [Card] {
         guard !_cards.isEmpty else {
             return []
         }
@@ -44,7 +44,7 @@ extension Deck {
     }
     
     // Protocols don't allow default arguments. That's why we need an extra method.
-    mutating func deal() -> [SetGame.Card] {
+    mutating func deal() -> [Card] {
         deal(amount: 3)
     }
 }
@@ -56,7 +56,7 @@ extension SetGame {
         
         // MARK: Properties
         
-        var _cards: Set<SetGame.Card>
+        var _cards: Set<Card>
         
         // MARK: Initializer
         
@@ -69,11 +69,10 @@ extension SetGame {
 // MARK: - Cards generation
 
 private extension SetGame.FullDeck {
-    typealias Card = SetGame.Card
-    typealias ColorFeature = SetGame.Card.ColorFeature
-    typealias ShapeFeature = SetGame.Card.ShapeFeature
-    typealias CountFeature = SetGame.Card.CountFeature
-    typealias ShadingFeature = SetGame.Card.ShadingFeature
+    typealias ColorFeature = Card.ColorFeature
+    typealias ShapeFeature = Card.ShapeFeature
+    typealias CountFeature = Card.CountFeature
+    typealias ShadingFeature = Card.ShadingFeature
     
     private static func makeCards() -> [Card] {
         ColorFeature
