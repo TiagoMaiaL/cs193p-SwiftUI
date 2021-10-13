@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct SetGame<Card, Deck: SetDeck> where Card == Deck.Card {
+struct SetGame<Deck: SetDeck> {
     
     // MARK: Properties
     
     private var deck: Deck
-    private(set) var tableCards = [Card]()
-    private(set) var matchedCards = Set<Card>()
+    private(set) var tableCards = [Deck.Card]()
+    private(set) var matchedCards = Set<Deck.Card>()
     
     // MARK: Initializer
     
@@ -37,7 +37,7 @@ extension SetGame {
 // MARK: - Choosing Cards
 
 extension SetGame {
-    private var selectedTrio: SetTrio<Card>? {
+    private var selectedTrio: SetTrio<Deck.Card>? {
         get {
             let selectedCards = tableCards.filter { $0.isSelected }
             
