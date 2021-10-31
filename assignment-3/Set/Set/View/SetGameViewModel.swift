@@ -13,8 +13,10 @@ final class SetGameViewModel {
     
     private lazy var game = SetGame(deck: Deck())
     
-    // TODO: Add a method to start a new game.
-    // TODO: Add the cards property, which will return an array of cardViewModels.
+    var cards: [SetCardViewModel] {
+        game.tableCards
+            .map(SetCardViewModel.init)
+    }
     
     // MARK: Imperatives
     
