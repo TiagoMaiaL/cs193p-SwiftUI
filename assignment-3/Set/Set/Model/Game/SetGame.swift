@@ -31,6 +31,10 @@ extension SetGame {
     mutating func deal() {
         let cards = deck.deal()
         tableCards.append(contentsOf: cards)
+        
+        if let trio = selectedTrio, trio.isSet {
+            removeMatchedCardsFromTable()
+        }
     }
 }
 

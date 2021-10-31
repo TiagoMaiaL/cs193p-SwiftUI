@@ -372,4 +372,30 @@ class SetGameTests: XCTestCase {
         
         XCTAssertTrue(game.tableCards[fourthCardIndex].isSelected)
     }
+    
+    // MARK: Matching then dealing
+    
+    func testThatMatchedCardsAreRemovedWhenTheUserDealsImmediatelyAfter() {
+        // Given
+        let deck = MatchingDeck()
+        var game = SetGame(deck: deck)
+        let fourthCard = Card(
+            color: .third,
+            shape: .first,
+            count: .two,
+            shading: .second
+        )
+        deck.insert(fourthCard)
+        
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // When
+        game.deal()
+        
+        // Then
+        XCTAssertEqual(game.tableCards, [fourthCard])
+        XCTAssertEqual(game.matchedCards.count, 3)
+    }
 }
