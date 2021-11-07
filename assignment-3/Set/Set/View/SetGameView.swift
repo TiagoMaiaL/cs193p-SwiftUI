@@ -13,6 +13,9 @@ struct SetGameView: View {
     
     // MARK: Properties
     
+    @StateObject
+    var game = SetGameViewModel()
+    
     // MARK: Body
     
     var body: some View {

@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Combine
 
-final class SetGameViewModel {
+final class SetGameViewModel: ObservableObject {
     
     // MARK: Properties
     
-    private lazy var game = SetGame(deck: Deck())
+    @Published
+    private var game = SetGame(deck: Deck())
     
     var cards: [SetCardViewModel] {
         game.tableCards
