@@ -85,6 +85,21 @@ enum Shape {
     case diamond
 }
 
+extension Shape: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .oval:
+            return "Oval"
+            
+        case .squiggle:
+            return "Squiggle"
+            
+        case .diamond:
+            return "Diamond"
+        }
+    }
+}
+
 // TODO: Move the Shading enum to its appropriate file.
 enum Shading {
     case solid
@@ -92,3 +107,17 @@ enum Shading {
     case stroked
 }
 
+extension Shading: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .solid:
+            return "Solid"
+            
+        case .striped:
+            return "Striped"
+            
+        case .stroked:
+            return "Stroked"
+        }
+    }
+}
