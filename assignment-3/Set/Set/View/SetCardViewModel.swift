@@ -14,6 +14,8 @@ struct SetCardViewModel {
     
     private let card: Card
     
+    var id: UUID { card.id }
+    
     var isSelected: Bool { card.isSelected }
     var isMatched: Bool { card.isMatched }
     

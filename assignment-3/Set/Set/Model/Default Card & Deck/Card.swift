@@ -13,8 +13,10 @@ struct Card {
     
     // MARK: Properties
     
-    var isSelected = false
-    var isMatched = false
+    private let _id = UUID()
+    
+    var _isSelected = false
+    var _isMatched = false
     
     let color: ColorFeature
     let shape: ShapeFeature
@@ -87,6 +89,21 @@ extension Card: Hashable {
 // MARK: - SetCard Conformance
 
 extension Card: SetCard {
+    
+    var id: UUID {
+        _id
+    }
+    
+    var isSelected: Bool {
+        get { _isSelected }
+        set { _isSelected = newValue }
+    }
+    
+    var isMatched: Bool {
+        get { _isMatched }
+        set { _isMatched = newValue }
+    }
+    
     var firstFeature: ColorFeature { color }
     var secondFeature: ShapeFeature { shape }
     var thirdFeature: CountFeature { count }

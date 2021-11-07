@@ -24,7 +24,12 @@ final class SetGameViewModel {
         game = SetGame(deck: Deck())
     }
     
-    // TODO: Add a method to choose a card.
+    func choose(card: SetCardViewModel) {
+        guard let index = game.tableCards.firstIndex(where: { $0.id == card.id }) else {
+            return
+        }
+        game.chooseCard(atIndex: index)
+    }
     
     func deal() {
         game.deal()

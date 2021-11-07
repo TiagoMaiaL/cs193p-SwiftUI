@@ -13,6 +13,7 @@ protocol SetCard: Hashable {
     
     // MARK: Associated Types
     
+    associatedtype ID: Hashable
     associatedtype FirstFeature: Hashable, CaseIterable
     associatedtype SecondFeature: Hashable, CaseIterable
     associatedtype ThirdFeature: Hashable, CaseIterable
@@ -26,6 +27,8 @@ protocol SetCard: Hashable {
          fourthFeature: FourthFeature)
     
     // MARK: Properties
+    
+    var id: ID { get }
     
     var isSelected: Bool { get set }
     var isMatched: Bool { get set }
