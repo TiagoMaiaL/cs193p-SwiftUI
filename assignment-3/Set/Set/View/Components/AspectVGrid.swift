@@ -8,16 +8,25 @@
 
 import SwiftUI
 
+// MARK: - View
+
 struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable {
+    
+    // MARK: Properties
+    
     var items: [Item]
     var aspectRatio: CGFloat
     var content: (Item) -> ItemView
+    
+    // MARK: Initializer
     
     init(items: [Item], aspectRatio: CGFloat, @ViewBuilder content: @escaping (Item) -> ItemView) {
         self.items = items
         self.aspectRatio = aspectRatio
         self.content = content
     }
+    
+    // MARK: Body
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,6 +41,8 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
             }
         }
     }
+    
+    // MARK: Internal methods
     
     private func adaptiveGridItem(width: CGFloat) -> GridItem {
         var gridItem = GridItem(.adaptive(minimum: width))
@@ -58,9 +69,24 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
     }
 }
 
-// TODO: Provide the preview.
-//struct AspectVGrid_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AspectVGrid()
-//    }
-//}
+// MARK: - Preview
+
+struct AspectVGrid_Previews: PreviewProvider {
+    static var previews: some View {
+        let items = [
+            Card(color: .first, shape: .first, count: .one, shading: .first),
+            Card(color: .second, shape: .first, count: .one, shading: .first),
+            Card(color: .third, shape: .first, count: .one, shading: .first)
+        ].map(SetCardViewModel.init)
+        
+         return AspectVGrid(items: items, aspectRatio: 3/4) { card in
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(lineWidth: 2)
+                
+                Text("\(card.color.description)")
+                    .foregroundColor(card.color)
+            }
+         }.padding()
+    }
+}
