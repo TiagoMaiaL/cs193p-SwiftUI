@@ -19,7 +19,13 @@ struct SetGameView: View {
     // MARK: Body
     
     var body: some View {
-        EmptyView()
+        AspectVGrid(
+            items: game.cards,
+            aspectRatio: 3/4
+        ) { card in
+            SetCardView(viewModel: card)
+        }
+        .padding()
     }
 }
 

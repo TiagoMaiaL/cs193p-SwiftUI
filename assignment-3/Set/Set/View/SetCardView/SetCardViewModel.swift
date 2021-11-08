@@ -14,7 +14,7 @@ struct SetCardViewModel {
     
     private let card: Card
     
-    var id: UUID { card.id }
+    private var _id: UUID { card.id }
     
     var isSelected: Bool { card.isSelected }
     var isMatched: Bool { card.isMatched }
@@ -120,4 +120,10 @@ extension Shading: CustomStringConvertible {
             return "Stroked"
         }
     }
+}
+
+// MARK: - Identifiable
+
+extension SetCardViewModel: Identifiable {
+    var id: UUID { _id }
 }
