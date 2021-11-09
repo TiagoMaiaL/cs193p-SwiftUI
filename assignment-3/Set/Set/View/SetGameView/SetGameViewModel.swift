@@ -26,7 +26,7 @@ final class SetGameViewModel: ObservableObject {
         game = SetGame(deck: Deck())
     }
     
-    func choose(card: SetCardViewModel) {
+    func choose(_ card: SetCardViewModel) {
         guard let index = game.tableCards.firstIndex(where: { $0.id == card.id }) else {
             return
         }

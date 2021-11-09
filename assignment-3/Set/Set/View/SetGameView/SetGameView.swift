@@ -24,6 +24,9 @@ struct SetGameView: View {
             aspectRatio: 3/4
         ) { card in
             SetCardView(viewModel: card)
+                .onTapGesture {
+                    game.choose(card)
+                }
         }
         .padding()
     }

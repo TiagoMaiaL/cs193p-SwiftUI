@@ -32,8 +32,14 @@ struct SetCardView: View {
     }
     
     private var background: some View {
-        RoundedRectangle(cornerRadius: 5)
-            .stroke(lineWidth: 2)
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .foregroundColor(viewModel.isSelected ? .gray.opacity(0.5) : .clear)
+            
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(lineWidth: 2)
+        }
+        
     }
 }
 
