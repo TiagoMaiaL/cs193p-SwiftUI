@@ -14,21 +14,28 @@ struct SetGameView: View {
     // MARK: Properties
     
     @StateObject
-    var game = SetGameViewModel()
+    var viewModel = SetGameViewModel()
     
     // MARK: Body
     
     var body: some View {
-        AspectVGrid(
-            items: game.cards,
-            aspectRatio: 3/4
-        ) { card in
-            SetCardView(viewModel: card)
-                .onTapGesture {
-                    game.choose(card)
-                }
+        VStack {
+            AspectVGrid(
+                items: viewModel.cards,
+                aspectRatio: 3/4
+            ) { card in
+                SetCardView(viewModel: card)
+                    .onTapGesture {
+                        viewModel.choose(card)
+                    }
+            }
+            .padding()
+            
+            Button("New Game") {
+                viewModel.startNewGame()
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
