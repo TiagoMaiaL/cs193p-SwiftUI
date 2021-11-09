@@ -34,12 +34,23 @@ struct SetCardView: View {
     private var background: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .foregroundColor(viewModel.isSelected ? .gray.opacity(0.5) : .clear)
+                .foregroundColor(cardColor)
             
             RoundedRectangle(cornerRadius: 5)
                 .stroke(lineWidth: 2)
         }
+    }
+    
+    private var cardColor: Color {
+        if viewModel.isMatched {
+            return .yellow
+        }
         
+        if viewModel.isSelected {
+            return .gray.opacity(0.5)
+        }
+        
+        return .clear
     }
 }
 
