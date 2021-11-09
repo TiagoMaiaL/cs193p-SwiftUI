@@ -31,10 +31,17 @@ struct SetGameView: View {
             }
             .padding()
             
-            Button("New Game") {
-                viewModel.startNewGame()
+            HStack {
+                Button("New Game") {
+                    viewModel.startNewGame()
+                }
+                .padding()
+                
+                Button("Deal") {
+                    viewModel.deal()
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
