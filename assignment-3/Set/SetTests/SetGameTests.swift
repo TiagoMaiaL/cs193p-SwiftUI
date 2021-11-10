@@ -42,6 +42,22 @@ class SetGameTests: XCTestCase {
         XCTAssertEqual(game.tableCards.count, initialCardsAmount + dealtCardsCount)
     }
     
+    func testItInformsIfItCanDealCards() {
+        // Given
+        let game = SetGame(deck: Deck())
+        
+        // Then
+        XCTAssertTrue(game.canDeal)
+    }
+    
+    func testItInformsIfItCanNotDealCards() {
+        // Given
+        let game = SetGame(deck: NonMatchingDeck())
+        
+        // Then
+        XCTAssertFalse(game.canDeal)
+    }
+    
     // MARK: - Choosing Cards
     
     func testItSelectsACardWhenTheUserChoosesOne() {

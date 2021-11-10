@@ -40,6 +40,7 @@ struct SetGameView: View {
                 Button("Deal") {
                     viewModel.deal()
                 }
+                .disabled(!viewModel.canDeal)
                 .padding()
             }
         }

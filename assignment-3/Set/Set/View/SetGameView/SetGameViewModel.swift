@@ -20,6 +20,10 @@ final class SetGameViewModel: ObservableObject {
             .map(SetCardViewModel.init)
     }
     
+    var canDeal: Bool {
+        game.canDeal
+    }
+    
     // MARK: Imperatives
     
     func startNewGame() {

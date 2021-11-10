@@ -28,6 +28,10 @@ struct SetGame<Deck: SetDeck> {
 // MARK: - Dealing
 
 extension SetGame {
+    var canDeal: Bool {
+        !deck.isEmpty
+    }
+    
     mutating func deal() {
         let cards = deck.deal()
         tableCards.append(contentsOf: cards)
