@@ -46,6 +46,10 @@ struct SetCardView: View {
             return .yellow
         }
         
+        if viewModel.isUnmatched {
+            return .red.opacity(0.4)
+        }
+        
         if viewModel.isSelected {
             return .gray.opacity(0.5)
         }

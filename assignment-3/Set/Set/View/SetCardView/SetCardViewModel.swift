@@ -18,6 +18,7 @@ struct SetCardViewModel {
     
     var isSelected: Bool { card.isSelected }
     var isMatched: Bool { card.isMatched }
+    var isUnmatched: Bool { card.isUnmatched }
     
     var color: Color {
         switch card.color {
