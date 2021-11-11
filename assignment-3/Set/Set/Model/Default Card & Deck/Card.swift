@@ -17,6 +17,7 @@ struct Card {
     
     var _isSelected = false
     var _isMatched = false
+    var _isUnmatched = false
     
     let color: ColorFeature
     let shape: ShapeFeature
@@ -102,6 +103,11 @@ extension Card: SetCard {
     var isMatched: Bool {
         get { _isMatched }
         set { _isMatched = newValue }
+    }
+    
+    var isUnmatched: Bool {
+        get { _isUnmatched }
+        set { _isUnmatched = newValue }
     }
     
     var firstFeature: ColorFeature { color }

@@ -159,7 +159,7 @@ class SetGameTests: XCTestCase {
     
     // MARK: Matching Cards
     
-    func testTheChosenCardsAreMatched() {
+    func testThatChosenCardsAreMatched() {
         // Given
         let deck = MatchingDeck()
         var game = SetGame(deck: deck)
@@ -175,7 +175,7 @@ class SetGameTests: XCTestCase {
         XCTAssertTrue(game.tableCards[2].isMatched)
     }
     
-    func testTheChosenCardsDoNotMatch() {
+    func testThatChosenCardsDoNotMatch() {
         // Given
         let deck = NonMatchingDeck()
         var game = SetGame(deck: deck)
@@ -189,6 +189,63 @@ class SetGameTests: XCTestCase {
         XCTAssertFalse(game.tableCards[0].isMatched)
         XCTAssertFalse(game.tableCards[1].isMatched)
         XCTAssertFalse(game.tableCards[2].isMatched)
+    }
+    
+    func testThatCardsAreNotFlaggedUnmatchedIfTheyFormAMatch() {
+        // Given
+        let deck = MatchingDeck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertFalse(game.tableCards[0].isUnmatched)
+        XCTAssertFalse(game.tableCards[1].isUnmatched)
+        XCTAssertFalse(game.tableCards[2].isUnmatched)
+    }
+    
+    func testThatCardsAreFlaggedUnmatchedIfTheyFormAMismatch() {
+        // Given
+        let deck = NonMatchingDeck()
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        
+        // Then
+        XCTAssertTrue(game.tableCards[0].isUnmatched)
+        XCTAssertTrue(game.tableCards[1].isUnmatched)
+        XCTAssertTrue(game.tableCards[2].isUnmatched)
+    }
+    
+    func testThatCardsFlaggedUnmatchedAreClearedAfterANewUserChoice() {
+        // Given
+        let deck = NonMatchingDeck()
+        let fourthCard = Card(
+            color: .first,
+            shape: .third,
+            count: .two,
+            shading: .third
+        )
+        deck.insert(fourthCard)
+        
+        var game = SetGame(deck: deck)
+        
+        // When
+        game.chooseCard(atIndex: 0)
+        game.chooseCard(atIndex: 1)
+        game.chooseCard(atIndex: 2)
+        game.chooseCard(atIndex: 3)
+        
+        // Then
+        XCTAssertFalse(game.tableCards[0].isUnmatched)
+        XCTAssertFalse(game.tableCards[1].isUnmatched)
+        XCTAssertFalse(game.tableCards[2].isUnmatched)
     }
     
     // MARK: Removing Matched Cards

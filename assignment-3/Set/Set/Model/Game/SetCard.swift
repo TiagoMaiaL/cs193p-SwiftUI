@@ -32,6 +32,7 @@ protocol SetCard: Hashable {
     
     var isSelected: Bool { get set }
     var isMatched: Bool { get set }
+    var isUnmatched: Bool { get set }
     
     var firstFeature: FirstFeature { get }
     var secondFeature: SecondFeature { get }

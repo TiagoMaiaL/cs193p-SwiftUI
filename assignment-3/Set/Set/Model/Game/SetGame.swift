@@ -61,7 +61,10 @@ extension SetGame {
             tableCards
                 .filter(\.isSelected)
                 .compactMap(tableCards.firstIndex(of:))
-                .forEach { tableCards[$0].isSelected = false }
+                .forEach {
+                    tableCards[$0].isSelected = false
+                    tableCards[$0].isUnmatched = false
+                }
         }
     }
     
@@ -92,10 +95,18 @@ extension SetGame {
 
 private extension SetGame {
     mutating func performMatchIfNeeded() {
-        if let trio = selectedTrio, trio.isSet {
-            trio.cards
-                .compactMap { tableCards.firstIndex(of: $0 ) }
-                .forEach { tableCards[$0].isMatched = true }
+        guard let trio = selectedTrio else {
+            return
+        }
+        
+        let cardIndices = trio
+            .cards
+            .compactMap { tableCards.firstIndex(of: $0 ) }
+        
+        if trio.isSet {
+            cardIndices.forEach { tableCards[$0].isMatched = true }
+        } else {
+            cardIndices.forEach { tableCards[$0].isUnmatched = true }
         }
     }
     
