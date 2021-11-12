@@ -20,7 +20,7 @@ struct SetGameView: View {
     
     var body: some View {
         VStack {
-            AspectVGrid(
+            ScrollableAspectVGrid(
                 items: viewModel.cards,
                 aspectRatio: 3/4
             ) { card in
@@ -29,7 +29,6 @@ struct SetGameView: View {
                         viewModel.choose(card)
                     }
             }
-            .padding()
             
             HStack {
                 Button("New Game") {

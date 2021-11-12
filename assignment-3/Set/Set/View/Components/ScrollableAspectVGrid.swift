@@ -1,16 +1,16 @@
 //
-//  AspectVGrid.swift
+//  ScrollableAspectVGrid.swift
 //  Set
 //
-//  Created by CS193p Instructor on 4/14/21.
+//  Originally created by CS193p Instructor on 4/14/21.
 //  Copyright Stanford University 2021
 //
 
 import SwiftUI
 
-// MARK: - View
+// MARK: - ScrollableAspectVGrid
 
-struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable {
+struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable {
     
     // MARK: Properties
     
@@ -31,12 +31,20 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                let width: CGFloat = widthThatFits(itemCount: items.count, in: geometry.size, itemAspectRatio: aspectRatio)
-                LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: 0) {
-                    ForEach(items) { item in
-                        content(item).aspectRatio(aspectRatio, contentMode: .fit)
+                let width: CGFloat = widthThatFits(
+                    itemCount: items.count,
+                    in: geometry.size,
+                    itemAspectRatio: aspectRatio
+                )
+            
+                ScrollView {
+                    LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: 0) {
+                        ForEach(items) { item in
+                            content(item).aspectRatio(aspectRatio, contentMode: .fit)
+                        }
                     }
                 }
+                
                 Spacer(minLength: 0)
             }
         }
@@ -56,7 +64,8 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
         repeat {
             let itemWidth = size.width / CGFloat(columnCount)
             let itemHeight = itemWidth / itemAspectRatio
-            if  CGFloat(rowCount) * itemHeight < size.height {
+            
+            if CGFloat(rowCount) * itemHeight < size.height {
                 break
             }
             columnCount += 1
@@ -72,14 +81,14 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
 // MARK: - Preview
 
 struct AspectVGrid_Previews: PreviewProvider {
+    
+    static let cards = SetGameViewModel().cards
+    
     static var previews: some View {
-        let items = [
-            Card(color: .first, shape: .first, count: .one, shading: .first),
-            Card(color: .second, shape: .first, count: .one, shading: .first),
-            Card(color: .third, shape: .first, count: .one, shading: .first)
-        ].map(SetCardViewModel.init)
-        
-         return AspectVGrid(items: items, aspectRatio: 3/4) { card in
+        ScrollableAspectVGrid(
+            items: cards,
+            aspectRatio: 3/4
+        ) { card in
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(lineWidth: 2)
@@ -87,6 +96,6 @@ struct AspectVGrid_Previews: PreviewProvider {
                 Text("\(card.color.description)")
                     .foregroundColor(card.color)
             }
-         }.padding()
+        }.padding()
     }
 }
