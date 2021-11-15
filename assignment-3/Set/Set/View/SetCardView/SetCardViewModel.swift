@@ -79,50 +79,6 @@ struct SetCardViewModel {
     }
 }
 
-// TODO: Move the Shape enum to its appropriate file.
-enum Shape {
-    case oval
-    case squiggle
-    case diamond
-}
-
-extension Shape: CustomStringConvertible {
-    var description: String {
-        switch self {
-        case .oval:
-            return "Oval"
-            
-        case .squiggle:
-            return "Squiggle"
-            
-        case .diamond:
-            return "Diamond"
-        }
-    }
-}
-
-// TODO: Move the Shading enum to its appropriate file.
-enum Shading {
-    case solid
-    case striped
-    case stroked
-}
-
-extension Shading: CustomStringConvertible {
-    var description: String {
-        switch self {
-        case .solid:
-            return "Solid"
-            
-        case .striped:
-            return "Striped"
-            
-        case .stroked:
-            return "Stroked"
-        }
-    }
-}
-
 // MARK: - Identifiable
 
 extension SetCardViewModel: Identifiable {
