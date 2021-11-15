@@ -22,7 +22,8 @@ struct SetGameView: View {
         VStack {
             ScrollableAspectVGrid(
                 items: viewModel.cards,
-                aspectRatio: 3/4
+                aspectRatio: 3/4,
+                minimumWidth: 75
             ) { card in
                 SetCardView(viewModel: card)
                     .onTapGesture {
