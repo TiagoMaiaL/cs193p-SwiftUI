@@ -10,15 +10,14 @@ import SwiftUI
 
 // MARK: - ScrollableAspectVGrid
 
-// TODO: Provide interitem spacing.
-
 struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable {
     
     // MARK: Properties
     
-    var items: [Item]
-    var aspectRatio: Double
-    var content: (Item) -> ItemView
+    let items: [Item]
+    let aspectRatio: Double
+    let content: (Item) -> ItemView
+    let interitemSpacing: Double
     let minimumWidth: Double?
     
     // MARK: Initializer
@@ -26,12 +25,14 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
     init(items: [Item],
          aspectRatio: Double,
          minimumWidth: Double? = nil,
+         interitemSpacing: Double = 0,
          @ViewBuilder content: @escaping (Item) -> ItemView
     ) {
         self.items = items
         self.aspectRatio = aspectRatio
-        self.content = content
         self.minimumWidth = minimumWidth
+        self.interitemSpacing = interitemSpacing
+        self.content = content
     }
     
     // MARK: Body
@@ -46,11 +47,12 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
                 )
                 
                 ScrollView {
-                    LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: 0) {
+                    LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: interitemSpacing) {
                         ForEach(items) { item in
                             content(item).aspectRatio(aspectRatio, contentMode: .fit)
                         }
                     }
+                    .padding(.horizontal, interitemSpacing)
                 }
                 
                 Spacer(minLength: 0)
@@ -62,18 +64,29 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
     
     private func adaptiveGridItem(width: Double) -> GridItem {
         var gridItem = GridItem(.adaptive(minimum: width))
-        gridItem.spacing = 0
+        gridItem.spacing = interitemSpacing
         return gridItem
     }
     
     private func widthThatFits(itemCount: Int, in size: CGSize, itemAspectRatio: Double) -> Double {
         var columnCount = 1
         var rowCount = itemCount
+        
+        var viewWidth: Double {
+            let interitemSpacingWidth = Double(columnCount - 1) * interitemSpacing
+            let padding = interitemSpacing * 2
+            return size.width - interitemSpacingWidth - padding
+        }
+        var viewHeight: Double {
+            let interitemSpacingHeight = Double(rowCount - 1) * interitemSpacing
+            return size.height - interitemSpacingHeight
+        }
+        
         repeat {
-            let itemWidth = size.width / Double(columnCount)
+            let itemWidth = viewWidth / Double(columnCount)
             let itemHeight = itemWidth / itemAspectRatio
             
-            if CGFloat(rowCount) * itemHeight < size.height {
+            if CGFloat(rowCount) * itemHeight < viewHeight {
                 break
             }
             
@@ -84,10 +97,12 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
             columnCount += 1
             rowCount = itemCount / columnCount + ((itemCount % columnCount) > 0 ? 1 : 0)
         } while columnCount < itemCount
+        
         if columnCount > itemCount {
             columnCount = itemCount
         }
-        return floor(size.width / Double(columnCount))
+        
+        return floor(viewWidth / Double(columnCount))
     }
 }
 
