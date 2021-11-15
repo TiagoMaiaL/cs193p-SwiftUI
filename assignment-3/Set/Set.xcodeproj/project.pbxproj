@@ -15,6 +15,7 @@
 		5A2ED3A52742B7E40043F8FD /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A42742B7E40043F8FD /* Shape.swift */; };
 		5A2ED3A82742CFD10043F8FD /* DiamondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A72742CFD10043F8FD /* DiamondView.swift */; };
 		5A2ED3AA2742D9A10043F8FD /* SquiggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A92742D9A10043F8FD /* SquiggleView.swift */; };
+		5A2ED3AE2742DC000043F8FD /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3AD2742DC000043F8FD /* OvalView.swift */; };
 		5A55B93C2705436500B5248D /* SetTrio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93B2705436500B5248D /* SetTrio.swift */; };
 		5A55B9402705DC0800B5248D /* SetTrioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55B93F2705DC0800B5248D /* SetTrioTests.swift */; };
 		5A5650022708844100EDAEEB /* DeckDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5650012708844100EDAEEB /* DeckDoubles.swift */; };
@@ -51,6 +52,7 @@
 		5A2ED3A42742B7E40043F8FD /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		5A2ED3A72742CFD10043F8FD /* DiamondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondView.swift; sourceTree = "<group>"; };
 		5A2ED3A92742D9A10043F8FD /* SquiggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleView.swift; sourceTree = "<group>"; };
+		5A2ED3AD2742DC000043F8FD /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
 		5A55B93B2705436500B5248D /* SetTrio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrio.swift; sourceTree = "<group>"; };
 		5A55B93F2705DC0800B5248D /* SetTrioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrioTests.swift; sourceTree = "<group>"; };
 		5A5650012708844100EDAEEB /* DeckDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDoubles.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */,
 				5A2ED3A72742CFD10043F8FD /* DiamondView.swift */,
 				5A2ED3A92742D9A10043F8FD /* SquiggleView.swift */,
+				5A2ED3AD2742DC000043F8FD /* OvalView.swift */,
 			);
 			path = SetCardView;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2ED3AE2742DC000043F8FD /* OvalView.swift in Sources */,
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
 				5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */,
 				5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */,
