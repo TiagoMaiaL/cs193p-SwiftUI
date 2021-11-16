@@ -22,7 +22,7 @@ struct SetGameView: View {
         VStack {
             ScrollableAspectVGrid(
                 items: viewModel.cards,
-                aspectRatio: 3/4,
+                aspectRatio: 2/3,
                 minimumWidth: 75,
                 interitemSpacing: 5
             ) { card in

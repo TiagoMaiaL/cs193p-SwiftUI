@@ -1,5 +1,5 @@
 //
-//  SquiggleView.swift
+//  SquiggleShape.swift
 //  Set
 //
 //  Created by Tiago Lopes on 15/11/21.
@@ -7,15 +7,17 @@
 
 import SwiftUI
 
-struct SquiggleView: View {
-    var body: some View {
-        Rectangle()
+struct SquiggleShape: SwiftUI.Shape {
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.addRect(rect)
+        }
     }
 }
 
 struct SquiggleView_Previews: PreviewProvider {
     static var previews: some View {
-        SquiggleView()
+        SquiggleShape()
             .padding()
     }
 }
