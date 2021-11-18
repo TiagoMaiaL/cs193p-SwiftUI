@@ -9,6 +9,10 @@ import Foundation
 
 struct SetGame<Deck: SetDeck> {
     
+    // MARK: Typealiases
+    
+    typealias VacantSpaceIndices = [Int]
+    
     // MARK: Properties
     
     private var deck: Deck
@@ -32,12 +36,24 @@ extension SetGame {
         !deck.isEmpty
     }
     
-    mutating func deal() {
-        let cards = deck.deal()
-        tableCards.append(contentsOf: cards)
+    mutating func deal(at vacantSpaces: VacantSpaceIndices? = nil) {
+        var vacantSpaces = vacantSpaces
         
         if let trio = selectedTrio, trio.isSet {
-            removeMatchedCardsFromTable()
+            vacantSpaces = removeMatchedCardsFromTable()
+        }
+        
+        var cards = deck.deal()
+        
+        if let vacantSpaces = vacantSpaces {
+            for index in vacantSpaces {
+                guard let card = cards.popLast() else {
+                    return
+                }
+                tableCards.insert(card, at: index)
+            }
+        } else {
+            tableCards.append(contentsOf: cards)
         }
     }
 }
@@ -77,8 +93,8 @@ extension SetGame {
         if let trio = selectedTrio {
             if trio.isSet {
                 tableCards[index].isSelected = true
-                removeMatchedCardsFromTable()
-                deal()
+                let vacantSpaceIndices = removeMatchedCardsFromTable()
+                deal(at: vacantSpaceIndices)
             } else {
                 selectedTrio = nil
                 tableCards[index].isSelected = true
@@ -110,12 +126,18 @@ private extension SetGame {
         }
     }
     
-    mutating func removeMatchedCardsFromTable() {
+    private mutating func removeMatchedCardsFromTable() -> VacantSpaceIndices {
         tableCards
             .filter { $0.isMatched }
             .forEach { matchedCards.insert($0) }
         
+        let emptySpaceIndices = tableCards
+            .filter { $0.isMatched }
+            .compactMap { tableCards.firstIndex(of: $0) }
+        
         tableCards.removeAll(where: { $0.isMatched })
+        
+        return emptySpaceIndices
     }
 }
 
