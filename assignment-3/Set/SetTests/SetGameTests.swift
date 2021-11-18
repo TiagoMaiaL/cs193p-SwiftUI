@@ -281,6 +281,38 @@ class SetGameTests: XCTestCase {
         XCTAssertEqual(game.matchedCards, Set(matchedCards))
     }
     
+    func testTheMatchedCardsAreReplacedAtTheVacantPositions() {
+        // Given
+        let deck = VacantDealingDeck()
+        var game = SetGame(deck: deck)
+        deck.addNonMatchingTrio()
+        
+        let firstMatchingTrioIndices = deck
+            .firstMatchingTrio
+            .compactMap { game.tableCards.firstIndex(of: $0) }
+        
+        firstMatchingTrioIndices.forEach {
+            game.chooseCard(atIndex: $0)
+        }
+        
+        // When
+        guard let fourthCardIndex = game.tableCards.firstIndex(where: {
+            !deck.firstMatchingTrio.contains($0)
+        }) else {
+            XCTFail("Couldn't find a fourth index.")
+            return
+        }
+        game.chooseCard(atIndex: fourthCardIndex)
+        
+        // Then
+        XCTAssertEqual(game.matchedCards.count, 3)
+        XCTAssertEqual(game.tableCards.count, 6)
+        
+        let dealtCards = firstMatchingTrioIndices.map { game.tableCards[$0] }
+        
+        XCTAssertEqual(Set(dealtCards), Set(deck.nonMatchingTrio))        
+    }
+    
     // MARK: Dealing After Matching
     
     func testThatCardsAreDealtAfterAMatch() {
