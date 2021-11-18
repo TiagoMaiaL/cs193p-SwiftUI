@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: - View
+// MARK: - Card View
 
 // TODO: Add the constants to this view.
 
@@ -104,7 +104,7 @@ fileprivate struct Shapes: View {
     
     var body: some View {
         VStack(spacing: verticalSpacing) {
-            ForEach(0 ..< viewModel.count) { _ in
+            ForEach(0 ..< viewModel.count, id: \.self) { _ in
                 cardShape
                     .foregroundColor(shapeColor)
                     .frame(
