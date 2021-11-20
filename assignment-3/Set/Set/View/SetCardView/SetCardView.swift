@@ -25,6 +25,7 @@ struct SetCardView: View {
                 background(with: geometry.size)
                 Shapes(viewModel: viewModel, size: geometry.size)
             }
+            .contentShape(Rectangle())
         }
     }
 }
