@@ -20,7 +20,6 @@ struct SetGameView: View {
     
     var body: some View {
         VStack {
-            // TODO: Investigate why the tap sometimes fails.
             // TODO: Measure the application performance.
             // TODO: Test this app on a real device.
             ScrollableAspectVGrid(

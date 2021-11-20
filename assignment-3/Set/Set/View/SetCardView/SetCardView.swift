@@ -35,29 +35,29 @@ struct SetCardView: View {
 private extension SetCardView {
     func background(with size: CGSize) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
                 .foregroundColor(backgroundColor)
             
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: size.width * 0.01)
+            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
+                .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
                 .foregroundColor(.gray)
         }
     }
     
     var backgroundColor: Color {
         if viewModel.isMatched {
-            return .yellow
+            return Constants.Colors.matched
         }
         
         if viewModel.isUnmatched {
-            return .red.opacity(0.4)
+            return Constants.Colors.unmatched
         }
         
         if viewModel.isSelected {
-            return .gray.opacity(0.5)
+            return Constants.Colors.selected
         }
         
-        return .clear
+        return Constants.Colors.default
     }
 }
 
@@ -77,12 +77,12 @@ fileprivate struct Shapes: View {
     
     private var availableDrawingSize: CGSize {
         CGSize(
-            width: size.width * 0.75,
-            height: size.height * 0.65
+            width: size.width * Constants.DrawingFactors.width,
+            height: size.height * Constants.DrawingFactors.height
         )
     }
     private var verticalSpacing: Double {
-        availableDrawingSize.height * 0.03
+        availableDrawingSize.height * Constants.DrawingFactors.verticalShapesSpacing
     }
     private var itemHeight: Double {
         (availableDrawingSize.height / 3) - (2 * verticalSpacing)
@@ -124,7 +124,7 @@ fileprivate struct Shapes: View {
     
     @ViewBuilder
     private var cardShape: some View {
-        let strokeWidth = itemHeight * 0.04
+        let strokeWidth = itemHeight * Constants.DrawingFactors.shapeStroke
         
         switch viewModel.shape {
         case .diamond:
@@ -148,6 +148,29 @@ fileprivate struct Shapes: View {
                 SquiggleShape()
             }
         }
+    }
+}
+
+// MARK: - Constants
+
+fileprivate enum Constants {
+    enum Background {
+        static let cornerRadius = 10.0
+        static let borderLengthFactor = 0.01
+    }
+    
+    enum Colors {
+        static let `default` = Color.clear
+        static let matched = Color.yellow
+        static let unmatched = Color.red.opacity(0.4)
+        static let selected = Color.gray.opacity(0.5)
+    }
+    
+    enum DrawingFactors {
+        static let width = 0.75
+        static let height = 0.65
+        static let verticalShapesSpacing = 0.03
+        static let shapeStroke = 0.04
     }
 }
 
