@@ -9,8 +9,6 @@ import SwiftUI
 
 // MARK: - Card View
 
-// TODO: Add the constants to this view.
-
 struct SetCardView: View {
     
     // MARK: Properties

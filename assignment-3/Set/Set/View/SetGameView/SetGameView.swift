@@ -24,9 +24,9 @@ struct SetGameView: View {
             // TODO: Test this app on a real device.
             ScrollableAspectVGrid(
                 items: viewModel.cards,
-                aspectRatio: 2/3,
-                minimumWidth: 75,
-                interitemSpacing: 5
+                aspectRatio: Constants.cardsApectRatio,
+                minimumWidth: Constants.cardMinimumWidth,
+                interitemSpacing: Constants.interitemSpacing
             ) { card in
                 SetCardView(viewModel: card)
                     .onTapGesture {
@@ -48,6 +48,14 @@ struct SetGameView: View {
             }
         }
     }
+}
+
+// MARK: - Constants
+
+fileprivate enum Constants {
+    static let cardsApectRatio = 2.0/3.0
+    static let cardMinimumWidth = 75.0
+    static let interitemSpacing = 5.0
 }
 
 // MARK: - Preview
