@@ -19,6 +19,8 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
     let minimumWidth: Double?
     let interitemSpacing: Double
     let bottomEdgeInset: Double?
+    let horizontalPadding: Double?
+    let verticalPadding: Double?
     let content: (Item) -> ItemView
     
     // MARK: Initializer
@@ -28,6 +30,8 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
          minimumWidth: Double? = nil,
          interitemSpacing: Double = 0,
          bottomEdgeInset: Double? = nil,
+         horizontalPadding: Double? = nil,
+         verticalPadding: Double? = nil,
          @ViewBuilder content: @escaping (Item) -> ItemView
     ) {
         self.items = items
@@ -35,6 +39,8 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
         self.minimumWidth = minimumWidth
         self.interitemSpacing = interitemSpacing
         self.bottomEdgeInset = bottomEdgeInset
+        self.horizontalPadding = horizontalPadding
+        self.verticalPadding = verticalPadding
         self.content = content
     }
     
@@ -55,7 +61,8 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
                             content(item).aspectRatio(aspectRatio, contentMode: .fit)
                         }
                     }
-                    .padding(.horizontal, interitemSpacing)
+                    .padding(.horizontal, horizontalPadding ?? interitemSpacing)
+                    .padding(.vertical, verticalPadding ?? interitemSpacing)
                     
                     if let bottomEdgeInset = bottomEdgeInset {
                         Spacer()
@@ -63,7 +70,7 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
                     }
                 }
                 
-                Spacer(minLength: 0)
+                Spacer()
             }
         }
     }
@@ -82,12 +89,13 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
         
         var viewWidth: Double {
             let interitemSpacingWidth = Double(columnCount - 1) * interitemSpacing
-            let padding = interitemSpacing * 2
+            let padding = (horizontalPadding ?? interitemSpacing) * 2
             return size.width - interitemSpacingWidth - padding
         }
         var viewHeight: Double {
             let interitemSpacingHeight = Double(rowCount - 1) * interitemSpacing
-            return size.height - interitemSpacingHeight - (bottomEdgeInset ?? 0)
+            let padding = (verticalPadding ?? interitemSpacing) * 2
+            return size.height - interitemSpacingHeight - padding - (bottomEdgeInset ?? 0)
         }
         
         repeat {

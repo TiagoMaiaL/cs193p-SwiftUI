@@ -31,7 +31,8 @@ struct SetGameView: View {
                     aspectRatio: Constants.cardsApectRatio,
                     minimumWidth: Constants.cardMinimumWidth,
                     interitemSpacing: Constants.interitemSpacing,
-                    bottomEdgeInset: tabHeight
+                    bottomEdgeInset: tabHeight,
+                    horizontalPadding: Constants.horizontalPadding
                 ) { card in
                     SetCardView(viewModel: card)
                         .onTapGesture {
@@ -64,6 +65,7 @@ fileprivate enum Constants {
     static let cardsApectRatio = 2.0/3.0
     static let cardMinimumWidth = 75.0
     static let interitemSpacing = 10.0
+    static let horizontalPadding = 20.0
 }
 
 // MARK: - Preview
