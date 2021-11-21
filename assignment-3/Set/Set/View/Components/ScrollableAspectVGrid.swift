@@ -16,9 +16,10 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
     
     let items: [Item]
     let aspectRatio: Double
-    let content: (Item) -> ItemView
-    let interitemSpacing: Double
     let minimumWidth: Double?
+    let interitemSpacing: Double
+    let bottomEdgeInset: Double?
+    let content: (Item) -> ItemView
     
     // MARK: Initializer
 
@@ -26,12 +27,14 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
          aspectRatio: Double,
          minimumWidth: Double? = nil,
          interitemSpacing: Double = 0,
+         bottomEdgeInset: Double? = nil,
          @ViewBuilder content: @escaping (Item) -> ItemView
     ) {
         self.items = items
         self.aspectRatio = aspectRatio
         self.minimumWidth = minimumWidth
         self.interitemSpacing = interitemSpacing
+        self.bottomEdgeInset = bottomEdgeInset
         self.content = content
     }
     
@@ -53,6 +56,11 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
                         }
                     }
                     .padding(.horizontal, interitemSpacing)
+                    
+                    if let bottomEdgeInset = bottomEdgeInset {
+                        Spacer()
+                            .frame(height: bottomEdgeInset)
+                    }
                 }
                 
                 Spacer(minLength: 0)
@@ -79,7 +87,7 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
         }
         var viewHeight: Double {
             let interitemSpacingHeight = Double(rowCount - 1) * interitemSpacing
-            return size.height - interitemSpacingHeight
+            return size.height - interitemSpacingHeight - (bottomEdgeInset ?? 0)
         }
         
         repeat {

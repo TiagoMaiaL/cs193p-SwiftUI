@@ -16,6 +16,9 @@ struct SetGameView: View {
     @StateObject
     var viewModel = SetGameViewModel()
     
+    @State
+    var tabHeight: Double?
+    
     // MARK: Body
     
     var body: some View {
@@ -27,7 +30,8 @@ struct SetGameView: View {
                     items: viewModel.cards,
                     aspectRatio: Constants.cardsApectRatio,
                     minimumWidth: Constants.cardMinimumWidth,
-                    interitemSpacing: Constants.interitemSpacing
+                    interitemSpacing: Constants.interitemSpacing,
+                    bottomEdgeInset: tabHeight
                 ) { card in
                     SetCardView(viewModel: card)
                         .onTapGesture {
@@ -40,7 +44,13 @@ struct SetGameView: View {
                     GameControlsTab(
                         viewModel: viewModel,
                         safeBottomInset: proxy.safeAreaInsets.bottom
-                    )
+                    ).background {
+                        GeometryReader { tabProxy in
+                            Color.clear.onAppear {
+                                tabHeight = tabProxy.size.height
+                            }
+                        }
+                    }
                 }
             }
             .ignoresSafeArea(.all, edges: .bottom)
