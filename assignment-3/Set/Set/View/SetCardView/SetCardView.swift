@@ -89,6 +89,7 @@ fileprivate struct Shapes: View {
     private var shapeColor: Color {
         viewModel
             .color
+        // TODO: Draw the correct striped shape.
             .opacity(viewModel.shading == .striped ? 0.4 : 1)
     }
     

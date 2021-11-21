@@ -19,7 +19,7 @@ struct SetGameView: View {
     // MARK: Body
     
     var body: some View {
-        VStack {
+        ZStack {
             // TODO: Measure the application performance.
             // TODO: Test this app on a real device.
             ScrollableAspectVGrid(
@@ -34,11 +34,34 @@ struct SetGameView: View {
                     }
             }
             
+            BottomButtonsTab(viewModel: viewModel)
+        }
+        .ignoresSafeArea(.all, edges: .bottom)
+    }
+}
+
+// MARK: - Background
+
+fileprivate struct BottomButtonsTab: View {
+    
+    // MARK: Properties
+    
+    @ObservedObject
+    var viewModel: SetGameViewModel
+    
+    // MARK: Body
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
             HStack {
                 Button("New Game") {
                     viewModel.startNewGame()
                 }
                 .padding()
+                
+                Spacer()
                 
                 Button("Deal") {
                     viewModel.deal()
@@ -46,6 +69,8 @@ struct SetGameView: View {
                 .disabled(!viewModel.canDeal)
                 .padding()
             }
+            .padding()
+            .background(.thinMaterial)
         }
     }
 }
