@@ -33,15 +33,15 @@ struct GameControlsTab: View {
                 Button("New Game") {
                     viewModel.startNewGame()
                 }
-                .padding()
+                .buttonStyle(.newGame)
                 
                 Spacer()
                 
-                Button("Deal") {
+                Button("Deal cards") {
                     viewModel.deal()
                 }
                 .disabled(!viewModel.canDeal)
-                .padding()
+                .buttonStyle(.deal)
             }
             .padding()
             
@@ -56,6 +56,9 @@ struct GameControlsTab: View {
 
 struct GameControlsTab_Previews: PreviewProvider {
     static var previews: some View {
-        GameControlsTab(viewModel: SetGameViewModel())
+        VStack {
+            Spacer()
+            GameControlsTab(viewModel: SetGameViewModel())
+        }
     }
 }

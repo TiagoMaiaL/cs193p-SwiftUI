@@ -30,6 +30,8 @@
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
 		5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */; };
 		5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84771274A9211004658B8 /* GameControlsTab.swift */; };
+		5AB84774274AB110004658B8 /* DealButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84773274AB110004658B8 /* DealButtonStyle.swift */; };
+		5AB84776274AFC52004658B8 /* NewGameButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84775274AFC52004658B8 /* NewGameButtonStyle.swift */; };
 		5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */; };
 		5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,8 @@
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
 		5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTests.swift; sourceTree = "<group>"; };
 		5AB84771274A9211004658B8 /* GameControlsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlsTab.swift; sourceTree = "<group>"; };
+		5AB84773274AB110004658B8 /* DealButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealButtonStyle.swift; sourceTree = "<group>"; };
+		5AB84775274AFC52004658B8 /* NewGameButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameButtonStyle.swift; sourceTree = "<group>"; };
 		5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
 		5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				5A88340F26FD329A00292F1F /* ScrollableAspectVGrid.swift */,
+				5AB84773274AB110004658B8 /* DealButtonStyle.swift */,
+				5AB84775274AFC52004658B8 /* NewGameButtonStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,6 +332,8 @@
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
 				5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */,
 				5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */,
+				5AB84776274AFC52004658B8 /* NewGameButtonStyle.swift in Sources */,
+				5AB84774274AB110004658B8 /* DealButtonStyle.swift in Sources */,
 				5A2ED3A52742B7E40043F8FD /* Shape.swift in Sources */,
 				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
 				5A55B93C2705436500B5248D /* SetTrio.swift in Sources */,
