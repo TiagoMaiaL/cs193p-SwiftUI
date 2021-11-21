@@ -21,7 +21,7 @@ struct NewGameButtonStyle: ButtonStyle {
             .background {
                 GeometryReader { proxy in
                     RoundedRectangle(cornerRadius: proxy.size.height / 2)
-                        .foregroundColor(.red)
+                        .foregroundColor(configuration.isPressed ? .red.opacity(0.4) : .red)
                 }
             }
     }

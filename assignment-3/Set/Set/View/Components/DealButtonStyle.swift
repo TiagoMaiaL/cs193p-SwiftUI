@@ -11,6 +11,11 @@ import SwiftUI
 
 struct DealButtonStyle: ButtonStyle {
     
+    // MARK: Properties
+    
+    @Environment(\.isEnabled)
+    var isEnabled
+    
     // MARK: Body
     
     func makeBody(configuration: Configuration) -> some View {
@@ -21,9 +26,17 @@ struct DealButtonStyle: ButtonStyle {
             .background {
                 GeometryReader { proxy in
                     RoundedRectangle(cornerRadius: proxy.size.height / 2)
-                        .foregroundColor(.green)
+                        .foregroundColor(backgroundColor(for: configuration))
                 }
             }
+    }
+    
+    private func backgroundColor(for configuration: Configuration) -> Color {
+        guard isEnabled else {
+            return .black.opacity(0.2)
+        }
+        
+        return configuration.isPressed ? .green.opacity(0.4) : .green
     }
 }
 
@@ -40,6 +53,10 @@ extension ButtonStyle where Self == DealButtonStyle {
 struct DealButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Button("Deal cards", action: {})
+            .buttonStyle(.deal)
+        
+        Button("Deal cards", action: {})
+            .disabled(true)
             .buttonStyle(.deal)
     }
 }
