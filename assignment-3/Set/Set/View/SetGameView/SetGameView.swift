@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: - View
+// MARK: - Set Game View
 
 struct SetGameView: View {
     
@@ -19,58 +19,31 @@ struct SetGameView: View {
     // MARK: Body
     
     var body: some View {
-        ZStack {
-            // TODO: Measure the application performance.
-            // TODO: Test this app on a real device.
-            ScrollableAspectVGrid(
-                items: viewModel.cards,
-                aspectRatio: Constants.cardsApectRatio,
-                minimumWidth: Constants.cardMinimumWidth,
-                interitemSpacing: Constants.interitemSpacing
-            ) { card in
-                SetCardView(viewModel: card)
-                    .onTapGesture {
-                        viewModel.choose(card)
-                    }
-            }
-            
-            BottomButtonsTab(viewModel: viewModel)
-        }
-        .ignoresSafeArea(.all, edges: .bottom)
-    }
-}
-
-// MARK: - Background
-
-fileprivate struct BottomButtonsTab: View {
-    
-    // MARK: Properties
-    
-    @ObservedObject
-    var viewModel: SetGameViewModel
-    
-    // MARK: Body
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            
-            HStack {
-                Button("New Game") {
-                    viewModel.startNewGame()
+        GeometryReader { proxy in
+            ZStack {
+                // TODO: Measure the application performance.
+                // TODO: Test this app on a real device.
+                ScrollableAspectVGrid(
+                    items: viewModel.cards,
+                    aspectRatio: Constants.cardsApectRatio,
+                    minimumWidth: Constants.cardMinimumWidth,
+                    interitemSpacing: Constants.interitemSpacing
+                ) { card in
+                    SetCardView(viewModel: card)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                        }
                 }
-                .padding()
                 
-                Spacer()
-                
-                Button("Deal") {
-                    viewModel.deal()
+                VStack {
+                    Spacer()
+                    GameControlsTab(
+                        viewModel: viewModel,
+                        safeBottomInset: proxy.safeAreaInsets.bottom
+                    )
                 }
-                .disabled(!viewModel.canDeal)
-                .padding()
             }
-            .padding()
-            .background(.thinMaterial)
+            .ignoresSafeArea(.all, edges: .bottom)
         }
     }
 }
@@ -80,7 +53,7 @@ fileprivate struct BottomButtonsTab: View {
 fileprivate enum Constants {
     static let cardsApectRatio = 2.0/3.0
     static let cardMinimumWidth = 75.0
-    static let interitemSpacing = 5.0
+    static let interitemSpacing = 10.0
 }
 
 // MARK: - Preview

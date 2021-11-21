@@ -29,6 +29,7 @@
 		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
 		5AB1BD3727014C2D00FA8FDF /* SetGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */; };
+		5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84771274A9211004658B8 /* GameControlsTab.swift */; };
 		5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */; };
 		5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
 		5AB1BD3627014C2D00FA8FDF /* SetGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTests.swift; sourceTree = "<group>"; };
+		5AB84771274A9211004658B8 /* GameControlsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlsTab.swift; sourceTree = "<group>"; };
 		5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
 		5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +202,7 @@
 			children = (
 				5A0FE21327112269006AB3A8 /* SetGameView.swift */,
 				5A0FE21527146969006AB3A8 /* SetGameViewModel.swift */,
+				5AB84771274A9211004658B8 /* GameControlsTab.swift */,
 			);
 			path = SetGameView;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				5A55B93C2705436500B5248D /* SetTrio.swift in Sources */,
 				5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */,
 				5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */,
+				5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */,
 				5A88341026FD329A00292F1F /* ScrollableAspectVGrid.swift in Sources */,
 				5A2ED3AA2742D9A10043F8FD /* SquiggleShape.swift in Sources */,
 				5A88341226FD339100292F1F /* Card.swift in Sources */,
