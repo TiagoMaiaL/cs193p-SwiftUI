@@ -8,7 +8,12 @@
 import SwiftUI
 
 enum Colors {
-    static let gameBeginBackground = Color("game-begin-bg")
-    static let gameEndBackground = Color("game-end-bg")
+    static let gameBackground = Color(uiColor: .systemBackground)
+    
     static let cardBackground = Color("card-bg")
+    static let selectedCardBackground = Color("selected-card-bg")
+    
+    static let shapePurple = Color("shape-purple")
+    static let shapeGreen = Color("shape-green")
+    static let shapeRed = Color("shape-red")
 }

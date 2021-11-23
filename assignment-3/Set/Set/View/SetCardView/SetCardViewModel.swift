@@ -23,13 +23,13 @@ struct SetCardViewModel {
     var color: Color {
         switch card.color {
         case .first:
-            return .blue
+            return Colors.shapePurple
 
         case .second:
-            return .red
+            return Colors.shapeRed
 
         case .third:
-            return .green
+            return Colors.shapeGreen
         }
     }
 

@@ -48,7 +48,7 @@ struct GameControlsTab: View {
             Spacer()
                 .frame(height: safeBottomInset ?? 0)
         }
-        .background(.thinMaterial)
+        .background(.ultraThinMaterial)
     }
 }
 

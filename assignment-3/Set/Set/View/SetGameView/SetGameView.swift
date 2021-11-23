@@ -58,8 +58,8 @@ struct SetGameView: View {
             .background(
                 LinearGradient(
                     colors: [
-                        Colors.gameBeginBackground,
-                        Colors.gameEndBackground
+                        Colors.gameBackground.opacity(0.5),
+                        Colors.gameBackground
                     ],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing

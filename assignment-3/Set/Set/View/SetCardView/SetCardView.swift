@@ -25,6 +25,7 @@ struct SetCardView: View {
             }
             .contentShape(Rectangle())
         }
+        .zIndex(viewModel.isSelected ? 1 : 0)
     }
 }
 
@@ -35,10 +36,16 @@ private extension SetCardView {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
                 .foregroundColor(backgroundColor)
+                .shadow(
+                    color: viewModel.isSelected ? .black.opacity(0.4) : .clear,
+                    radius: 15,
+                    x: 0,
+                    y: 0
+                )
             
-//            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
-//                .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
-//                .foregroundColor(.gray)
+            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
+                .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
+                .foregroundColor(.gray)
         }
     }
     
@@ -52,10 +59,10 @@ private extension SetCardView {
         }
         
         if viewModel.isSelected {
-            return .white //Constants.Colors.selected
+            return Colors.selectedCardBackground
         }
         
-        return Colors.cardBackground //Constants.Colors.default
+        return Colors.cardBackground
     }
 }
 
@@ -128,21 +135,33 @@ fileprivate struct Shapes: View {
         switch viewModel.shape {
         case .diamond:
             if viewModel.shading == .stroked {
-                DiamondShape().stroke(lineWidth: strokeWidth)
+                DiamondShape()
+                    .stroke(
+                        style: StrokeStyle(
+                            lineWidth: strokeWidth,
+                            lineCap: .round,
+                            lineJoin: .round,
+                            miterLimit: 0,
+                            dash: [],
+                            dashPhase: 0
+                        )
+                    )
             } else {
                 DiamondShape()
             }
             
         case .oval:
             if viewModel.shading == .stroked {
-                OvalShape().stroke(lineWidth: strokeWidth)
+                OvalShape()
+                    .stroke(lineWidth: strokeWidth)
             } else {
                 OvalShape()
             }
 
         case .squiggle:
             if viewModel.shading == .stroked {
-                SquiggleShape().stroke(lineWidth: strokeWidth)
+                SquiggleShape()
+                    .stroke(lineWidth: strokeWidth)
             } else {
                 SquiggleShape()
             }
@@ -159,17 +178,15 @@ fileprivate enum Constants {
     }
     
     enum Colors {
-        static let `default` = Color.clear
         static let matched = Color.yellow
         static let unmatched = Color.red.opacity(0.4)
-        static let selected = Color.gray.opacity(0.5)
     }
     
     enum DrawingFactors {
         static let width = 0.7
-        static let height = 0.6
-        static let verticalShapesSpacing = 0.05
-        static let shapeStroke = 0.04
+        static let height = 0.8
+        static let verticalShapesSpacing = 0.06
+        static let shapeStroke = 0.1
     }
 }
 
@@ -183,12 +200,13 @@ struct SetCardView_Previews: PreviewProvider {
     }
     
     static var blueOvalsThreeSolidCard: some View {
-        let card = Card(
+        var card = Card(
             color: .first,
             shape: .first,
             count: .three,
             shading: .first
         )
+        card.isSelected = true
         let viewModel = SetCardViewModel(card)
         
         return SetCardView(viewModel: viewModel)
