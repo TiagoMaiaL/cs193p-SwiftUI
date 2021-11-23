@@ -166,9 +166,9 @@ fileprivate enum Constants {
     }
     
     enum DrawingFactors {
-        static let width = 0.75
-        static let height = 0.65
-        static let verticalShapesSpacing = 0.03
+        static let width = 0.7
+        static let height = 0.6
+        static let verticalShapesSpacing = 0.05
         static let shapeStroke = 0.04
     }
 }
@@ -177,11 +177,43 @@ fileprivate enum Constants {
 
 struct SetCardView_Previews: PreviewProvider {
     static var previews: some View {
+        blueOvalsThreeSolidCard
+        redSquigglesThreeStriped
+        greenDiamondsThreeStroked
+    }
+    
+    static var blueOvalsThreeSolidCard: some View {
         let card = Card(
             color: .first,
             shape: .first,
             count: .three,
+            shading: .first
+        )
+        let viewModel = SetCardViewModel(card)
+        
+        return SetCardView(viewModel: viewModel)
+            .padding()
+    }
+    
+    static var redSquigglesThreeStriped: some View {
+        let card = Card(
+            color: .second,
+            shape: .second,
+            count: .three,
             shading: .second
+        )
+        let viewModel = SetCardViewModel(card)
+        
+        return SetCardView(viewModel: viewModel)
+            .padding()
+    }
+    
+    static var greenDiamondsThreeStroked: some View {
+        let card = Card(
+            color: .third,
+            shape: .third,
+            count: .three,
+            shading: .third
         )
         let viewModel = SetCardViewModel(card)
         
