@@ -36,9 +36,9 @@ private extension SetCardView {
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
                 .foregroundColor(backgroundColor)
             
-            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
-                .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
-                .foregroundColor(.gray)
+//            RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
+//                .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
+//                .foregroundColor(.gray)
         }
     }
     
@@ -52,10 +52,10 @@ private extension SetCardView {
         }
         
         if viewModel.isSelected {
-            return Constants.Colors.selected
+            return .white //Constants.Colors.selected
         }
         
-        return Constants.Colors.default
+        return Colors.cardBackground //Constants.Colors.default
     }
 }
 
@@ -221,5 +221,3 @@ struct SetCardView_Previews: PreviewProvider {
             .padding()
     }
 }
-
-// TODO: Provide varied previews.

@@ -55,6 +55,16 @@ struct SetGameView: View {
                 }
             }
             .ignoresSafeArea(.all, edges: .bottom)
+            .background(
+                LinearGradient(
+                    colors: [
+                        Colors.gameBeginBackground,
+                        Colors.gameEndBackground
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
         }
     }
 }

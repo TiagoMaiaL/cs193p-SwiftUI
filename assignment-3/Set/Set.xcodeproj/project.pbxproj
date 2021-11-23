@@ -32,6 +32,7 @@
 		5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84771274A9211004658B8 /* GameControlsTab.swift */; };
 		5AB84774274AB110004658B8 /* DealButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84773274AB110004658B8 /* DealButtonStyle.swift */; };
 		5AB84776274AFC52004658B8 /* NewGameButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84775274AFC52004658B8 /* NewGameButtonStyle.swift */; };
+		5AB84779274C7CB7004658B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB84778274C7CB7004658B8 /* Colors.swift */; };
 		5AC5EE9C27163ACB00F897D5 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */; };
 		5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		5AB84771274A9211004658B8 /* GameControlsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlsTab.swift; sourceTree = "<group>"; };
 		5AB84773274AB110004658B8 /* DealButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealButtonStyle.swift; sourceTree = "<group>"; };
 		5AB84775274AFC52004658B8 /* NewGameButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameButtonStyle.swift; sourceTree = "<group>"; };
+		5AB84778274C7CB7004658B8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5AC5EE9B27163ACB00F897D5 /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
 		5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 			children = (
 				5A66C13E26FCA94500203751 /* Assets.xcassets */,
 				5A66C14026FCA94500203751 /* Preview Content */,
+				5AB84778274C7CB7004658B8 /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */,
 				5A55B93C2705436500B5248D /* SetTrio.swift in Sources */,
 				5A0FE21427112269006AB3A8 /* SetGameView.swift in Sources */,
+				5AB84779274C7CB7004658B8 /* Colors.swift in Sources */,
 				5A0FE21627146969006AB3A8 /* SetGameViewModel.swift in Sources */,
 				5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */,
 				5A88341026FD329A00292F1F /* ScrollableAspectVGrid.swift in Sources */,
