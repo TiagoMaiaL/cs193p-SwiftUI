@@ -16,14 +16,15 @@ struct NewGameButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .foregroundColor(.white)
+            .foregroundColor(Colors.systemTint)
             .padding()
             .background {
                 GeometryReader { proxy in
                     RoundedRectangle(cornerRadius: proxy.size.height / 2)
-                        .foregroundColor(configuration.isPressed ? .red.opacity(0.4) : .red)
+                        .foregroundColor(Colors.newGameButtonBackground)
                 }
             }
+            .opacity(configuration.isPressed ? 0.4 : 1)
     }
 }
 

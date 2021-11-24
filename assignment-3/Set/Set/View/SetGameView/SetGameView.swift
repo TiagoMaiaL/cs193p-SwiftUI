@@ -55,16 +55,7 @@ struct SetGameView: View {
                 }
             }
             .ignoresSafeArea(.all, edges: .bottom)
-            .background(
-                LinearGradient(
-                    colors: [
-                        Colors.gameBackground.opacity(0.5),
-                        Colors.gameBackground
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
+            .background(Colors.gameBackground)
         }
     }
 }

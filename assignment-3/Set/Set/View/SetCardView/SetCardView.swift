@@ -25,7 +25,6 @@ struct SetCardView: View {
             }
             .contentShape(Rectangle())
         }
-        .zIndex(viewModel.isSelected ? 1 : 0)
     }
 }
 
@@ -38,7 +37,7 @@ private extension SetCardView {
                 .foregroundColor(backgroundColor)
                 .shadow(
                     color: viewModel.isSelected ? .black.opacity(0.4) : .clear,
-                    radius: 15,
+                    radius: 10,
                     x: 0,
                     y: 0
                 )
@@ -56,10 +55,6 @@ private extension SetCardView {
         
         if viewModel.isUnmatched {
             return Constants.Colors.unmatched
-        }
-        
-        if viewModel.isSelected {
-            return Colors.selectedCardBackground
         }
         
         return Colors.cardBackground
@@ -174,7 +169,7 @@ fileprivate struct Shapes: View {
 fileprivate enum Constants {
     enum Background {
         static let cornerRadius = 10.0
-        static let borderLengthFactor = 0.01
+        static let borderLengthFactor = 0.005
     }
     
     enum Colors {

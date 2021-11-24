@@ -29,6 +29,11 @@ struct GameControlsTab: View {
     
     var body: some View {
         VStack {
+            Rectangle()
+                .frame(height: 1, alignment: .center)
+                .foregroundColor(.gray.opacity(0.5))
+                
+            
             HStack {
                 Button("New Game") {
                     viewModel.startNewGame()

@@ -36,7 +36,9 @@ struct DealButtonStyle: ButtonStyle {
             return .black.opacity(0.2)
         }
         
-        return configuration.isPressed ? .green.opacity(0.4) : .green
+        let activeColor = Colors.dealButtonBackground
+        
+        return configuration.isPressed ? activeColor.opacity(0.4) : activeColor
     }
 }
 
