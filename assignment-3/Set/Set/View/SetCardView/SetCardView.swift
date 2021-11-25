@@ -31,33 +31,40 @@ struct SetCardView: View {
 // MARK: Background
 
 private extension SetCardView {
-    func background(with size: CGSize) -> some View {
+    private func background(with size: CGSize) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
-                .foregroundColor(backgroundColor)
-                .shadow(
-                    color: viewModel.isSelected ? .black.opacity(0.4) : .clear,
-                    radius: 10,
-                    x: 0,
-                    y: 0
-                )
+                .foregroundStyle(backgroundStyle)
             
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
                 .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
-                .foregroundColor(.gray)
+                .foregroundColor(Colors.cardBorder)
         }
     }
-    
-    var backgroundColor: Color {
-        if viewModel.isMatched {
-            return Constants.Colors.matched
-        }
+        
+    private var backgroundStyle: LinearGradient {
+        var startColor = Colors.cardBackground
+        var endColor = startColor
         
         if viewModel.isUnmatched {
-            return Constants.Colors.unmatched
+            startColor = Colors.cardUnmatchedBackground
+            
+        } else if viewModel.isMatched {
+            startColor = Colors.cardMatchedBackground
+            
+        } else if viewModel.isSelected {
+            startColor = Colors.cardSelectedBackground
         }
         
-        return Colors.cardBackground
+        if startColor != Colors.cardBackground {
+            endColor = startColor.opacity(0.5)
+        }
+        
+        return LinearGradient(
+            colors: [startColor, endColor],
+            startPoint: .bottom,
+            endPoint: .top
+        )
     }
 }
 

@@ -7,20 +7,40 @@
 
 import SwiftUI
 
-enum Colors {
-    static let gameBackground = Color(uiColor: .tertiarySystemGroupedBackground)
-    
-    static let cardBackground = Color(uiColor: .systemBackground)
-    static let cardBorder = Color(uiColor: .systemGray6)
-    
-    static let shapePurple = Color(uiColor: .systemPurple)
-    static let shapeGreen = Color(uiColor: .systemGreen)
-    static let shapeRed = Color(uiColor: .systemRed)
+// MARK: Application Colors
 
-    // TODO: Write about the different types of colors we don't have as SwiftUI colors ones?
+// TODO: Provide the dark variation of the application colors.
+
+struct Colors {
+    static let gameBackground = Color.tertiarySystemGroupedBackground
+    
+    static let cardBorder = Color.systemGray
+    static let cardBackground = Color.systemBackground
+    static let cardUnmatchedBackground = Color.systemRed.opacity(0.2)
+    static let cardMatchedBackground = Color.systemYellow.opacity(0.2)
+    static let cardSelectedBackground = Color.systemBlue.opacity(0.1)
+    
+    static let shapePurple = Color.systemPurple
+    static let shapeGreen = Color.systemGreen
+    static let shapeRed = Color.systemRed
     
     static let dealButtonBackground = Color(uiColor: .tintColor)
     static let newGameButtonBackground = Color(uiColor: .systemBackground)
+}
+
+// MARK: System Colors
+
+extension Color {
+    static let systemBackground = Color(uiColor: .systemBackground)
+    static let tertiarySystemGroupedBackground = Color(uiColor: .tertiarySystemGroupedBackground)
     
-    static let systemTint = Color(uiColor: .tintColor)
+    static let tintColor = Color(uiColor: .tintColor)
+    
+    static let systemPurple = Color(uiColor: .systemPurple)
+    static let systemGreen = Color(uiColor: .systemGreen)
+    static let systemRed = Color(uiColor: .systemRed)
+    static let systemYellow = Color(uiColor: .systemYellow)
+    static let systemBlue = Color(uiColor: .systemBlue)
+    
+    static let systemGray = Color(uiColor: .systemGray)
 }
