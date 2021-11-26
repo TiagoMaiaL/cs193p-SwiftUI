@@ -9,38 +9,54 @@ import SwiftUI
 
 // MARK: Application Colors
 
-// TODO: Provide the dark variation of the application colors.
-
 struct Colors {
-    static let gameBackground = Color.tertiarySystemGroupedBackground
+    static var gameBackground: Color {
+         Color("game-bg")
+    }
     
-    static let cardBorder = Color.systemGray
-    static let cardBackground = Color.systemBackground
-    static let cardUnmatchedBackground = Color.systemRed.opacity(0.2)
-    static let cardMatchedBackground = Color.systemYellow.opacity(0.2)
-    static let cardSelectedBackground = Color.systemBlue.opacity(0.1)
+    static var cardBorder: Color {
+        Color("card-border")
+    }
     
-    static let shapePurple = Color.systemPurple
-    static let shapeGreen = Color.systemGreen
-    static let shapeRed = Color.systemRed
+    static var cardBackground: Color {
+        Color("card-bg")
+    }
     
-    static let dealButtonBackground = Color(uiColor: .tintColor)
-    static let newGameButtonBackground = Color(uiColor: .systemBackground)
-}
-
-// MARK: System Colors
-
-extension Color {
-    static let systemBackground = Color(uiColor: .systemBackground)
-    static let tertiarySystemGroupedBackground = Color(uiColor: .tertiarySystemGroupedBackground)
+    // TODO: Adjust the selected colors.
     
-    static let tintColor = Color(uiColor: .tintColor)
+    static var cardUnmatchedBackground: Color {
+        Color("card-unmatched-bg")
+    }
     
-    static let systemPurple = Color(uiColor: .systemPurple)
-    static let systemGreen = Color(uiColor: .systemGreen)
-    static let systemRed = Color(uiColor: .systemRed)
-    static let systemYellow = Color(uiColor: .systemYellow)
-    static let systemBlue = Color(uiColor: .systemBlue)
+    static var cardMatchedBackground: Color {
+        Color("card-matched-bg")
+    }
     
-    static let systemGray = Color(uiColor: .systemGray)
+    static var cardSelectedBackground: Color {
+        Color("card-selected-bg")
+    }
+    
+    static var shapePurple: Color {
+        Color("shape-purple")
+    }
+    
+    static var shapeGreen: Color {
+        Color("shape-green")
+    }
+    
+    static var shapeRed: Color {
+        Color("shape-red")
+    }
+    
+    static var dealButtonBackground: Color {
+        Color("deal-button-bg")
+    }
+    
+    static var newGameButtonBackground: Color {
+        Color("new-game-button-bg")
+    }
+    
+    static var newGameButtonFontColor: Color {
+        Color("new-game-font-color")
+    }
 }

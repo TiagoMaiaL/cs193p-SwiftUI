@@ -16,7 +16,7 @@ struct NewGameButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .foregroundColor(.tintColor)
+            .foregroundColor(Colors.newGameButtonFontColor)
             .padding()
             .background {
                 GeometryReader { proxy in
