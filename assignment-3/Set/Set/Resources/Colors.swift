@@ -22,8 +22,6 @@ struct Colors {
         Color("card-bg")
     }
     
-    // TODO: Adjust the selected colors.
-    
     static var cardUnmatchedBackground: Color {
         Color("card-unmatched-bg")
     }

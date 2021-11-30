@@ -25,6 +25,7 @@
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
 		5A88341026FD329A00292F1F /* ScrollableAspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* ScrollableAspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
+		5AAEBD5927564D1D002A58C5 /* StripedShading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAEBD5827564D1D002A58C5 /* StripedShading.swift */; };
 		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
 		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
 		5AB1BD3426FF9C9D00FA8FDF /* DeckConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */; };
@@ -68,6 +69,7 @@
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* ScrollableAspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableAspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5AAEBD5827564D1D002A58C5 /* StripedShading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripedShading.swift; sourceTree = "<group>"; };
 		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		5AB1BD3326FF9C9D00FA8FDF /* DeckConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckConstants.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				5A2ED3A72742CFD10043F8FD /* DiamondShape.swift */,
 				5A2ED3A92742D9A10043F8FD /* SquiggleShape.swift */,
 				5A2ED3AD2742DC000043F8FD /* OvalShape.swift */,
+				5AAEBD5827564D1D002A58C5 /* StripedShading.swift */,
 			);
 			path = SetCardView;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AAEBD5927564D1D002A58C5 /* StripedShading.swift in Sources */,
 				5A2ED3AE2742DC000043F8FD /* OvalShape.swift in Sources */,
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
 				5AF5FB6F273773B700FD5FC5 /* SetCardView.swift in Sources */,
