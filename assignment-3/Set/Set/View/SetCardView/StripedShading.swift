@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+// MARK: - Shape
+
 struct StripedShading: SwiftUI.Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
             path.move(to: .zero)
-            let spacing = 10.0
+            let spacing = rect.width * Constants.spacingFactor
             var currentX = 0.0 {
                 didSet {
                     path.move(to: CGPoint(x: currentX, y: 0))
@@ -25,7 +27,7 @@ struct StripedShading: SwiftUI.Shape {
         }
         .strokedPath(
             StrokeStyle(
-                lineWidth: 2,
+                lineWidth: rect.width * Constants.lineWidthFactor,
                 lineCap: CGLineCap.round,
                 lineJoin: CGLineJoin.round,
                 miterLimit: 0,
@@ -35,6 +37,17 @@ struct StripedShading: SwiftUI.Shape {
         )
     }
 }
+
+// MARK: Constants
+
+private extension StripedShading {
+    enum Constants {
+        static let spacingFactor = 0.03
+        static let lineWidthFactor = 0.004
+    }
+}
+
+// MARK: - Preview
 
 struct StripedShading_Previews: PreviewProvider {
     static var previews: some View {
