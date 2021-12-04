@@ -64,5 +64,19 @@ struct DiamondShape_Previews: PreviewProvider {
     static var previews: some View {
         DiamondShape()
             .padding()
+        
+        DiamondShape()
+            .stroke(lineWidth: 3)
+            .padding()
+
+        ZStack {
+            DiamondShape()
+                .fill()
+                .mask(StripedShading())
+            
+            DiamondShape()
+                .stroke(lineWidth: 5)
+        }
+        .padding()
     }
 }

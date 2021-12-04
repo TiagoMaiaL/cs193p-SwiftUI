@@ -25,6 +25,7 @@
 		5A66C16926FCB65F00203751 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66C16826FCB65F00203751 /* SetGame.swift */; };
 		5A88341026FD329A00292F1F /* ScrollableAspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88340F26FD329A00292F1F /* ScrollableAspectVGrid.swift */; };
 		5A88341226FD339100292F1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88341126FD339100292F1F /* Card.swift */; };
+		5AA823E1275C1FE7009202D6 /* DiamondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA823E0275C1FE7009202D6 /* DiamondView.swift */; };
 		5AAEBD5927564D1D002A58C5 /* StripedShading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAEBD5827564D1D002A58C5 /* StripedShading.swift */; };
 		5AB1BD3026FEA4E900FA8FDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */; };
 		5AB1BD3226FF7B6B00FA8FDF /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */; };
@@ -69,6 +70,7 @@
 		5A66C16826FCB65F00203751 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		5A88340F26FD329A00292F1F /* ScrollableAspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableAspectVGrid.swift; sourceTree = "<group>"; };
 		5A88341126FD339100292F1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5AA823E0275C1FE7009202D6 /* DiamondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondView.swift; sourceTree = "<group>"; };
 		5AAEBD5827564D1D002A58C5 /* StripedShading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripedShading.swift; sourceTree = "<group>"; };
 		5AB1BD2F26FEA4E900FA8FDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		5AB1BD3126FF7B6B00FA8FDF /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
@@ -198,6 +200,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5AA823DF275C1FA7009202D6 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ED3A72742CFD10043F8FD /* DiamondShape.swift */,
+				5A2ED3A92742D9A10043F8FD /* SquiggleShape.swift */,
+				5A2ED3AD2742DC000043F8FD /* OvalShape.swift */,
+				5AAEBD5827564D1D002A58C5 /* StripedShading.swift */,
+				5A2ED3A22742B7BD0043F8FD /* Shading.swift */,
+				5A2ED3A42742B7E40043F8FD /* Shape.swift */,
+				5AA823E0275C1FE7009202D6 /* DiamondView.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		5AF5FB70273773BD00FD5FC5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,14 +237,9 @@
 		5AF5FB72273773EB00FD5FC5 /* SetCardView */ = {
 			isa = PBXGroup;
 			children = (
+				5AA823DF275C1FA7009202D6 /* Shapes */,
 				5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */,
-				5A2ED3A22742B7BD0043F8FD /* Shading.swift */,
-				5A2ED3A42742B7E40043F8FD /* Shape.swift */,
 				5AF5FB6E273773B700FD5FC5 /* SetCardView.swift */,
-				5A2ED3A72742CFD10043F8FD /* DiamondShape.swift */,
-				5A2ED3A92742D9A10043F8FD /* SquiggleShape.swift */,
-				5A2ED3AD2742DC000043F8FD /* OvalShape.swift */,
-				5AAEBD5827564D1D002A58C5 /* StripedShading.swift */,
 			);
 			path = SetCardView;
 			sourceTree = "<group>";
@@ -350,6 +361,7 @@
 				5AB84772274A9211004658B8 /* GameControlsTab.swift in Sources */,
 				5A88341026FD329A00292F1F /* ScrollableAspectVGrid.swift in Sources */,
 				5A2ED3AA2742D9A10043F8FD /* SquiggleShape.swift in Sources */,
+				5AA823E1275C1FE7009202D6 /* DiamondView.swift in Sources */,
 				5A88341226FD339100292F1F /* Card.swift in Sources */,
 				5A66C16926FCB65F00203751 /* SetGame.swift in Sources */,
 				5A66C13B26FCA94000203751 /* SetGameApp.swift in Sources */,

@@ -95,14 +95,7 @@ fileprivate struct Shapes: View {
         (availableDrawingSize.height / 3) - (2 * verticalSpacing)
     }
     
-    private var shapeColor: Color {
-        viewModel
-            .color
-        // TODO: Draw the correct striped shape.
-            .opacity(viewModel.shading == .striped ? 0.4 : 1)
-    }
-    
-    // MARK: Init
+    // MARK: Initializer
     
     init(viewModel: SetCardViewModel, size: CGSize) {
         self.viewModel = viewModel
@@ -115,7 +108,8 @@ fileprivate struct Shapes: View {
         VStack(spacing: verticalSpacing) {
             ForEach(0 ..< viewModel.count, id: \.self) { _ in
                 cardShape
-                    .foregroundColor(shapeColor)
+                // TODO: Remove this from here and pass it to the shape.
+                    .foregroundColor(viewModel.color)
                     .frame(
                         width: availableDrawingSize.width,
                         height: itemHeight,
