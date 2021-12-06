@@ -130,21 +130,9 @@ fileprivate struct Shapes: View {
         
         switch viewModel.shape {
         case .diamond:
-            if viewModel.shading == .stroked {
-                DiamondShape()
-                    .stroke(
-                        style: StrokeStyle(
-                            lineWidth: strokeWidth,
-                            lineCap: .round,
-                            lineJoin: .round,
-                            miterLimit: 0,
-                            dash: [],
-                            dashPhase: 0
-                        )
-                    )
-            } else {
-                DiamondShape()
-            }
+            DiamondView(height: itemHeight,
+                        color: viewModel.color,
+                        shading: viewModel.shading)
             
         case .oval:
             if viewModel.shading == .stroked {
@@ -192,7 +180,7 @@ struct SetCardView_Previews: PreviewProvider {
     static var previews: some View {
         blueOvalsThreeSolidCard
         redSquigglesThreeStriped
-        greenDiamondsThreeStroked
+        greenDiamondsThreeStrided
     }
     
     static var blueOvalsThreeSolidCard: some View {
@@ -222,12 +210,12 @@ struct SetCardView_Previews: PreviewProvider {
             .padding()
     }
     
-    static var greenDiamondsThreeStroked: some View {
+    static var greenDiamondsThreeStrided: some View {
         let card = Card(
             color: .third,
             shape: .third,
             count: .three,
-            shading: .third
+            shading: .second
         )
         let viewModel = SetCardViewModel(card)
         
