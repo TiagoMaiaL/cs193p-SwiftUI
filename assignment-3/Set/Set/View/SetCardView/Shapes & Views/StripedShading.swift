@@ -42,8 +42,8 @@ struct StripedShading: SwiftUI.Shape {
 
 private extension StripedShading {
     enum Constants {
-        static let spacingFactor = 0.03
-        static let lineWidthFactor = 0.004
+        static let spacingFactor = 0.07
+        static let lineWidthFactor = 0.02
     }
 }
 
