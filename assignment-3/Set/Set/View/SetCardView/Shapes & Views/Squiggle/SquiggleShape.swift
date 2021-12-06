@@ -15,7 +15,7 @@ struct SquiggleShape: SwiftUI.Shape {
     }
 }
 
-struct SquiggleView_Previews: PreviewProvider {
+struct SquiggleShape_Previews: PreviewProvider {
     static var previews: some View {
         SquiggleShape()
             .padding()

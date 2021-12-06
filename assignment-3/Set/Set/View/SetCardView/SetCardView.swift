@@ -126,8 +126,6 @@ fileprivate struct Shapes: View {
     
     @ViewBuilder
     private var cardShape: some View {
-        let strokeWidth = itemHeight * Constants.DrawingFactors.shapeStroke
-        
         switch viewModel.shape {
         case .diamond:
             DiamondView(
@@ -144,12 +142,11 @@ fileprivate struct Shapes: View {
             )
             
         case .squiggle:
-            if viewModel.shading == .stroked {
-                SquiggleShape()
-                    .stroke(lineWidth: strokeWidth)
-            } else {
-                SquiggleShape()
-            }
+            SquiggleView(
+                height: itemHeight,
+                color: viewModel.color,
+                shading: viewModel.shading
+            )
         }
     }
 }
@@ -171,7 +168,6 @@ fileprivate enum Constants {
         static let width = 0.7
         static let height = 0.8
         static let verticalShapesSpacing = 0.06
-        static let shapeStroke = 0.1
     }
 }
 

@@ -12,6 +12,7 @@
 		5A0FE21827146B58006AB3A8 /* SetCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */; };
 		5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FE21B27160167006AB3A8 /* SetCard.swift */; };
 		5A19EE36275EB42700D5699A /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19EE35275EB42700D5699A /* OvalView.swift */; };
+		5A19EE39275EB6EE00D5699A /* SquiggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19EE38275EB6EE00D5699A /* SquiggleView.swift */; };
 		5A2ED3A32742B7BD0043F8FD /* Shading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A22742B7BD0043F8FD /* Shading.swift */; };
 		5A2ED3A52742B7E40043F8FD /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A42742B7E40043F8FD /* Shape.swift */; };
 		5A2ED3A82742CFD10043F8FD /* DiamondShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ED3A72742CFD10043F8FD /* DiamondShape.swift */; };
@@ -56,6 +57,7 @@
 		5A0FE21727146B58006AB3A8 /* SetCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardViewModel.swift; sourceTree = "<group>"; };
 		5A0FE21B27160167006AB3A8 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
 		5A19EE35275EB42700D5699A /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
+		5A19EE38275EB6EE00D5699A /* SquiggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleView.swift; sourceTree = "<group>"; };
 		5A2ED3A22742B7BD0043F8FD /* Shading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shading.swift; sourceTree = "<group>"; };
 		5A2ED3A42742B7E40043F8FD /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		5A2ED3A72742CFD10043F8FD /* DiamondShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondShape.swift; sourceTree = "<group>"; };
@@ -142,6 +144,15 @@
 			path = Oval;
 			sourceTree = "<group>";
 		};
+		5A19EE37275EB6B300D5699A /* Squiggle */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ED3A92742D9A10043F8FD /* SquiggleShape.swift */,
+				5A19EE38275EB6EE00D5699A /* SquiggleView.swift */,
+			);
+			path = Squiggle;
+			sourceTree = "<group>";
+		};
 		5A66C12E26FCA94000203751 = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +234,7 @@
 		5AA823DF275C1FA7009202D6 /* Shapes & Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A2ED3A92742D9A10043F8FD /* SquiggleShape.swift */,
+				5A19EE37275EB6B300D5699A /* Squiggle */,
 				5A19EE34275EB41300D5699A /* Oval */,
 				5AAEBD5827564D1D002A58C5 /* StripedShading.swift */,
 				5A2ED3A22742B7BD0043F8FD /* Shading.swift */,
@@ -364,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A19EE39275EB6EE00D5699A /* SquiggleView.swift in Sources */,
 				5AAEBD5927564D1D002A58C5 /* StripedShading.swift in Sources */,
 				5A2ED3AE2742DC000043F8FD /* OvalShape.swift in Sources */,
 				5A0FE21C27160167006AB3A8 /* SetCard.swift in Sources */,
