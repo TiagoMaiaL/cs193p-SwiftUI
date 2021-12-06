@@ -41,7 +41,7 @@ private extension SetCardView {
                 .foregroundColor(Colors.cardBorder)
         }
     }
-        
+    
     private var backgroundStyle: LinearGradient {
         var startColor = Colors.cardBackground
         var endColor = startColor
@@ -130,18 +130,19 @@ fileprivate struct Shapes: View {
         
         switch viewModel.shape {
         case .diamond:
-            DiamondView(height: itemHeight,
-                        color: viewModel.color,
-                        shading: viewModel.shading)
+            DiamondView(
+                height: itemHeight,
+                color: viewModel.color,
+                shading: viewModel.shading
+            )
             
         case .oval:
-            if viewModel.shading == .stroked {
-                OvalShape()
-                    .stroke(lineWidth: strokeWidth)
-            } else {
-                OvalShape()
-            }
-
+            OvalView(
+                height: itemHeight,
+                color: viewModel.color,
+                shading: viewModel.shading
+            )
+            
         case .squiggle:
             if viewModel.shading == .stroked {
                 SquiggleShape()

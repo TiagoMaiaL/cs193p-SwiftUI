@@ -25,7 +25,7 @@ struct OvalShape: SwiftUI.Shape {
 
 // MARK: - Preview
 
-struct OvalView_Previews: PreviewProvider {
+struct OvalShape_Previews: PreviewProvider {
     static var previews: some View {
         OvalShape()
             .padding()
