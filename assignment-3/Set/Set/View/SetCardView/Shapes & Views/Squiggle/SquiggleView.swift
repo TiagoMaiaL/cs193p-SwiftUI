@@ -34,6 +34,7 @@ struct SquiggleView: View {
         Group {
             switch shading {
             case .striped:
+                // Extra-credit 2: Draw the actual striped “shading” instead of using a semi-transparent color.
                 ZStack {
                     SquiggleShape()
                         .fill()
