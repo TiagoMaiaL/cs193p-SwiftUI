@@ -25,7 +25,7 @@
    }
    ```
    - Depending on the complexity of a View, it would be infeasible to state the explicit return type
-     - The View hierarchy is encoded within the View type
+     - The SwiftUI view hierarchy is precisely represented by the concrete implementations of the protocol `View`
    - That's the problem *opaque types* solve (`some View`)
    - Notice `TupleView<(Text, Text)>` is a View internal to SwiftUI:
      - It's managed and built by SwiftUI's @ViewBuilder abstraction
@@ -42,6 +42,7 @@
   ZStack(alignment: .top) {
     Text("Hello")
   }
+  ```
 
  - The compiler synthesizes the initializer of a struct
   ```swift
@@ -53,6 +54,7 @@
   // Allows for the following initializers:
   Card(isFaceUp: true)
   Card() // isFaceUp has a default value of true (notice the var declarion above)
+  ```
 
  - `@ViewBuilder`s only allows conditionals, variable declarations, function calls returning views, and View initialization
    - Expressions are forbidden:
@@ -120,6 +122,7 @@
    }
    ```
    - Also allows a specific view as its label:
+   ```swift
    Button(action: {
      /* ... */
    }, label: {
@@ -127,6 +130,7 @@
        .imageScale(.large)
        .font(.largeTitle)
    })
+   ```
 
  - `Spacer` view:
    - Fills all available and empty space in the layout
