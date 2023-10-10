@@ -11,18 +11,12 @@ struct MemorizeView: View {
     
     // MARK: Properties
     
-    let vehicleEmojis = ["🚔", "🚗", "🚒", "🚚", "🚌", "🛻", "🚛", "🚑", "🚜"]
-    let flagEmojis = ["🇧🇷", "🇪🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🇿🇦", "🇲🇽", "🇯🇵", "🇵🇹", "🇩🇪", "🇵🇱", "🇦🇹", "🇮🇹", "🇫🇷", "🇦🇷", "🇨🇱"]
-    let natureEmojis = ["🌳", "🌲", "🌵", "🌷", "🌴", "🌻", "🌺", "⛰", "🗻", "🍄"]
+    let vehicleEmojis = ["🚔", "🚗", "🚒", "🚚", "🚌", "🛻"]
+    let flagEmojis = ["🇧🇷", "🇪🇸", "🇵🇹", "🇩🇪", "🇺🇸"]
+    let natureEmojis = ["🌳", "🌲", "🌵", "🌷", "🌴", "🌻", "🌺"]
     
-    @State private var currentEmojis: [String]
+    @State private var currentEmojis = [String]()
     @State private var themeColor = Color.red
-    
-    // MARK: Initializers
-    
-    init() {
-        currentEmojis = vehicleEmojis
-    }
     
     // MARK: Body
     
@@ -32,6 +26,9 @@ struct MemorizeView: View {
             cardsGrid
             Spacer()
             footer
+        }
+        .onAppear {
+            apply(theme: vehicleEmojis)
         }
     }
     
@@ -43,9 +40,9 @@ struct MemorizeView: View {
     
     private var cardsGrid: some View {
         ScrollView {
-            LazyVGrid(columns: Constants.adaptiveColumn) {
-                ForEach(currentEmojis, id: \.self) { emoji in
-                    CardView(isFaceUp: true, title: emoji, color: themeColor)
+            LazyVGrid(columns: Constants.adaptiveColumn, spacing: Constants.gridItemSpacing) {
+                ForEach(currentEmojis.indices, id: \.self) { index in
+                    CardView(isFaceUp: false, title: currentEmojis[index], color: themeColor)
                         .aspectRatio(Constants.twoThirds, contentMode: .fill)
                 }
             }
@@ -57,19 +54,29 @@ struct MemorizeView: View {
         HStack(alignment: .bottom, spacing: Constants.footerHorizontalSpace) {
             ThemeButton(icon: Constants.VehicleTheme.icon, title: Constants.VehicleTheme.title) {
                 themeColor = .red
-                currentEmojis = vehicleEmojis.shuffled()
+                apply(theme: vehicleEmojis)
             }
             
             ThemeButton(icon: Constants.FlagTheme.icon, title: Constants.FlagTheme.title) {
                 themeColor = .blue
-                currentEmojis = flagEmojis.shuffled()
+                apply(theme: flagEmojis)
             }
             
             ThemeButton(icon: Constants.NatureTheme.icon, title: Constants.NatureTheme.title) {
                 themeColor = .green
-                currentEmojis = natureEmojis.shuffled()
+                apply(theme: natureEmojis)
             }
         }
+    }
+    
+    // MARK: Imperatives
+    
+    private func apply(theme: [String]) {
+        currentEmojis = generatePairedEmojis(for: theme).shuffled()
+    }
+    
+    private func generatePairedEmojis(for theme: [String]) -> [String] {
+        theme + theme
     }
 }
 
@@ -93,9 +100,10 @@ private extension MemorizeView {
         }
         
         static let screenTitle = "Memorize!"
-        static let footerHorizontalSpace: CGFloat = 70
-        static let adaptiveColumn = [GridItem(.adaptive(minimum: 85))]
-        static let twoThirds: CGFloat = 2/3
+        static let footerHorizontalSpace = 70.0
+        static let gridItemSpacing = 5.0
+        static let adaptiveColumn = [GridItem(.adaptive(minimum: 85), spacing: gridItemSpacing)]
+        static let twoThirds = 2.0/3.0
     }
 }
 
