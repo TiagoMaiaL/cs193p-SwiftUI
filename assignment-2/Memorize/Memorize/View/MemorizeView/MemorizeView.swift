@@ -13,7 +13,7 @@ struct MemorizeView: View {
     
     // MARK: Properties
     
-    @StateObject
+    @ObservedObject
     var viewModel = EmojiMemorizeViewModel()
     
     // MARK: Body
@@ -25,7 +25,9 @@ struct MemorizeView: View {
             CardsGridView(
                 cards: viewModel.cards,
                 cardsColor: viewModel.themeColor,
-                cardTapHandler: viewModel.choose
+                cardTapHandler: { card in
+                    viewModel.choose(card)
+                }
             )
             
             Spacer()

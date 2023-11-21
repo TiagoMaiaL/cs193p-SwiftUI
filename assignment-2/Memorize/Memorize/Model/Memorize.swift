@@ -15,9 +15,6 @@ struct Memorize<Content> where Content: Hashable {
     private(set) var score = 0
     private var viewedCards = Set<Card>()
     
-    // TODO: Remove the isFinished.
-    var isFinished: Bool { !cards.isEmpty && unmatchedCards.isEmpty }
-    
     // MARK: Initializer
     
     init(pairsCount: Int, contentProvider: (Int) -> Content) {

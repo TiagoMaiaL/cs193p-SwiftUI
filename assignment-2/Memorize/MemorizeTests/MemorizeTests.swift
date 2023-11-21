@@ -36,10 +36,6 @@ class MemorizeTests: XCTestCase {
         XCTAssertEqual(memorize.cards.count, pairsCount * 2)
     }
     
-    func testThatTheGameStartsAsUnfinished() {
-        XCTAssertFalse(memorize.isFinished)
-    }
-    
     func testThatACardHasTheRightContentType() {
         let card = memorize.cards[0]
         XCTAssertNotNil(Int(card.content))
@@ -152,8 +148,6 @@ class MemorizeTests: XCTestCase {
         
         memorize.chooseCard(atIndex: 0)
         memorize.chooseCard(atIndex: 1)
-        
-        XCTAssertTrue(memorize.isFinished)
     }
     
     func testThatTheScoreStartsAtZero() {

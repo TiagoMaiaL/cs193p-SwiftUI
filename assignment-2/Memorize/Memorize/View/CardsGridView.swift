@@ -34,9 +34,9 @@ struct CardsGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Constants.adaptiveColumn) {
-                ForEach(cardsViewModels) {
+                ForEach(cardsViewModels) { cardViewModel in
                     CardView(
-                        viewModel: $0,
+                        viewModel: cardViewModel,
                         color: cardsColor,
                         tapHandler: cardTapHandler
                     )
