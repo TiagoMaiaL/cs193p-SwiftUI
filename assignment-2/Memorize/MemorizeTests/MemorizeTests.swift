@@ -8,8 +8,6 @@
 import XCTest
 @testable import Memorize
 
-// TODO: Refactor the cards index finding code.
-
 class MemorizeTests: XCTestCase {
     
     // MARK: Properties
@@ -63,13 +61,6 @@ class MemorizeTests: XCTestCase {
         let index = 0
         memorize.chooseCard(atIndex: index)
         XCTAssertTrue(memorize.cards[index].isFaceUp)
-    }
-    
-    func testFlippingACardDown() {
-        let index = 0
-        memorize.chooseCard(atIndex: index)
-        memorize.chooseCard(atIndex: index)
-        XCTAssertFalse(memorize.cards[index].isFaceUp)
     }
     
     func testThatChoosingACardInAFacedUpPairShouldBeForbidden() {
@@ -154,13 +145,6 @@ class MemorizeTests: XCTestCase {
         XCTAssertEqual(memorize.score, 0)
     }
     
-    func testThatTheUserIsPenalizedForSeeingACardWithoutAttemptingAMatch() {
-        memorize.chooseCard(atIndex: 0)
-        memorize.chooseCard(atIndex: 0)
-        
-        XCTAssertEqual(memorize.score, -1)
-    }
-    
     func testThatPerformingAMismatchWithNoViewedCardsIsNotPenalized() throws {
         let nonMatchingPair = try findNonMatchingPair()
         let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
@@ -177,36 +161,46 @@ class MemorizeTests: XCTestCase {
         let nonMatchingPair = try findNonMatchingPair()
         let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        // Flip the first card, marking it as viewed by the game.
-        memorize.chooseCard(atIndex: nonMatchingPair.first)
-        memorize.chooseCard(atIndex: nonMatchingPair.first)
-        
-        // Perform the mismatch.
+        // Choose the non matching pair.
         memorize.chooseCard(atIndex: nonMatchingPair.first)
         memorize.chooseCard(atIndex: nonMatchingPair.second)
+        
+        // Perform the mismatch by choosing a third card and flipping the others down, marking them as viewed.
         memorize.chooseCard(atIndex: thirdCardIndex)
-                
-        XCTAssertEqual(memorize.score, -2)
+        
+        // Choose a second pair (thirdCardIndex and nonMatchingPair.first), using one of the previously seen cards.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        
+        // Perform the second mismatch by choosing a third card.
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
+
+        XCTAssertEqual(memorize.score, -1)
     }
     
     func testThatTheUserIsPenalizedForAMismatchWhenTheWholePairWasAlreadyViewed() throws {
         let nonMatchingPair = try findNonMatchingPair()
         let thirdCardIndex = try findThirdCard(from: nonMatchingPair)
         
-        // Flip the first card, marking it as viewed.
+        // Choose a non matching pair.
         memorize.chooseCard(atIndex: nonMatchingPair.first)
-        memorize.chooseCard(atIndex: nonMatchingPair.first)
-
-        // Flip the second card, marking it as viewed.
-        memorize.chooseCard(atIndex: nonMatchingPair.second)
         memorize.chooseCard(atIndex: nonMatchingPair.second)
         
-        // Perform the mismatch
-        memorize.chooseCard(atIndex: nonMatchingPair.first)
-        memorize.chooseCard(atIndex: nonMatchingPair.second)
+        // Perform the mismatch by choosing a third card and flipping the others down, marking them as viewed (score is 0).
         memorize.chooseCard(atIndex: thirdCardIndex)
         
-        XCTAssertEqual(memorize.score, -4)
+        // Choose a new pair, using the first card from nonMatchingPair.
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        
+        // Perform a second mismatch, while choosing a third pair, using the second card from nonMatchingPair (score is now -1).
+        memorize.chooseCard(atIndex: nonMatchingPair.second)
+        
+        // Choose the second card of a non-matching pair (all cards are now marked as viewed, meaning a mismatch will be scored -2).
+        memorize.chooseCard(atIndex: nonMatchingPair.first)
+        
+        // Perform the mismatch on the face up card. The score is now -3: the previous -1 with the mismatch involving 2 viewed cards (-2).
+        memorize.chooseCard(atIndex: thirdCardIndex)
+        
+        XCTAssertEqual(memorize.score, -3)
     }
     
     func testThatTheUserScoresTwoPointsForAMatch() throws {
@@ -277,7 +271,12 @@ private extension MemorizeTests {
         let secondCard = memorize.cards[pair.second]
         
         guard let thirdIndex = memorize.cards.firstIndex(
-            where: { $0.id != firstCard.id && $0.id != secondCard.id }
+            where: {
+                $0.id != firstCard.id &&
+                $0.id != secondCard.id &&
+                $0.content != firstCard.content &&
+                $0.content != secondCard.content
+            }
         ) else {
             throw Failures.indexNotFound(
                 description: "Couldn't find a third different card."

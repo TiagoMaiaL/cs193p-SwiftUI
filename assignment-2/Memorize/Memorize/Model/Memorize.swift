@@ -40,9 +40,9 @@ extension Memorize {
     }
     
     mutating func chooseCard(atIndex index: Int) {
-        var card = cards[index]
+        let card = cards[index]
         
-        guard !card.isMatched else {
+        guard !card.isMatched, !card.isFaceUp else {
             return
         }
         
@@ -54,12 +54,7 @@ extension Memorize {
             match(pair)
         }
         
-        if card.isFaceUp {
-            penalizeUserForFlipping(card)
-        }
-        
-        card.isFaceUp.toggle()
-        cards[index] = card
+        cards[index].isFaceUp = true
         
         if let pair = faceUpPair, isLastPairBeingMatched {
             match(pair)
@@ -100,14 +95,8 @@ private extension Memorize {
             if viewedCards.contains(card) {
                 score -= 1
             }
-            
             viewedCards.insert(card)
         }
-    }
-    
-    mutating func penalizeUserForFlipping(_ card: Card) {
-        score -= 1
-        viewedCards.insert(card)
     }
 }
 

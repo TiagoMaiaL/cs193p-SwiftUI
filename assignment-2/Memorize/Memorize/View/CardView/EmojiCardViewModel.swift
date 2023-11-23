@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmojiCardViewModel {
+struct EmojiCardViewModel: Identifiable {
     
     // MARK: Properties
     
@@ -22,20 +22,5 @@ struct EmojiCardViewModel {
     
     init(card: Memorize<Emoji>.Card) {
         self.card = card
-    }
-}
-
-// MARK: - Identifiable
-
-extension EmojiCardViewModel: Identifiable {}
-
-// MARK: - Equatable
-
-extension EmojiCardViewModel: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id &&
-        lhs.content == rhs.content &&
-        lhs.isFaceUp == rhs.isFaceUp &&
-        lhs.isMatched == rhs.isMatched
     }
 }

@@ -80,13 +80,6 @@ class EmojiMemorizeViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.cards[0].isFaceUp)
     }
     
-    func testThatChoosingACardMakesItFacedDown() {
-        viewModel.choose(viewModel.cards[0])
-        viewModel.choose(viewModel.cards[0])
-        
-        XCTAssertFalse(viewModel.cards[0].isFaceUp)
-    }
-    
     func testThatStartingANewGameStartsABrandNewGame() {
         let oldThemeName = viewModel.themeName
         

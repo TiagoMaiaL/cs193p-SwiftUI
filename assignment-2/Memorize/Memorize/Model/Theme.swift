@@ -21,7 +21,6 @@ struct Theme<Content> where Content: Equatable {
     
     // MARK: Initializer
     
-    // TODO: Refactor these two initializers.
     init(name: String, pairsCount: Int? = nil, options: [Content], color: Color) {
         assert(options.count >= 2, "The number of options should be greater than 1.")
         
@@ -38,10 +37,9 @@ struct Theme<Content> where Content: Equatable {
         self.color = color
     }
     
-    // TODO: Revisit the `maxRandomPairs` requirement.
     init(name: String, options: [Content], color: Color, maxRandomPairs: Int) {
         assert(maxRandomPairs <= options.count, "maxRandomPairs should be smaller or equals to the number of options.")
-        assert(options.count >= 2, "The number of options should be greater than 1.")
+        assert(maxRandomPairs >= 2, "The minimum allowed number of pairs is 2.")
         
         // Extra-credit 2
         let maxPairs = min(options.count, maxRandomPairs)
