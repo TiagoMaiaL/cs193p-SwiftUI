@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 import Combine
 
 final class EmojiMemorizeViewModel: ObservableObject {
@@ -19,7 +18,7 @@ final class EmojiMemorizeViewModel: ObservableObject {
     private var game: Memorize<Emoji>
     
     var themeName: String { theme.name }
-    var themeColor: Color { theme.color.userInterfaceColor }
+    var themeColor: Theme<Emoji>.Color { theme.color }
     var cards: [EmojiCardViewModel] {
         game.cards.map(EmojiCardViewModel.init)
     }

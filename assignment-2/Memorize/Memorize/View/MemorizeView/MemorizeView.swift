@@ -16,6 +16,10 @@ struct MemorizeView: View {
     @ObservedObject
     var viewModel = EmojiMemorizeViewModel()
     
+    private var themeColor: Color {
+        viewModel.themeColor.userInterfaceColor
+    }
+    
     // MARK: Body
     
     var body: some View {
@@ -24,7 +28,7 @@ struct MemorizeView: View {
             
             CardsGridView(
                 cards: viewModel.cards,
-                cardsColor: viewModel.themeColor,
+                cardsColor: themeColor,
                 cardTapHandler: { card in
                     viewModel.choose(card)
                 }
@@ -43,7 +47,7 @@ struct MemorizeView: View {
             
             Text(viewModel.themeName)
                 .font(.headline)
-                .foregroundColor(viewModel.themeColor)
+                .foregroundColor(themeColor)
         }.padding(Constants.headerPaddingInsets)
     }
     
