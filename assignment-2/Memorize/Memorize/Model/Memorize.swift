@@ -137,3 +137,19 @@ private extension Memorize {
         return index != pairIndexes.first && index != pairIndexes.second
     }
 }
+
+// MARK: Debug Description
+
+extension Memorize: CustomDebugStringConvertible {
+    var debugDescription: String {
+        var description = "🃏 Memorize("
+        
+        description += "\n  cards: ["
+        description += "\n    \(cards.map(\.debugDescription).joined(separator: ",\n    "))"
+        description += "\n  ]"
+        
+        description += "\n)"
+        
+        return description
+    }
+}

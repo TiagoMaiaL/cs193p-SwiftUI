@@ -31,6 +31,9 @@ final class EmojiMemorizeViewModel: ObservableObject {
     init() {
         theme = EmojiThemes.random
         game = Memorize(theme: theme)
+        
+        debugPrint("Memorize game started:")
+        debugPrint(game)
     }
     
     // MARK: Imperatives
@@ -47,5 +50,8 @@ final class EmojiMemorizeViewModel: ObservableObject {
         let oldTheme = theme
         theme = EmojiThemes.random(excluding: oldTheme)
         game = Memorize(theme: theme)
+        
+        debugPrint("New Memorize game started:")
+        debugPrint(game)
     }
 }

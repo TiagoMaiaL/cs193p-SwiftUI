@@ -17,3 +17,11 @@ extension Memorize {
         var isMatched = false
     }
 }
+
+// MARK: - Debug Description
+
+extension Memorize.Card: CustomDebugStringConvertible {
+    var debugDescription: String {
+        "Card(id: \(id), isFaceUp: \(isFaceUp), isMatched: \(isMatched))"
+    }
+}
