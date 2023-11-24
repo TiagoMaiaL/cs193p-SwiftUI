@@ -13,9 +13,7 @@ class CardTests: XCTestCase {
     // MARK: Tests
 
     func testInitialization() {
-        let card = Memorize<String>.Card(
-            content: "test"
-        )
+        let card = Memorize<String>.Card(id: "initialization-test", content: "test")
         XCTAssertFalse(card.id.isEmpty)
         XCTAssertEqual(card.content, "test")
         XCTAssertFalse(card.isFaceUp)

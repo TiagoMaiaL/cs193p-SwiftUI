@@ -11,7 +11,7 @@ import Foundation
 
 extension Memorize {
     struct Card: Identifiable {
-        let id: String = UUID().uuidString
+        let id: String
         let content: Content
         var isFaceUp = false
         var isMatched = false

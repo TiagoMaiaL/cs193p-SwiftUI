@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Memorize<Content> where Content: Hashable {
+struct Memorize<Content> where Content: Equatable {
     
     // MARK: Properties
     
@@ -21,9 +21,10 @@ struct Memorize<Content> where Content: Hashable {
         var cards = [Card]()
         
         for index in 0 ..< pairsCount {
+            let content = contentProvider(index)
             let pair = [
-                Card(content: contentProvider(index)),
-                Card(content: contentProvider(index))
+                Card(id: "pair \(index), \(content) a", content: content),
+                Card(id: "pair \(index), \(content) b", content: content)
             ]
             cards.append(contentsOf: pair)
         }

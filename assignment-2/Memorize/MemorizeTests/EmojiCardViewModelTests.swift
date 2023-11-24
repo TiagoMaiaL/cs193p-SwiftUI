@@ -13,21 +13,21 @@ class EmojiCardViewModelTests: XCTestCase {
     // MARK: Tests
     
     func testThatTheViewModelInformsTheCardEmoji() {
-        let card = Memorize<Emoji>.Card(content: "🧐")
+        let card = Memorize<Emoji>.Card(id: "someId", content: "🧐")
         let viewModel = EmojiCardViewModel(card: card)
         
         XCTAssertEqual(card.content, viewModel.content)
     }
     
     func testThatTheViewModelInformsIfTheCardIsFacedUp() {
-        let card = Memorize<Emoji>.Card(content: "🧐", isFaceUp: true)
+        let card = Memorize<Emoji>.Card(id: "someId", content: "🧐", isFaceUp: true)
         let viewModel = EmojiCardViewModel(card: card)
         
         XCTAssertEqual(card.isFaceUp, viewModel.isFaceUp)
     }
     
     func testThatTheViewModelInformsIfTheCardIsMatched() {
-        let card = Memorize<Emoji>.Card(content: "🧐", isMatched: true)
+        let card = Memorize<Emoji>.Card(id: "someId", content: "🧐", isMatched: true)
         let viewModel = EmojiCardViewModel(card: card)
         
         XCTAssertEqual(card.isMatched, viewModel.isMatched)
