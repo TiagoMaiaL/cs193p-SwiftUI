@@ -13,7 +13,7 @@ struct Memorize<Content> where Content: Hashable {
     
     private(set) var cards: [Card]
     private(set) var score = 0
-    private var viewedCards = Set<Card>()
+    private var viewedCards = [Card]()
     
     // MARK: Initializer
     
@@ -92,10 +92,11 @@ private extension Memorize {
     
     mutating func scoreMismatch(for cards: Card...) {
         for card in cards {
-            if viewedCards.contains(card) {
+            if viewedCards.contains(where: { $0.id == card.id }) {
                 score -= 1
+            } else {
+                viewedCards.append(card)
             }
-            viewedCards.insert(card)
         }
     }
 }
@@ -122,8 +123,8 @@ private extension Memorize {
     }
     
     private func indexes(from pair: Pair) -> PairIndexes {
-        guard let firstIndex = cards.firstIndex(of: pair.first),
-              let secondIndex = cards.firstIndex(of: pair.second) else {
+        guard let firstIndex = cards.firstIndex(where: { $0.id == pair.first.id }),
+              let secondIndex = cards.firstIndex(where: { $0.id == pair.second.id }) else {
                   preconditionFailure("The provided pair should have valid indexes in its cards.")
               }
         
