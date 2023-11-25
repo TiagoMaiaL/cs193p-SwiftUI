@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Card
 
 extension Memorize {
-    struct Card: Identifiable {
+    struct Card: Identifiable, Equatable {
         let id: String
         let content: Content
         var isFaceUp = false

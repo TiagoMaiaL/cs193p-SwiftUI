@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmojiCardViewModel: Identifiable {
+struct EmojiCardViewModel: Identifiable, Equatable {
     
     // MARK: Properties
     

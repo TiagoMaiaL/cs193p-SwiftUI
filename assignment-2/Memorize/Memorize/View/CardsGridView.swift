@@ -41,9 +41,11 @@ struct CardsGridView: View {
                         tapHandler: cardTapHandler
                     )
                     .aspectRatio(Constants.cardAspectRatio, contentMode: .fit)
+                    .animation(.easeInOut, value: cardViewModel)
                 }
             }
             .padding()
+            .animation(.easeInOut, value: [cardsViewModels])
         }
     }
 }
