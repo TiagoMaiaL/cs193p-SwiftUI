@@ -79,8 +79,9 @@ private extension Memorize {
         
         [pairIndexes.first, pairIndexes.second].forEach {
             cards[$0].isMatched = isAMatch
-            cards[$0].isFaceUp = isAMatch
         }
+        
+        faceUpPair = nil
     }
 }
 
@@ -114,13 +115,18 @@ private extension Memorize {
     }
     
     private var faceUpPair: Pair? {
-        let faceUpCards = unmatchedCards.filter { $0.isFaceUp }
-        
-        guard faceUpCards.count == 2 else {
-            return nil
+        get {
+            let faceUpCards = unmatchedCards.filter { $0.isFaceUp }
+            
+            guard faceUpCards.count == 2 else {
+                return nil
+            }
+            
+            return (first: faceUpCards[0], second: faceUpCards[1])
         }
-        
-        return (first: faceUpCards[0], second: faceUpCards[1])
+        set {
+            cards.indices.forEach { cards[$0].isFaceUp = false }
+        }
     }
     
     private func indexes(from pair: Pair) -> PairIndexes {

@@ -73,7 +73,7 @@ private extension CardView {
     enum Constants {
         static let rectangleRadius = 10.0
         static let borderWidth = 2.0
-        static let matchedOpacity = 0.2
+        static let matchedOpacity = 0.0
         static let unmatchedOpacity = 1.0
         static let endGradientOpacity = 0.7
     }
