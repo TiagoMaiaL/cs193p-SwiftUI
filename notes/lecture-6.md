@@ -96,4 +96,91 @@
 
  ## Layout demo (size cards to fit offered space)
 
- 
+ - Make the cards grid fit into the screen, without the need for a scroll view
+ - We begin by adding a geometry reader, so that we can get information about the available space:
+ ```swift
+ GeometryReader { geometry in
+     LazyVGrid(columns: ...) { ... }
+ }
+ ```
+ - From the informed space (`GeometryProxy`), we can compute the proper width of a card:
+ ```swift
+ let gridItemSize = gridItemWidthThatFits(
+     count: viewModel.cards.count, 
+     size: geometry.size, 
+     aspectRation: 2/3
+ )
+ LazyVGrid(columns: [GridItem(.adaptive(minimum: gridItemSize), spacing: 0)], spacing: 0) { ... }
+ ```
+ - How to calculate an item width that fits (implementation):
+ ```swift
+ func gridItemWidthThatFits(
+     count: Int,
+     size: CGSize,
+     atAspectRatio aspectRatio: CGFloat
+ ) -> CGFloat {
+     let count = CGFloat(count)
+     var columnCount = 1.0
+     repeat {
+         let width = size.width / columnCount
+         let height = width / aspectRatio
+         let rowCount = (count / columnCount).rounded(.up)
+         
+         if rowCount * height < size.height {
+             return (size.width / columnCount).rounded(.down)
+         }
+
+         columnCount += 1
+     } while columnCount < count
+
+     return min(size.width / count, size.height * aspectRatio).rounded(.down)
+                                    // Why does size.height * aspectRatio work in this case?
+ }
+ ```
+
+ - `ViewBuilders`
+   - Allows us to declare a view using constructs that wouldn't be allowed in normal swift code (due to invalid syntax)
+     - We can declare lists of views that get glued by the ViewBuilder:
+       - It might be a TupleView (for two or more views, this is usually more used in the implementation side of SwiftUI)
+       - It can be a _ConditionalContent (private SwiftUI view for views that should be present for a specific condition)
+   - To allow View declaration inside a var or func code, we annotate it with `@ViewBuilder`:
+   ```swift
+   @ViewBuilder
+   var cards: some View {
+       // Once we declare our views here, @ViewBuilder builds an underlying View that's provided to SwiftUI
+   }
+   ```
+   - `body` is an implicit `@ViewBuilder`, as it's declared in the protocol
+
+ - Let's create a grid (a generic view) that makes its items fit within its available space
+ ```swift
+ struct AspectVGrid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
+     var items: [Item]
+     var aspectRatio: CGFloat = 1
+     @ViewBuilder var content: (Item) -> ItemView
+
+     init(_ items: [Item], aspectRatio: CGFloat, @ViewBuilder content: @escaping (Item) -> ItemView) {
+         self.items = items
+         self.aspectRatio = aspectRatio
+         self.content = content
+     }
+
+     var body: some View {
+         GeometryReader { geometry in
+             let gridItemSize = gridItemWidthThatFits(
+                 count: items.count,
+                 size: geometry.size,
+                 atAspectRatio: aspectRatio
+             )
+             LazyVGrid(columns: [GridItem(.adaptive(minimum: gridItemSize), spacing: 0)], spacing: 0) {
+                 ForEach(items) { item in
+                     content(item)
+                         .aspectRatio(aspectRatio, contentMode: .fit)
+                 }
+             }
+         }
+     }
+
+     // ... gridItemWidthThatFits implementation, the same as above
+ }
+ ```
