@@ -13,8 +13,8 @@ struct SetGameView: View {
     
     // MARK: Properties
     
-    @StateObject
-    var viewModel = SetGameViewModel()
+    @ObservedObject
+    var viewModel: SetGameViewModel
     
     @State
     var tabHeight: Double?
@@ -73,6 +73,6 @@ fileprivate enum Constants {
 
 struct SetGameView_Previews: PreviewProvider {
     static var previews: some View {
-        SetGameView()
+        SetGameView(viewModel: SetGameViewModel())
     }
 }
