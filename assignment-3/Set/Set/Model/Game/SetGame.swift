@@ -37,6 +37,10 @@ extension SetGame {
     }
     
     mutating func deal(at vacantSpaces: VacantSpaceIndices? = nil) {
+        guard canDeal else {
+            return
+        }
+        
         var vacantSpaces = vacantSpaces
         
         if let trio = selectedTrio, trio.isSet {
@@ -75,8 +79,8 @@ extension SetGame {
         }
         set {
             tableCards
-                .filter(\.isSelected)
-                .compactMap(tableCards.firstIndex(of:))
+                .indices
+                .filter { tableCards[$0].isSelected }
                 .forEach {
                     tableCards[$0].isSelected = false
                     tableCards[$0].isUnmatched = false
@@ -132,8 +136,8 @@ private extension SetGame {
             .forEach { matchedCards.insert($0) }
         
         let emptySpaceIndices = tableCards
-            .filter { $0.isMatched }
-            .compactMap { tableCards.firstIndex(of: $0) }
+            .indices
+            .filter { tableCards[$0].isMatched }
         
         tableCards.removeAll(where: { $0.isMatched })
         

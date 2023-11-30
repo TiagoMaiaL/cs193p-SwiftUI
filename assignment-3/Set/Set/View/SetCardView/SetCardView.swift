@@ -175,12 +175,12 @@ fileprivate enum Constants {
 
 struct SetCardView_Previews: PreviewProvider {
     static var previews: some View {
-        blueOvalsThreeSolidCard
+        purpleOvalsThreeSolidCard
         redSquigglesThreeStriped
         greenDiamondsThreeStrided
     }
     
-    static var blueOvalsThreeSolidCard: some View {
+    static var purpleOvalsThreeSolidCard: some View {
         var card = Card(
             color: .first,
             shape: .first,
