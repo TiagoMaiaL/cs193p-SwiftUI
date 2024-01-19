@@ -26,7 +26,6 @@ struct SetGame<Deck: SetDeck> {
         let initialCards = self.deck.deal(amount: Constants.initialCardsAmount)
         tableCards.append(contentsOf: initialCards)
     }
-    // TODO: Add a property to check if the game is finished.
 }
 
 // MARK: - Dealing

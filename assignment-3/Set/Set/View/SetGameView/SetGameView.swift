@@ -24,8 +24,6 @@ struct SetGameView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                // TODO: Measure the application performance.
-                // TODO: Test this app on a real device.
                 ScrollableAspectVGrid(
                     items: viewModel.cards,
                     aspectRatio: Constants.cardsApectRatio,
