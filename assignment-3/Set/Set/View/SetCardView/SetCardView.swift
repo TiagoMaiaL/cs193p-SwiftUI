@@ -34,7 +34,7 @@ private extension SetCardView {
     private func background(with size: CGSize) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
-                .foregroundStyle(backgroundStyle)
+                .foregroundStyle(foregroundStyle)
             
             RoundedRectangle(cornerRadius: Constants.Background.cornerRadius)
                 .stroke(lineWidth: size.width * Constants.Background.borderLengthFactor)
@@ -42,7 +42,7 @@ private extension SetCardView {
         }
     }
     
-    private var backgroundStyle: LinearGradient {
+    private var foregroundStyle: LinearGradient {
         var startColor = Colors.cardBackground
         var endColor = startColor
         
@@ -88,11 +88,11 @@ fileprivate struct Shapes: View {
             height: size.height * Constants.DrawingFactors.height
         )
     }
-    private var verticalSpacing: Double {
+    private var verticalShapeSpacing: Double {
         availableDrawingSize.height * Constants.DrawingFactors.verticalShapesSpacing
     }
     private var itemHeight: Double {
-        (availableDrawingSize.height / 3) - (2 * verticalSpacing)
+        (availableDrawingSize.height / 3) - (2 * verticalShapeSpacing)
     }
     
     // MARK: Initializer
@@ -105,10 +105,9 @@ fileprivate struct Shapes: View {
     // MARK: Body
     
     var body: some View {
-        VStack(spacing: verticalSpacing) {
+        VStack(spacing: verticalShapeSpacing) {
             ForEach(0 ..< viewModel.count, id: \.self) { _ in
                 cardShape
-                // TODO: Remove this from here and pass it to the shape.
                     .foregroundColor(viewModel.color)
                     .frame(
                         width: availableDrawingSize.width,

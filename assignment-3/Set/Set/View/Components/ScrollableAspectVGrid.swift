@@ -58,7 +58,8 @@ struct ScrollableAspectVGrid<Item, ItemView>: View where ItemView: View, Item: I
                 ScrollView {
                     LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: interitemSpacing) {
                         ForEach(items) { item in
-                            content(item).aspectRatio(aspectRatio, contentMode: .fit)
+                            content(item)
+                                .aspectRatio(aspectRatio, contentMode: .fit)
                         }
                     }
                     .padding(.horizontal, horizontalPadding ?? interitemSpacing)
