@@ -7,7 +7,8 @@
    2. Container views offer some or all available space to its subviews
    3. Views then decide what size (from the offered space) they want to take (**views choose their own size**)
    4. Container views position its subviews (**positioning is done by containers**)
-     4.1 There's a protocol that can be implemented to customize layout
+   
+   - Note: there's a protocol that can be implemented to customize layout
 
  - `HStack` and `VStack` (the most basic kinds of layouts):
    - Stacks divide their offered space and then offer them to its subviews
@@ -37,7 +38,7 @@
      - Use these with `ScrollView`
 
  - `LazyHGrid` and `LazyVGrid`:
-   - Only takes as much space as needed
+   - Only take as much space as needed
    - Get information on how to size its subviews using their `columns` `init` parameter
    - The other direction shrinks or expands based on how many views there are
 
@@ -71,7 +72,7 @@
    ```swift
    Circle().overlay(Text("Hello"), alignment: .center)
    ```
-   - Will be size to the circle shape (fully flexible)
+   - Will be sized to the circle shape (fully flexible)
 
  - Modifiers
    - Some modifiers are involved in the layout process. Examples:
