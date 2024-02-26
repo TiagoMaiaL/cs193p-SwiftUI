@@ -88,4 +88,15 @@
    AnyTransition.offset
    AnyTransition.modifier(active:identity:)
    ```
- 
+ - Use `.transition` to specify specific types of transition for a view:
+ ```swift
+ Text("...").transition(AnyTransition.scale)
+ ```
+ - `.transition` does not redistribute it to a container's child views, only if you apply it to `ForEach` or `Group`
+ - **`.transition` only specifies what transition to use, it's not an action**
+ - It's possible to change the transition animation properties using `transition.animation(...)`
+
+ ### Matched Geometry Effect
+
+ - 
+
