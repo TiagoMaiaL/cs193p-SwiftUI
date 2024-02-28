@@ -98,5 +98,37 @@
 
  ### Matched Geometry Effect
 
- - 
+ - It solves the problem of animating a view to move into another container
+ - We need two views in different containers
+ - **We remove the first view, while at the same time we add the second one (each with its own different container view)**
+ - We then match the geometry of these views (example: dealing cards out)
+ ```swift
+ .matchedGeometryEffect(id: ID, in: Namespace) // ID is Hashable
+ ```
+ - Declare the namespace:
+ ```swift
+ @Namespace private var myNamespace
+ ```
+ - **Make sure only one view is present at the same time to make this effect work**
+ - It's possible to match geometries when both Views are on screen (this will be used for assignment 4)
+
+ ### Kicking off animations
+ 
+ - `.onAppear { }`
+ - It's called when the view is on screen
+
+ ### How animatinos work
+
+ - Animated shapes and view modifiers
+ - The animations is divided based on the duration and curve
+ - The view modifier makes sure to draw the view according to the current animation state
+ - To make our Views and modifiers work with the animation systems, we need to implement the `Animatable` protocol
+
+ ### `Animatable` protocol
+
+ - Has only one requirement: `var animatableData: Type`
+ - Type is generic, and must implement `VectorArithmetic`
+ - Usually we'll deal with `Floats`, `Doubles`, `CGFloats`
+ - We might also deal with `AnimatablePair`:
+   - It combines two `VectorArithmetic`s into one // TODO: Review this later on by playing around with the example app
 
