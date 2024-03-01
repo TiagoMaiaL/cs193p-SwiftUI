@@ -131,4 +131,89 @@
  - Usually we'll deal with `Floats`, `Doubles`, `CGFloats`
  - We might also deal with `AnimatablePair`:
    - It combines two `VectorArithmetic`s into one // TODO: Review this later on by playing around with the example app
+ - `animatableData` is a read/write property:
+   - When the animation system writes to it, it's telling your shape/property wrapper what portion of the animation to draw
+   - When the animation system gets its value, it's figuring out what's the start and end points of the animation
 
+ ## Demos
+
+ - Make shuffle animate explicitly:
+ ```swift
+ withAnimation { // We usually don't want custom curves, we want the default ones from the system
+     viewModel.shuffle() // We are changing the position of the cards, which changes the .position of the views. This change in animated.
+ }
+ 
+ // ...
+
+ withAnimation {
+     viewModel.choose(card)
+ }
+ ```
+ - Animate the card emoji to flip:
+ ```swift
+ Text(card.content)
+     ...
+     .rotationEffect(.degrees(card.isMatched ? 360 : 0))
+     .animation(.easeInOut(duration: 2), value: card.isMatched) // Here we do an implicit animation, it takes priority over the explicit one
+ ```
+ - We can add a custom animation and name it:
+ ```swift
+ extension Animation {
+     static func spin(duration: TimeInterval) -> Animation {
+         .linear(duration: 1).repeatForever(autoreverses: false)
+     }
+ }
+ ```
+ - Flipping the card:
+ ```swift
+ // Apply a view modifier for it, which happens to be Animatable (most of them are)
+ .rotation3DEffect(.degrees(isFaceUp ? 0 : 180), axis: (0, 1, 0)) // The axis represents the direction of the animation
+ ```
+ - Make the cardfy modifier properly show its faces in the appropriate moments:
+ ```swift
+ struct Cardify: ViewModifier, Animatable {
+     init(isFaceUp: Bool) {
+         rotation = isFaceUp ? 0 : 180
+     }
+
+     var isFaceUp: Bool {
+         rotation < 90
+     }
+
+     var animatableData: Double {
+         get { rotation }
+         set { rotation = newValue }
+     }
+
+     func body(content: Content) -> some View {
+         // ...
+         .rotation3DEffect(.degrees(rotation), axis: (0, 1, 0))
+     }
+ }
+ ```
+ - Implement scoring in the model for Memorize
+ - In the view:
+ ```swift
+ var score: Int { model.score }
+
+ var body: some View {
+     VStack {
+         cards
+             .foregroundColor(viewModel.color)
+         HStack {
+             Text("Score: \(viewModel.score)")
+             Spacer()
+             Button("Shuffle") {
+                 // ...
+             }
+         }
+     }
+ }
+ ```
+ - Create the flying number text:
+ ```swift
+     CardView(card)
+         .overlay(FlyingNumber(number: scoreChange(causedBy: card)))
+         ...
+ ```
+ - Start implementing `FlyingNumber`, more in the next lecture
