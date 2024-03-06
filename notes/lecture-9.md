@@ -56,6 +56,78 @@
    ```
    - `TimelineView` receives a view and tries to redraw it at the specified intervals
    - One can use `.animation`, which makes the received view animate
- - Matched card transitions
-   - Use it to make the views go alway with a different animation, the default one is `.animation(.opacity)`
+ - Dealing cards
+   - Use transitions to make the cards go alway with a different animation, the default one is `.animation(.opacity)`
+   - Whenever the cards grid appear, deal the cards
+   - The notion of dealing cards is part of the View, the model doesn't have any ideas on how to do that
+   ```swift
+   AspectVGrid(...) {
+       if isDealt(card) {
+           CardView(card)
+               ...
+               .transition(.offset(
+                   x: CGFloat.random(in: -1000...1000),
+                   y: CGFloat.random(in: -1000...1000)
+               ))
+       }
+       // ...
+   }
+   .onAppear {
+       withAnimation {
+           for card in viewModel.cards {
+               dealt.insert(card.id)
+           }
+       }
+   }
+
+   // ...
+
+   // Since dealing is part of the UI, we can keep this state in the view itself.
+   @State private var dealt = Set<Card.ID>()
+
+   private func isDealt(_ card: Card) -> Bool {
+       dealt.contains(card.id)
+   }
+
+   private var undealtCards: [Card] {
+       viewModel.cards.filter { !isDealt($0) }
+   }
+   ```
+   - These cards need to be dealt from a deck:
+   ```swift
+   ZStack {
+      ForEach(undealtCards) { card in
+         CardView(card) 
+      }
+      .frame(width: deckWidth, height: deckWidth / aspectRatio) // This view modifier allows us to choose the size of a view
+                                                                // Be careful to use this, as it can be abused, it's better to use
+                                                                // The size offered, or compute the view's size based on it
+      .onTapGesture {
+          // deal with animation
+      }
+   }
+   ```
+   - This is a good time to use `MatchedGeometryEffect`:
+   ```swift
+   @Namespace private var dealingNamespace
+
+   .matchedGeometryEffect(id: card.id, in: dealingNamespace) // We use different namespaces when the transtion might happen to multiple views
+   ```
+   - **The views will match the geometry effect, but the transitions will still be there**
+   - Workaround: use asymmetric .identity transtions to erase any kind of transitions while still applying matched geometry effect
+   ```swift
+   .transition(.asymmetric(insertion: .identity, removal: .identity)
+   ```
+   - Deal one card at a time:
+   ```swift
+   .onTapGesture {
+       var delay: TimeInterval = 1
+       for card in viewMidel.cards {
+           withAnimation(.easeInOut(duration: 1).delay(delay)) {
+               dealt.insert(card.id)
+           }
+       }
+       delay += 0.15
+   }
+   ```
 
