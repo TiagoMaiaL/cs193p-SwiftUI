@@ -41,3 +41,21 @@
        }
    }
    ```
+ - Coundown timer
+   - bonus computation is part of the model
+   - `Pie` now takes `card.bonusPercentRemaining`:
+   ```swift
+   Pie(endAngle: .degrees(card.bonusPercentRemaining * 360))
+   ```
+   - We can use a `TimelineView` to animate our `Pie`:
+   ```swift
+   TimelineView(.animation) { timeline in
+       Pie(endAngle: ...)
+          ...
+   }
+   ```
+   - `TimelineView` receives a view and tries to redraw it at the specified intervals
+   - One can use `.animation`, which makes the received view animate
+ - Matched card transitions
+   - Use it to make the views go alway with a different animation, the default one is `.animation(.opacity)`
+
