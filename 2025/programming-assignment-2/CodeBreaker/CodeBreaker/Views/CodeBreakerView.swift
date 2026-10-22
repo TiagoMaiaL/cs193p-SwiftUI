@@ -1,33 +1,31 @@
 import SwiftUI
-import Playgrounds
 
 struct CodeBreakerView: View {
-    //let game = CodeBreakerGame()
+    @State
+    var game: CodeBreakerGame<ColorPeg>
     
     var body: some View {
         VStack(spacing: 0) {
-            PegsView(colors: [.green, .red, .blue, .yellow])
+            PegsView(code: game.masterCode)
                 .padding(.vertical)
-            // TODO: Remove MatchMarkers from master code.
-            // TODO: Hide the master code.
             
-            PegsView(colors: [.clear, .clear, .clear, .clear])
-                .padding(.vertical)
-            // TODO: Replace match markers with a guess button
-            // TODO: Outline the pegs to be guessed
+            PegsView(
+                code: game.currentGuess,
+                isGuessEnabled: game.canGuess,
+                onPegTapped: { index in
+                    game.setPegAtIndex(index)
+                },
+                onGuessTapped: {
+                    game.guess()
+                }
+            )
+            .padding(.vertical)
             
             ScrollView {
                 VStack {
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
-                    PegsView(colors: [.red, .green, .blue, .yellow])
+                    ForEach(game.previousAttempts.indices, id: \.self) { codeIndex in
+                        PegsView(code: game.previousAttempts[codeIndex])
+                    }
                 }
             }
             
@@ -41,11 +39,9 @@ struct CodeBreakerView: View {
             .padding()
         }
         .padding()
-        // TODO: Define Model
-        // TODO: Define main views
     }
 }
 
 #Preview {
-    CodeBreakerView()
+    CodeBreakerView(game: CodeBreakerFactory.make())
 }

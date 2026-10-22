@@ -4,7 +4,7 @@ import SwiftUI
 struct CodeBreakerApp: App {
     var body: some Scene {
         WindowGroup {
-            CodeBreakerView()
+            CodeBreakerView(game: CodeBreakerFactory.make())
         }
     }
 }
