@@ -4,18 +4,24 @@ import Observation
 @Observable
 final class CodeBreakerGame<CodeElement: GuessableElement> {
     private(set) var state: State
-    let masterCode: Code
-    let previousAttempts: [Code] = []
+    private(set) var masterCode: Code
+    private(set) var previousAttempts: [Code] = []
     private(set) var currentGuess: Code
     var canGuess: Bool {
-        !currentGuess.value.contains(where: { $0 == CodeElement.placeholder })
+        return !currentGuess.value.contains(where: { $0 == CodeElement.placeholder }) &&
+            !previousAttempts.map(\.value).contains(currentGuess.value)
+    }
+    private var emptyGuess: Code {
+        .guess(
+            value: Array(repeating: CodeElement.placeholder, count: masterCode.lenght)
+        )
     }
     
     init(codeElements: [CodeElement]) {
         state = .playing
-        masterCode = .master(value: codeElements)
+        masterCode = .master(value: codeElements, shouldReveal: false)
         currentGuess = Code.guess(
-            value: Array(repeating: CodeElement.placeholder, count: masterCode.lenght)
+            value: Array(repeating: CodeElement.placeholder, count: codeElements.count)
         )
     }
     
@@ -37,12 +43,14 @@ final class CodeBreakerGame<CodeElement: GuessableElement> {
             assertionFailure("Inconsistent code length: guess != masterCode")
         }
         guard canGuess else { return }
-        // TODO: Prevent already guessed values.
+        guard !previousAttempts.map(\.value).contains(currentGuess.value) else { return }
         
         switch state {
         case .playing:
             if currentGuess.value == masterCode.value {
                 state = .finished(userDidWin: true)
+                masterCode = .master(value: masterCode.value, shouldReveal: true)
+                currentGuess = emptyGuess
                 return
             }
             
@@ -57,6 +65,9 @@ final class CodeBreakerGame<CodeElement: GuessableElement> {
                     matches[i] = .nomatch
                 }
             }
+            
+            previousAttempts.append(.previousAttempt(value: currentGuess.value, matches: matches))
+            currentGuess = emptyGuess
             
         case .finished:
             break
@@ -75,13 +86,13 @@ extension CodeBreakerGame {
 
 extension CodeBreakerGame {
     enum Code: Equatable {
-        case master(value: [CodeElement])
+        case master(value: [CodeElement], shouldReveal: Bool)
         case guess(value: [CodeElement])
         case previousAttempt(value: [CodeElement], matches: [Match])
         
         var lenght: Int {
             switch self {
-            case .master(let value): return value.count
+            case .master(let value, _): return value.count
             case .guess(let value): return value.count
             case .previousAttempt(let value, _): return value.count
             }
@@ -89,7 +100,7 @@ extension CodeBreakerGame {
         
         var value: [CodeElement] {
             switch self {
-            case .master(let value): return value
+            case .master(let value, _): return value
             case .guess(let value): return value
             case .previousAttempt(let value, _): return value
             }

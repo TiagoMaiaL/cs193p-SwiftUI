@@ -46,6 +46,13 @@ struct PegsView: View {
         }
     }
     
+    private var shouldRevealMasterCode: Bool {
+        switch code {
+        case .master(_, let shouldReveal): return shouldReveal
+        default: return false
+        }
+    }
+    
     var body: some View {
         HStack {
             ForEach(code.value.indices, id: \.self) { index in
@@ -63,6 +70,7 @@ struct PegsView: View {
             }
             
             MatchMarkersView(matches: attemptMatches ?? [])
+                .padding()
                 .opacity(isPreviousAttemptCode ? 1 : 0)
                 .overlay {
                     if isGuessCode {
@@ -78,9 +86,10 @@ struct PegsView: View {
     }
     
     private func color(for peg: Int) -> Color {
-        guard !isMasterCode else {
+        if isMasterCode, !shouldRevealMasterCode {
             return .gray
         }
+        
         return code.value[peg].swiftUIColor
     }
 }
@@ -101,7 +110,14 @@ extension ColorPeg {
     VStack {
         PegsView(
             code: CodeBreakerGame<ColorPeg>.Code.master(
-                value: [.green, .blue, .blue, .yellow]
+                value: [.green, .blue, .blue, .yellow],
+                shouldReveal: false
+            )
+        )
+        PegsView(
+            code: CodeBreakerGame<ColorPeg>.Code.master(
+                value: [.green, .blue, .blue, .yellow],
+                shouldReveal: true
             )
         )
         

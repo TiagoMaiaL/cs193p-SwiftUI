@@ -5,9 +5,8 @@ struct CodeBreakerView: View {
     var game: CodeBreakerGame<ColorPeg>
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             PegsView(code: game.masterCode)
-                .padding(.vertical)
             
             PegsView(
                 code: game.currentGuess,
@@ -19,7 +18,9 @@ struct CodeBreakerView: View {
                     game.guess()
                 }
             )
-            .padding(.vertical)
+            .padding(.bottom)
+            
+            Divider()
             
             ScrollView {
                 VStack {
@@ -27,6 +28,7 @@ struct CodeBreakerView: View {
                         PegsView(code: game.previousAttempts[codeIndex])
                     }
                 }
+                .padding(.vertical)
             }
             
             Divider()

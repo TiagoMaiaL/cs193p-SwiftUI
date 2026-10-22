@@ -22,6 +22,9 @@ extension ColorPeg: GuessableElement {
 
 enum CodeBreakerFactory {
     static func make() -> CodeBreakerGame<ColorPeg> {
+        // TODO: Make game choose random amount of pegs
+        // TODO: Make game choose random peg options
+        // TODO: Make game choose between random types of pegs
         return CodeBreakerGame<ColorPeg>(codeElements: [.red, .green, .blue, .blue])
     }
 }
