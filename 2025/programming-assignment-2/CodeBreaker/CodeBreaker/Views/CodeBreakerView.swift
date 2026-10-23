@@ -1,8 +1,19 @@
 import SwiftUI
 
-struct CodeBreakerView: View {
-    @State
-    var game: CodeBreakerGame<ColorPeg>
+protocol PegDisplayable: GuessableElement {
+    associatedtype PegView: View
+    func viewForPeg(containedIn code: CodeBreakerGame<Self>.Code) -> PegView
+}
+
+struct CodeBreakerView<Peg: PegDisplayable>: View {
+    var game: CodeBreakerGame<Peg>
+    
+    let onRestartTapped: (() -> Void)?
+    
+    init(game: CodeBreakerGame<Peg>, onRestartTapped: (() -> Void)? = nil) {
+        self.game = game
+        self.onRestartTapped = onRestartTapped
+    }
     
     var body: some View {
         VStack {
@@ -34,7 +45,7 @@ struct CodeBreakerView: View {
             Divider()
             
             Button {
-                // TODO: Restart game.
+                onRestartTapped?()
             } label: {
                 Text("Restart")
             }
@@ -45,5 +56,5 @@ struct CodeBreakerView: View {
 }
 
 #Preview {
-    CodeBreakerView(game: CodeBreakerFactory.make())
+    //CodeBreakerView(game: CodeBreakerFactory.make())
 }

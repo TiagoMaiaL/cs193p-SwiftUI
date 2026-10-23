@@ -1,4 +1,3 @@
-import Foundation
 import Observation
 
 @Observable
@@ -103,6 +102,41 @@ extension CodeBreakerGame {
             case .master(let value, _): return value
             case .guess(let value): return value
             case .previousAttempt(let value, _): return value
+            }
+        }
+        
+        var attemptMatches: [Match]? {
+            switch self {
+            case .previousAttempt(_, let matches): return matches
+            default: return nil
+            }
+        }
+        
+        var isPreviousAttemptCode: Bool {
+            switch self {
+            case .previousAttempt: return true
+            default: return false
+            }
+        }
+        
+        var isGuessCode: Bool {
+            switch self {
+            case .guess: return true
+            default: return false
+            }
+        }
+        
+        var isMasterCode: Bool {
+            switch self {
+            case .master: return true
+            default: return false
+            }
+        }
+        
+        var shouldRevealMasterCode: Bool {
+            switch self {
+            case .master(_, let shouldReveal): return shouldReveal
+            default: return false
             }
         }
     }
